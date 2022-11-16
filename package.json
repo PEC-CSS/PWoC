@@ -13,14 +13,18 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.14",
     "@mui/types": "^7.2.1",
+    "@octokit/rest": "^19.0.5",
+    "@octokit/types": "^8.0.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
     "next": "13.0.3",
+    "octokit": "^2.0.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-lottie-player": "^1.5.0",
     "typescript": "4.9.3"
   },
   "devDependencies": {
