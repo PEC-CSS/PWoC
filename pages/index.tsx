@@ -1,10 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import {NextPage} from "next";
 
-export default function Home() {
+const Home: NextPage = ()=> {
     return (
-        <div className="font-bold">
+        <div>
             Hello
         </div>
     )
 }
+
+export default Home;
