@@ -28,6 +28,7 @@ export type PullRequest = {
 export type Item = {
     user: {
         username: string,
+        name: string,
         avatar_url: string,
         html_url: string
     },

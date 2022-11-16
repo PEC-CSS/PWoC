@@ -1,10 +1,28 @@
 export let contributors = [
-    "ken1000minus7",
-    "harshjohar",
-    "ishwarendra",
-    "Rahul5430",
-    "yellowHatpro",
-    "ultimatecoder2"
+    {
+        name: "Manjot Singh Oberoi",
+        username: "ken1000minus7"
+    },
+    {
+        name: "Harshpreet Singh Johar",
+        username: "harshjohar"
+    },
+    {
+        name: "Ishwarendra Jha",
+        username: "ishwarendra"
+    },
+    {
+        name: "Rahul Sharma",
+        username: "Rahul5430"
+    },
+    {
+        name: "Ashutosh Aswal",
+        username: "yellowHatpro"
+    },
+    {
+        name: "Deepanshu Jindal",
+        username: "ultimatecoder2"
+    }
 ]
 
 export let repositories = [

@@ -14,8 +14,8 @@ const Leaderboard: NextPage = ()=> {
         let octokit = new Octokit({ auth: process.env.ACCESS_TOKEN})
         let repoRequests = repositories.map((repo: string)=> {
             let query = `type:pr+repo:${repo}`
-            contributors.forEach((username: string)=> {
-                query += `+author:${username}`
+            contributors.forEach((user)=> {
+                query += `+author:${user.username}`
             })
             return octokit.rest.search.issuesAndPullRequests({
                 q: query,
@@ -24,8 +24,10 @@ const Leaderboard: NextPage = ()=> {
         })
         let repoResponses = await Promise.all(repoRequests) as PullRequest[][]
         let pullRequestMap = new Map<string,PullRequest[]>()
-        contributors.forEach((username: string)=> {
-            pullRequestMap.set(username, [])
+        let nameMap = new Map<string,string>()
+        contributors.forEach((user)=> {
+            pullRequestMap.set(user.username, [])
+            nameMap.set(user.username,user.name)
         })
         repoResponses.forEach((pullRequests: PullRequest[])=> {
             pullRequests.forEach((pullRequest: PullRequest)=> {
@@ -39,6 +41,7 @@ const Leaderboard: NextPage = ()=> {
             leaderboard.push({
                 user: {
                     username: username,
+                    name: nameMap.get(username) || username,
                     avatar_url: pullRequests[0].user.avatar_url,
                     html_url: pullRequests[0].user.html_url
                 },

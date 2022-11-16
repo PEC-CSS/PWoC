@@ -5,7 +5,7 @@ import Image from "next/image";
 export const LeaderboardTable = ({leaderboard}: {leaderboard: Item[]}) => {
     return (
         <TableContainer>
-            <Table>
+            <Table className="m-[20px]">
                 <TableHead>
                     <TableRow>
                         <TableCell component="th">Rank</TableCell>
@@ -18,13 +18,21 @@ export const LeaderboardTable = ({leaderboard}: {leaderboard: Item[]}) => {
                         leaderboard.map((item: Item,i: number)=> {
                             return (
                                 <TableRow key={i}>
-                                    <TableCell>{i + 1}</TableCell>
+                                    <TableCell align="left">{i + 1}</TableCell>
                                     <TableCell>
-                                        {/*<Image src={item.user.avatar_url} alt="" height="50px" width="50px"/>*/}
-                                        {/*<div>*/}
-                                        {/*    <div>{item.user}</div>*/}
-                                        {/*</div>*/}
+                                        <div className="flex flex-row items-center">
+                                            <Image
+                                                src={item.user.avatar_url}
+                                                alt=""
+                                                height="60"
+                                                width="60"
+                                                className="rounded-[50%]"/>
+                                            <div>
+                                                <div>{item.user.name}</div>
+                                            </div>
+                                        </div>
                                     </TableCell>
+                                    <TableCell align="right">{item.points}</TableCell>
                                 </TableRow>
                             )
                         })
