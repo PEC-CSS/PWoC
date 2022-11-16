@@ -4,6 +4,9 @@ const nextConfig = {
   swcMinify: true,
   env: {
     ACCESS_TOKEN: process.env.ACCESS_TOKEN
+  },
+  images: {
+    domains: ['avatars.githubusercontent.com']
   }
 }
 
