@@ -3,8 +3,8 @@ import {Octokit} from "@octokit/rest";
 import {contributors, repositories} from "../public/data";
 import {useEffect, useState} from "react";
 import {Item, PullRequest} from "../public/types";
-import {Table, TableContainer, TableHead} from "@mui/material";
 import {LeaderboardTable} from "../components/leaderboard/LeaderboardTable";
+import Head from "next/head";
 
 const Leaderboard: NextPage = ()=> {
 
@@ -62,6 +62,10 @@ const Leaderboard: NextPage = ()=> {
     }, [])
     return (
         <div className="flex items-center flex-col">
+            <Head>
+                <title>Leaderboard</title>
+                <meta name="description" content="Leaderboard for winter of code" />
+            </Head>
             <div className="font-bold text-2xl">Leaderboard</div>
             <LeaderboardTable leaderboard={leaderboard} />
         </div>
