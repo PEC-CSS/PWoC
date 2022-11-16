@@ -6,7 +6,7 @@ const nextConfig = {
     ACCESS_TOKEN: process.env.ACCESS_TOKEN
   },
   images: {
-    domains: ['avatars.githubusercontent.com']
+    domains: ['avatars.githubusercontent.com', 's3-us-west-2.amazonaws.com']
   }
 }
 
