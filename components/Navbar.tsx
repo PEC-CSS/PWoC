@@ -30,11 +30,11 @@ export const Navbar = () => {
                                         alt="PWoC"
                                         height={100}
                                         width={100}
-                                        className="w-8 h-8 -mt-1 inline mx-auto"
+                                        className="w-12 h-12 -mt-1 inline mx-auto"
                                     />
                                 </span>
                             </div>
-                            <div className="px-2 md:flex gap-x-5 items-center flex-1 text-gray-900 bg-white font-medium capitalize hidden">
+                            <div className="px-2 md:flex gap-x-5 items-center flex-1 text-gray-900 bg-white font-medium capitalize hidden justify-end">
                                 {/* Links */}
                                 {navLinks?.map(({ title, link, icon }, id) => (
                                     <Link key={id} href={link}>
@@ -87,7 +87,7 @@ export const Navbar = () => {
                                 <Image
                                     src="https://avatars.githubusercontent.com/u/54832562?s=200&v=4"
                                     alt="PWoC"
-                                    className="w-8 h-8 mx-auto mb-5 "
+                                    className="w-12 h-12 mx-auto mb-5 "
                                     height={50}
                                     width={50}
                                 />
