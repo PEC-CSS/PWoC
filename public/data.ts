@@ -33,5 +33,6 @@ export let repositories = [
     "PEC-CSS/MovieDroid",
     "PEC-CSS/ACM-PEC-Website",
     "PEC-CSS/Stock-Watchlist",
-    "PEC-CSS/Open-Source"
+    "PEC-CSS/Open-Source",
+    "PEC-CSS/TBD"
 ]
