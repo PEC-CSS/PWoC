@@ -35,3 +35,12 @@ export type Item = {
     pullRequests: PullRequest[],
     points: number
 }
+
+export type ProjectResult = {
+    title: string,
+    techStack: string[],
+    description: string,
+    githubLink: string,
+    deploymentLink: string,
+    mentors:  string
+}
