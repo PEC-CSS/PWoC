@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export const Search = () => {
-	const [searchTerm, setSearchTerm] = useState('');
+interface searchProps {
+	onSearch: (e: React.FormEvent<HTMLFormElement>) => void,
+	searchTerm: string,
+	setSearchTerm: (searchTerm: string) => void,
+};
 
-	const onSearch = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		console.log(searchTerm);
-	};
-
+export const Search = ({onSearch, searchTerm, setSearchTerm} : searchProps) => {
 	return (
 		<div className='flex justify-center items-center'>
-			<div className='container mx-auto bg-indigo-500 rounded-lg p-14'>
+			<div className='container m-auto my-4 sm:m-8 bg-indigo-500 rounded-lg p-14'>
 				<form onSubmit={onSearch}>
 					<h1 className='text-center font-bold text-white text-4xl'>
 						Search a project name or tech stack
