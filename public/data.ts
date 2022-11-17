@@ -22,6 +22,10 @@ export let contributors = [
     {
         name: "Deepanshu Jindal",
         username: "ultimatecoder2"
+    },
+    {
+        name: "D Ajay Kumar",
+        username: "D-Ajay-Kumar"
     }
 ]
 

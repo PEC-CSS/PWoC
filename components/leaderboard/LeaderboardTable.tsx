@@ -1,44 +1,49 @@
 import {Item} from "../../public/types";
-import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
-import Image from "next/image";
+import {SxProps, Table, TableBody, TableCell, TableHead, TableRow, Theme} from "@mui/material";
+import {LeaderboardItem} from "./LeaderboardItem";
 
 export const LeaderboardTable = ({leaderboard}: {leaderboard: Item[]}) => {
+
+    let tableHeaderStyle: SxProps<Theme> = {
+        fontWeight: "bold",
+        fontSize: "25px",
+        color: "white",
+        backgroundColor: "black"
+    }
+
     return (
-        <TableContainer>
-            <Table className="m-[20px]">
-                <TableHead>
-                    <TableRow>
-                        <TableCell component="th">Rank</TableCell>
-                        <TableCell component="th">Contributor</TableCell>
-                        <TableCell component="th">Points</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {
-                        leaderboard.map((item: Item,i: number)=> {
-                            return (
-                                <TableRow key={i}>
-                                    <TableCell align="left">{i + 1}</TableCell>
-                                    <TableCell>
-                                        <div className="flex flex-row items-center">
-                                            <Image
-                                                src={item.user.avatar_url}
-                                                alt=""
-                                                height="60"
-                                                width="60"
-                                                className="rounded-[50%]"/>
-                                            <div>
-                                                <div>{item.user.name}</div>
-                                            </div>
-                                        </div>
-                                    </TableCell>
-                                    <TableCell align="right">{item.points}</TableCell>
-                                </TableRow>
-                            )
-                        })
-                    }
-                </TableBody>
-            </Table>
-        </TableContainer>
+        <Table
+            sx={{
+                padding: "10px 20px",
+                borderCollapse: "separate"
+            }}
+        >
+            <TableHead sx={{
+                boxShadow: "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+                borderTopLeftRadius: "20px",
+                borderTopRightRadius: "20px",
+                overflow: "hidden"
+            }}>
+                <TableRow>
+                    <TableCell component="th" sx={tableHeaderStyle}>Rank</TableCell>
+                    <TableCell component="th" colSpan={100} sx={tableHeaderStyle}>Contributor</TableCell>
+                    <TableCell component="th" sx={tableHeaderStyle}>PRs</TableCell>
+                    <TableCell component="th" sx={tableHeaderStyle} align="center">Points</TableCell>
+                </TableRow>
+            </TableHead>
+            <TableBody sx={{
+                boxShadow: "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+                borderBottomLeftRadius: "20px",
+                borderBottomRightRadius: "20px"
+            }}>
+                {
+                    leaderboard.map((item: Item,i: number)=> {
+                        return (
+                            <LeaderboardItem item={item} i={i} key={i} />
+                        )
+                    })
+                }7
+            </TableBody>
+        </Table>
     )
 }
