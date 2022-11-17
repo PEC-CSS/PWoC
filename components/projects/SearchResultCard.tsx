@@ -32,8 +32,8 @@ export const SearchResultCard = ({ project }: { project: ProjectResult }) => {
 					}`}
 				/>
 				<b
-					className={`actions absolute top-1/2 left-0 w-full h-0 text-center opacity-0 z-[3] transition-all ease-[cubic-bezier(0.17, 0.67, 0.83, 0.67)] duration-500 delay-[0ms] ${
-						hover ? 'opacity-100' : ''
+					className={`actions absolute top-1/2 left-0 w-full h-0 text-center z-[3] transition-all ease-[cubic-bezier(0.17, 0.67, 0.83, 0.67)] duration-500 delay-[0ms] ${
+						hover ? 'opacity-100' : 'opacity-0'
 					}`}
 				>
 					<Tooltip title='More Details' placement='top' arrow>
