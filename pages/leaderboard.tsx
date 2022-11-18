@@ -5,6 +5,9 @@ import {useEffect, useState} from "react";
 import {Item, PullRequest} from "../public/types";
 import {LeaderboardTable} from "../components/leaderboard/LeaderboardTable";
 import Head from "next/head";
+import Lottie from "react-lottie-player";
+import snowman from '../public/assets/animations/snowman.json'
+import {TopThree} from "../components/leaderboard/TopThree";
 
 const Leaderboard: NextPage = ()=> {
 
@@ -66,8 +69,25 @@ const Leaderboard: NextPage = ()=> {
                 <title>Leaderboard</title>
                 <meta name="description" content="Leaderboard for winter of code" />
             </Head>
-            <div className="font-bold text-2xl">Leaderboard</div>
-            <LeaderboardTable leaderboard={leaderboard} />
+            {
+                leaderboard.length > 0 ? (
+                    <>
+                        <TopThree topList={leaderboard.slice(0,3)} />
+                        <LeaderboardTable leaderboard={leaderboard} />
+                    </>
+                ) : (
+                    <div className="flex flex-col items-center">
+                        <Lottie
+                            play
+                            loop
+                            animationData={snowman}
+                            className="h-[300px] w-auto"
+                        />
+                        <div className="font-bold text-[30px]">Preparing the leaderboard...</div>
+                    </div>
+                )
+            }
+
         </div>
     )
 }

@@ -1,7 +1,7 @@
-export const TopCard = () => {
-    return (
-        <div>
+import {Item} from "../../public/types";
 
-        </div>
+export const TopCard = ({item}: {item: Item}) => {
+    return (
+        <img src={item.user.avatar_url}/>
     )
 }
