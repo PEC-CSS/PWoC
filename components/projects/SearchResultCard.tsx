@@ -7,27 +7,32 @@ import { ProjectResult } from '../../public/types';
 
 export const SearchResultCard = ({ project }: { project: ProjectResult }) => {
 	const [hover, setHover] = useState(false);
-	console.log(hover);
 
 	return (
 		<div
-			className='max-w-sm rounded overflow-hidden shadow-lg'
+			className='max-w-sm rounded overflow-hidden mx-auto px-[15px] mb-[15px] transition-all duration-100 ease-in-out'
 			onMouseEnter={() => setHover(true)}
 			onMouseLeave={() => setHover(false)}
 		>
-			<div className={`relative ${hover ? 'bg-[#000000bf]' : ''}`}>
+			<div
+				className={`relative shadow-[0_25px_20px_-21px_rgb(0,0,0,57%)] bg-[#000814] min-h-[250px] rounded-lg flex ${
+					hover ? 'bg-[#000000bf]' : ''
+				}`}
+			>
 				<Image
-					src='https://avatars.githubusercontent.com/u/54832562?s=200&v=4'
+					src='https://winterofcode.com/static/media/woc.a24fa30d.png'
 					alt='Project Logo'
-					className={`w-full ${hover ? 'opacity-100' : ''}`}
-					width={200}
+					className={`m-auto rounded-lg ${
+						hover ? 'opacity-100' : ''
+					}`}
+					width={300}
 					height={200}
 				/>
 				<a
 					href={project.githubLink}
 					target='_blank'
 					rel='noreferrer'
-					className={`absolute top-0 left-0 w-full h-full ${
+					className={`absolute top-0 left-0 w-full h-full rounded-lg ${
 						hover ? 'bg-[#000000bf]' : ''
 					}`}
 				/>
@@ -60,16 +65,22 @@ export const SearchResultCard = ({ project }: { project: ProjectResult }) => {
 					)}
 				</b>
 			</div>
-			<div className='flex flex-col '>
-				<div className='sm:px-6 sm:py-4 px-4 py-3'>
-					<div className='font-bold text-xl mb-2 text-center'>
+			<div className='flex flex-col p-[15px] rounded-b-xl justify-center items-center'>
+				<div>
+					<div className='font-bold text-xl mb-2 text-center mt-2.5'>
 						{project.title}
 					</div>
-					<p className='text-gray-700 text-base'>
+					<p
+						className={`text-gray-700 text-base w-[300px] truncate ${
+							hover
+								? 'overflow-visible whitespace-normal h-auto'
+								: ''
+						} transition-all ease-[cubic-bezier(0.17, 0.67, 0.83, 0.67)] duration-500 delay-[0ms]`}
+					>
 						{project.description}
 					</p>
 				</div>
-				<div className='px-6 pt-4 pb-2'>
+				<div className='pt-3 flex flex-wrap justify-center items-center'>
 					{project.techStack.map((techStack, idx) => (
 						<div
 							className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'
