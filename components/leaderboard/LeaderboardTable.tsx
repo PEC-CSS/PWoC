@@ -25,10 +25,10 @@ export const LeaderboardTable = ({leaderboard}: {leaderboard: Item[]}) => {
                 overflow: "hidden"
             }}>
                 <TableRow>
-                    <TableCell component="th" sx={tableHeaderStyle}>Rank</TableCell>
-                    <TableCell component="th" colSpan={100} sx={tableHeaderStyle}>Contributor</TableCell>
-                    <TableCell component="th" sx={tableHeaderStyle}>PRs</TableCell>
-                    <TableCell component="th" sx={tableHeaderStyle} align="center">Points</TableCell>
+                    <TableCell component="th" sx={tableHeaderStyle} style={{width: "10%"}} align="center">Rank</TableCell>
+                    <TableCell component="th" sx={tableHeaderStyle} style={{width: "70%"}}>Contributor</TableCell>
+                    <TableCell component="th" sx={tableHeaderStyle} style={{width: "10%"}} align="center">PRs</TableCell>
+                    <TableCell component="th" sx={tableHeaderStyle} style={{width: "10%"}} align="center">Points</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody sx={{

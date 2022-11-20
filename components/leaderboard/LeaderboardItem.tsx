@@ -3,6 +3,7 @@ import Image from "next/image";
 import {Item} from "../../public/types";
 import {PullRequestsDialog} from "./PullRequestsDialog";
 import {useState} from "react";
+import {AiFillTrophy} from "react-icons/all";
 
 export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
 
@@ -10,9 +11,25 @@ export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
 
     return (
         <>
-            <TableRow key={i}>
-                <TableCell>{i + 1}</TableCell>
-                <TableCell colSpan={100}>
+            <TableRow key={i} sx={{width: "100%"}}>
+                <TableCell
+                    align="center"
+                    sx={{
+                        fontWeight: "bold",
+                        fontSize: "25px",
+                        color: i == 0 ? "gold" : i == 1 ? "silver" : i == 2 ? "brown" : "black",
+                    }}
+                >
+                    <div className="flex flex-row items-center justify-center">
+                        {
+                            i < 3 && (
+                                <AiFillTrophy />
+                            )
+                        }
+                        <span>{i + 1}</span>
+                    </div>
+                </TableCell>
+                <TableCell>
                     <div className="flex flex-row items-center">
                         <Image
                             src={item.user.avatar_url}
@@ -34,11 +51,14 @@ export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
                     </div>
                 </TableCell>
                 <TableCell
-                    sx={{
-                        cursor: "pointer"
-                    }}
-                    onClick={()=> setOpen(true)}>
-                    {item.pullRequests.length}
+                    align="center"
+                >
+                    <div
+                        className="border-2 py-[5px] rounded-[10px] shadow-md hover:cursor-pointer"
+                        onClick={()=> setOpen(true)}
+                    >
+                        {item.pullRequests.length}
+                    </div>
                 </TableCell>
                 <TableCell align="center">{item.points}</TableCell>
             </TableRow>
