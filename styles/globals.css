@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+
+    .pr-button {
+        opacity: 1;
+        outline: 0;
+        display: inline-block;
+        position: relative;
+        width: 100%;
+    }
+    .pr-button:hover {
+        color: white;
+    }
+
+    .pr-button:hover::after {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+
+    .pr-button:hover::before {
+        opacity: 0;
+        transform: translateY(50%) rotateX(90deg);
+    }
+
+    .pr-button::before {
+        top: 0;
+        left: 0;
+        opacity: 1;
+        display: block;
+        transition: 0.5s;
+        padding: 0 30px;
+        position: relative;
+        line-height: 40px;
+        font-size: 20px;
+        transform: translateY(0) rotateX(0);
+    }
+
+    .pr-button::after {
+        color: white;
+        background: black;
+        border-radius: 10px;
+        padding: 0 30px;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        display: block;
+        position: absolute;
+        content: "View PRs";
+        transition: 0.5s;
+        transform: translateY(-50%) rotateX(90deg);
+    }
+}

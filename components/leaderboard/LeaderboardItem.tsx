@@ -3,7 +3,7 @@ import Image from "next/image";
 import {Item} from "../../public/types";
 import {PullRequestsDialog} from "./PullRequestsDialog";
 import {useState} from "react";
-import {AiFillTrophy} from "react-icons/all";
+import {AiFillTrophy} from "react-icons/ai";
 
 export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
 
@@ -54,13 +54,13 @@ export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
                     align="center"
                 >
                     <div
-                        className="border-2 py-[5px] rounded-[10px] shadow-md hover:cursor-pointer"
+                        className={`before:rounded-[10px] before:shadow-md hover:cursor-pointer pr-button before:content-[attr(before)]`}
                         onClick={()=> setOpen(true)}
-                    >
-                        {item.pullRequests.length}
-                    </div>
+                        // @ts-ignore
+                        before={item.pullRequests.length}
+                    />
                 </TableCell>
-                <TableCell align="center">{item.points}</TableCell>
+                <TableCell align="center" sx={{fontSize: "20px"}}>{item.points}</TableCell>
             </TableRow>
             <PullRequestsDialog
                 pullRequests={item.pullRequests}
