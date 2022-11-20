@@ -83,7 +83,7 @@ const Leaderboard: NextPage = ()=> {
                             animationData={snowman}
                             className="h-[300px] w-auto"
                         />
-                        <div className="font-bold text-[30px]">Preparing the leaderboard...</div>
+                        <div className="font-bold text-[30px] animate-pulse">Preparing the leaderboard...</div>
                     </div>
                 )
             }

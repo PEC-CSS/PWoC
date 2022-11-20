@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineMenuUnfold, AiOutlineMenuFold } from "react-icons/ai";
-import { TbLayoutDashboard } from "react-icons/tb";
+import {TbHome2, TbLayoutDashboard} from "react-icons/tb";
 import { HiTemplate } from "react-icons/hi";
 import { GiSellCard } from "react-icons/gi";
 import { AiFillCrown } from "react-icons/ai";
@@ -122,6 +122,11 @@ export const Navbar = () => {
 };
 
 const navLinks = [
+    {
+        title: "Home",
+        link: "/",
+        icon: <TbHome2 />,
+    },
     {
         title: "Leaderboard",
         link: "/leaderboard",

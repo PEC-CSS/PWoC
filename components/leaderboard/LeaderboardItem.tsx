@@ -13,7 +13,7 @@ export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
             <TableRow key={i}>
                 <TableCell>{i + 1}</TableCell>
                 <TableCell colSpan={100}>
-                    <a className="flex flex-row items-center" href={item.user.html_url} target="_blank" rel="noreferrer">
+                    <div className="flex flex-row items-center">
                         <Image
                             src={item.user.avatar_url}
                             alt=""
@@ -21,10 +21,17 @@ export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
                             width="50"
                             className="rounded-[50%]"/>
                         <div className="flex mx-[10px] flex-col">
-                            <div className="font-bold text-[20px]">{item.user.name}</div>
+                            <a
+                                href={item.user.html_url}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="font-bold relative text-[20px] before:bottom-0 before:left-0 before:content-[''] before:absolute before:bg-sky-500 before:scale-x-0 before:w-full before:h-[2px] before:origin-right before:transition-transform before:ease-in-out before:duration-500 hover:cursor-pointer hover:before:origin-left hover:before:scale-x-100"
+                            >
+                                {item.user.name}
+                            </a>
                             <div>{item.user.username}</div>
                         </div>
-                    </a>
+                    </div>
                 </TableCell>
                 <TableCell
                     sx={{

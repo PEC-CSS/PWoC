@@ -9,7 +9,7 @@ const Home: NextPage = ()=> {
             <Head>
                 <title>PWOC | PEC winter of code</title>
             </Head>
-            <div className='h-[75%] w-scren relative'>
+            <div className='h-[75%] w-screen relative'>
                 <Image src={'https://s3-us-west-2.amazonaws.com/com.uppercut.hero-images/assets/0206/comps/206_02322.jpg?v=2020-06-22'} fill loading='lazy' alt='PWOC' style={{objectFit: 'cover'}} />
             </div>
             <p>-- some about us stuff --</p>
