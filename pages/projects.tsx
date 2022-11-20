@@ -10,7 +10,6 @@ const Projects: NextPage = () => {
 
 	const onSearch = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log(searchTerm);
 
 		if (!searchTerm.trim().length) {
 			setProjectSearchResults(projects);
