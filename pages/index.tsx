@@ -15,9 +15,8 @@ const Home: NextPage = ()=> {
             <p>-- some about us stuff --</p>
             <p>-- sponsors --</p>
             <div className='bg-blue-100 border-2 border-red-500'>
-
-            <p>Timeline</p>
-            <Timeline />
+                <p>Timeline</p>
+                <Timeline />
             </div>
         </div>
     )
