@@ -2,19 +2,26 @@ import Image from 'next/image'
 import {NextPage} from "next";
 import Timeline from '../components/Timeline';
 import Head from 'next/head';
+import snowfall from '../public/assets/animations/snowfall.json'
+import Lottie from "react-lottie-player";
+import {useState} from "react";
+import Snowfall from "react-snowfall";
 
 const Home: NextPage = ()=> {
+
+    const [play, setPlay] = useState(true)
+
     return (
         <div className='text-center h-screen w-screen scrollbar-hide'>
             <Head>
                 <title>PWOC | PEC winter of code</title>
             </Head>
-            <div className='h-[75%] w-screen relative'>
-                <Image src={'https://s3-us-west-2.amazonaws.com/com.uppercut.hero-images/assets/0206/comps/206_02322.jpg?v=2020-06-22'} fill loading='lazy' alt='PWOC' style={{objectFit: 'cover'}} />
+            <div className='h-[75%] w-screen'>
+
             </div>
             <p>-- some about us stuff --</p>
             <p>-- sponsors --</p>
-            <div className='bg-blue-100 border-2 border-red-500'>
+            <div className='border-red-500'>
                 <p>Timeline</p>
                 <Timeline />
             </div>

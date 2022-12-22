@@ -18,6 +18,9 @@ module.exports = {
 				'90v': '90vh',
 				'100v': '100vh',
 			},
+			fontFamily: {
+				hammersmith: ["Hammersmith", "sans-serif"]
+			}
 		},
 	},
 	plugins: [require('tailwind-scrollbar-hide')],

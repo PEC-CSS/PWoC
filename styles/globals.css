@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: Hammersmith;
+    src: url("../public/fonts/HammersmithOne-Regular.ttf");
+}
+
 @layer components {
+
+    body {
+        font-family: Hammersmith, sans-serif;
+        background: rgb(28, 0, 9);
+        color: white;
+    }
 
     .pr-button {
         opacity: 1;
@@ -52,5 +63,15 @@
         content: "View PRs";
         transition: 0.5s;
         transform: translateY(-50%) rotateX(90deg);
+    }
+
+    .glassmorphism {
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur( 8px );
+        -webkit-backdrop-filter: blur( 8px );
+        box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.18 );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        z-index: 4;
     }
 }

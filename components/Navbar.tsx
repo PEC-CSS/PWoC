@@ -20,8 +20,8 @@ export const Navbar = () => {
         <div>
             <div className="flex flex-wrap ">
                 <div className="w-full ">
-                    <div className="pb-0 py-2 px-2 mx-auto ">
-                        <div className="w-full flex justify-between items-center p-2 text-gray-900 bg-white rounded-lg shadow-lg font-medium capitalize">
+                    <div className="pb-0 py-2 px-2 mx-auto">
+                        <div className="glassmorphism w-full flex justify-between items-center p-2 text-gray-900 rounded-lg shadow-lg font-medium capitalize">
                             {/* Logo */}
                             <div>
                                 <span className="px-2 mr-2 md:border-r border-gray-800">
@@ -34,19 +34,19 @@ export const Navbar = () => {
                                     />
                                 </span>
                             </div>
-                            <div className="px-2 md:flex gap-x-5 items-center flex-1 text-gray-900 bg-white font-medium capitalize hidden justify-end">
+                            <div className="px-2 md:flex gap-x-5 items-center flex-1 text-gray-900 font-medium capitalize hidden justify-end">
                                 {/* Links */}
                                 {navLinks?.map(({ title, link, icon }, id) => (
                                     <Link key={id} href={link}>
                                         <p
                                             //   id={id}
-                                            className={`px-2 py-1 flex items-center cursor-pointer hover:bg-gray-200 hover:text-gray-700 text-sm rounded ${
+                                            className={`px-2 py-1 flex items-center cursor-pointer text-white hover:bg-gray-200 hover:text-gray-700 text-sm rounded ${
                                                 router.pathname == link
                                                     ? "text-gray-700 font-semibold"
                                                     : ""
                                             }`}
                                         >
-                                            <span className="p-2 bg-gray-200 rounded-full">
+                                            <span className="p-2 bg-black rounded-full text-white">
                                                 {icon}
                                             </span>
                                             <span className="mx-1">
@@ -56,8 +56,8 @@ export const Navbar = () => {
                                     </Link>
                                 ))}
                             </div>
-                            {/* Hamberger Menu  */}
-                            <div className="md:hidden transition-all mr-3 my-3 cursor-pointer hover:text-gray-700">
+                            {/* Hamburger Menu  */}
+                            <div className="md:hidden transition-all mr-3 my-3 cursor-pointer text-white hover:text-gray-700">
                                 {isMobileNavOpen ? (
                                     <AiOutlineMenuFold
                                         onClick={() => handleClick()}
@@ -82,7 +82,7 @@ export const Navbar = () => {
                         } transition-all flex-wrap md:hidden`}
                     >
                         <div className="py-[.5px] w-64">
-                            <div className="w-full py-4 space-y-6 px-2 text-gray-900 bg-white rounded-lg min-h-screen  text-left capitalize font-medium shadow-lg">
+                            <div className="w-full py-4 space-y-6 px-2 text-gray-900 glassmorphism rounded-lg min-h-screen  text-left capitalize font-medium shadow-lg">
                                 {/* Logo */}
                                 <Image
                                     src="https://avatars.githubusercontent.com/u/54832562?s=200&v=4"
@@ -97,13 +97,13 @@ export const Navbar = () => {
                                     <Link key={id} href={link}>
                                         <p
                                             //   id={id}
-                                            className={`px-2 flex items-center cursor-pointer hover:bg-gray-200 hover:text-gray-700 text-sm rounded ${
+                                            className={`p-2 flex items-center cursor-pointer hover:bg-gray-200 text-white hover:text-gray-700 text-sm rounded z-10 ${
                                                 router.pathname == link
                                                     ? "text-gray-700 font-semibold"
                                                     : ""
                                             }`}
                                         >
-                                            <span className="p-2 bg-gray-200 rounded-full">
+                                            <span className="p-2 bg-black text-white rounded-full">
                                                 {icon}
                                             </span>
                                             <span className="mx-1">
