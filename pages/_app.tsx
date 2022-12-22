@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     position: "fixed"
                 }}/>
             <Component {...pageProps} />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }
