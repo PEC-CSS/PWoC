@@ -1,0 +1,34 @@
+import Head from "next/head";
+import { ReactNode } from "react";
+import { Footer } from "../Footer";
+import Snowfall from "react-snowfall";
+import { Navbar } from "../Navbar";
+
+type Props = {
+    title: string;
+    description?: string;
+    children?: ReactNode;
+};
+
+function PageLayout({ title = "PWOC | PEC winter of code", children, description }: Props) {
+    return (
+        <div className="min-h-[100vh]">
+            <Head>
+                <title>{title}</title>
+                <meta name="description" content={description} />
+            </Head>
+            <Navbar />
+            <Snowfall
+                snowflakeCount={200}
+                style={{
+                    zIndex: -1,
+                    position: "fixed"
+                }}/>
+
+            {children}
+            <Footer />
+        </div>
+    );
+}
+
+export default PageLayout;
