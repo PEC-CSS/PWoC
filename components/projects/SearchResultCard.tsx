@@ -4,13 +4,14 @@ import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import LaptopIcon from '@mui/icons-material/Laptop';
 import Tooltip from '@mui/material/Tooltip';
 import { ProjectResult } from '../../public/types';
+import {GitHub} from "@mui/icons-material";
 
 export const SearchResultCard = ({ project }: { project: ProjectResult }) => {
 	const [hover, setHover] = useState(false);
 
 	return (
 		<div
-			className='max-w-sm rounded overflow-hidden mx-auto px-[15px] mb-[15px] transition-all duration-100 ease-in-out'
+			className='glassmorphism max-w-sm rounded overflow-hidden mx-auto pt-[10px] px-[15px] mb-[15px] transition-all duration-100 ease-in-out'
 			onMouseEnter={() => setHover(true)}
 			onMouseLeave={() => setHover(false)}
 		>
@@ -41,14 +42,14 @@ export const SearchResultCard = ({ project }: { project: ProjectResult }) => {
 						hover ? 'opacity-100' : 'opacity-0'
 					}`}
 				>
-					<Tooltip title='More Details' placement='top' arrow>
+					<Tooltip title='Github Repo' placement='top' arrow>
 						<a
 							href={project.githubLink}
 							target='_blank'
 							rel='noreferrer'
 							className={`text-[18px] p-[14px] leading-none inline-block w-[48px] h-[48px] top-1/2 relative bg-white opacity-100 border rounded-[30px] -translate-y-1/2 text-[#666] mx-1 hover:opacity-[.85]`}
 						>
-							<FormatAlignLeftIcon fontSize='small' />
+							<GitHub fontSize='small' />
 						</a>
 					</Tooltip>
 					{project.deploymentLink.length === 0 ? null : (
@@ -71,7 +72,7 @@ export const SearchResultCard = ({ project }: { project: ProjectResult }) => {
 						{project.title}
 					</div>
 					<p
-						className={`text-gray-700 text-base w-[300px] truncate ${
+						className={`text-white text-base w-[300px] truncate ${
 							hover
 								? 'overflow-visible whitespace-normal h-auto'
 								: ''
