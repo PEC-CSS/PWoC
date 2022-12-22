@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { useState } from 'react';
-import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import LaptopIcon from '@mui/icons-material/Laptop';
 import Tooltip from '@mui/material/Tooltip';
 import { ProjectResult } from '../../public/types';
@@ -72,11 +71,7 @@ export const SearchResultCard = ({ project }: { project: ProjectResult }) => {
 						{project.title}
 					</div>
 					<p
-						className={`text-white text-base w-[300px] truncate ${
-							hover
-								? 'overflow-visible whitespace-normal h-auto'
-								: ''
-						} transition-all ease-[cubic-bezier(0.17, 0.67, 0.83, 0.67)] duration-500 delay-[0ms]`}
+						className={`text-white text-base w-[300px] truncate overflow-visible whitespace-normal h-auto transition-all ease-[cubic-bezier(0.17, 0.67, 0.83, 0.67)] duration-500 delay-[0ms]`}
 					>
 						{project.description}
 					</p>

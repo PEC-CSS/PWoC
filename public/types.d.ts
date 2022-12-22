@@ -49,3 +49,9 @@ type Project = {
     mentorMobileNumber: number,
     mentorDiscordUsername: string
 }
+
+export type Faq = {
+    icon: string,
+    title: string,
+    description: string
+}
