@@ -20,7 +20,7 @@ const Home: NextPage = () => {
             </div>
             <div>-- some about us stuff --</div>
             <div>-- sponsors --</div>
-            <div className='border-[10px] border-red-500'>
+            <div>
                 <p>Timeline</p>
                 <Timeline />
             </div>
