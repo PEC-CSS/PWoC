@@ -9,7 +9,7 @@ interface searchProps {
 export const Search = ({onSearch, searchTerm, setSearchTerm} : searchProps) => {
 	return (
 		<div className='flex justify-center items-center'>
-			<div className='container m-auto my-4 sm:m-8 bg-indigo-500 rounded-lg p-14'>
+			<div className='glassmorphism container m-auto my-4 sm:m-8 bg-[rgba(99,102,241,0.3)] rounded-lg p-14'>
 				<form onSubmit={onSearch}>
 					<h1 className='text-center font-bold text-white text-4xl'>
 						Search a project name or tech stack
