@@ -11,7 +11,7 @@ export const SearchResultCard = ({ project }: { project: ProjectResult }) => {
 
 	return (
 		<div
-			className='glassmorphism max-w-sm rounded overflow-hidden mx-auto pt-[10px] px-[15px] mb-[15px] transition-all duration-100 ease-in-out'
+			className='glassmorphism bg-[rgba(0,0,0,0.3)] max-w-sm rounded overflow-hidden mx-auto pt-[10px] px-[15px] mb-[15px] transition-all duration-100 ease-in-out'
 			onMouseEnter={() => setHover(true)}
 			onMouseLeave={() => setHover(false)}
 		>
