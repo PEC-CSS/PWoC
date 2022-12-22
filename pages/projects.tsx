@@ -1,13 +1,24 @@
 import { NextPage } from 'next';
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import PageLayout from '../components/layout/PageLayout';
 import { Search } from '../components/projects/Search';
 import { SearchResults } from '../components/projects/SearchResults';
-import projects from '../data/projects.json';
+import {getProjects} from "../public/spreadsheet";
+import {Project} from "../public/types";
 
 const Projects: NextPage = () => {
 	const [searchTerm, setSearchTerm] = useState('');
-	const [projectSearchResults, setProjectSearchResults] = useState(projects);
+	const [projects, setProjects] = useState<Project[]>([])
+	const [projectSearchResults, setProjectSearchResults] = useState<Project[]>([]);
+
+	useEffect(() => {
+		getProjects()
+			.then(projs => {
+				setProjects(projs)
+				setProjectSearchResults(projs)
+			})
+			.catch(error => console.error(error))
+	}, [])
 
 	const onSearch = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();

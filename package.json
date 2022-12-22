@@ -16,11 +16,13 @@
     "@mui/types": "^7.2.1",
     "@octokit/rest": "^19.0.5",
     "@octokit/types": "^8.0.0",
+    "@types/google-spreadsheet": "^3.3.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
+    "google-spreadsheet": "^3.3.0",
     "next": "13.0.3",
     "octokit": "^2.0.10",
     "react": "18.2.0",
@@ -37,5 +39,11 @@
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.19",
     "tailwindcss": "^3.2.4"
+  },
+  "browser":{
+    "child_process": false,
+    "fs": false,
+    "net": false,
+    "tls": false
   }
 }
