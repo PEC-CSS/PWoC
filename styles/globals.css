@@ -3,75 +3,94 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: Hammersmith;
-    src: url("../public/fonts/HammersmithOne-Regular.ttf");
+	font-family: Hammersmith;
+	src: url('../public/fonts/HammersmithOne-Regular.ttf');
 }
 
 @layer components {
+	body {
+		font-family: Hammersmith, sans-serif;
+		background: rgb(28, 0, 9);
+		color: white;
+	}
 
-    body {
-        font-family: Hammersmith, sans-serif;
-        background: rgb(28, 0, 9);
-        color: white;
-    }
+	.pr-button {
+		opacity: 1;
+		outline: 0;
+		display: inline-block;
+		position: relative;
+		width: 100%;
+	}
+	.pr-button:hover {
+		color: white;
+	}
 
-    .pr-button {
-        opacity: 1;
-        outline: 0;
-        display: inline-block;
-        position: relative;
-        width: 100%;
-    }
-    .pr-button:hover {
-        color: white;
-    }
+	.pr-button:hover::after {
+		opacity: 1;
+		transform: translateY(0) rotateX(0);
+	}
 
-    .pr-button:hover::after {
-        opacity: 1;
-        transform: translateY(0) rotateX(0);
-    }
+	.pr-button:hover::before {
+		opacity: 0;
+		transform: translateY(50%) rotateX(90deg);
+	}
 
-    .pr-button:hover::before {
-        opacity: 0;
-        transform: translateY(50%) rotateX(90deg);
-    }
+	.pr-button::before {
+		top: 0;
+		left: 0;
+		opacity: 1;
+		display: block;
+		transition: 0.5s;
+		padding: 0 30px;
+		position: relative;
+		line-height: 40px;
+		font-size: 20px;
+		transform: translateY(0) rotateX(0);
+	}
 
-    .pr-button::before {
-        top: 0;
-        left: 0;
-        opacity: 1;
-        display: block;
-        transition: 0.5s;
-        padding: 0 30px;
-        position: relative;
-        line-height: 40px;
-        font-size: 20px;
-        transform: translateY(0) rotateX(0);
-    }
+	.pr-button::after {
+		color: white;
+		background: black;
+		border-radius: 10px;
+		padding: 0 30px;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		width: 100%;
+		display: block;
+		position: absolute;
+		content: 'View PRs';
+		transition: 0.5s;
+		transform: translateY(-50%) rotateX(90deg);
+	}
 
-    .pr-button::after {
-        color: white;
-        background: black;
-        border-radius: 10px;
-        padding: 0 30px;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        width: 100%;
-        display: block;
-        position: absolute;
-        content: "View PRs";
-        transition: 0.5s;
-        transform: translateY(-50%) rotateX(90deg);
-    }
+	.glassmorphism {
+		background: rgba(255, 255, 255, 0.3);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18);
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.18);
+		z-index: 4;
+	}
 
-    .glassmorphism {
-        background: rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur( 8px );
-        -webkit-backdrop-filter: blur( 8px );
-        box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.18 );
-        border-radius: 10px;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
-        z-index: 4;
-    }
+	.card {
+		@apply w-full h-full sm:w-[calc(50%-18px)] lg:w-[calc(33%-21px)] flex items-center flex-col gap-[15px];
+	}
+
+	.icon {
+		@apply w-11 h-11 lg:w-12 lg:h-12 bg-gray-600 rounded-full flex items-center justify-center border-[6px] border-gray-700 border-solid;
+	}
+
+	.icon > svg {
+		@apply w-5 h-5 lg:w-6 lg:h-6;
+	}
+
+	.title {
+		@apply text-lg md:text-xl text-center;
+	}
+
+	.description {
+		@apply text-gray-200 text-center;
+	}
 }

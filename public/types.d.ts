@@ -44,3 +44,9 @@ export type ProjectResult = {
     deploymentLink: string,
     mentors:  string
 }
+
+export type Faq = {
+    icon: string,
+    title: string,
+    description: string
+}
