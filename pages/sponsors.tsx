@@ -1,8 +1,11 @@
 import React from 'react'
+import PageLayout from '../components/layout/PageLayout'
 
 function Sponsors() {
   return (
-    <div>Sponsors</div>
+    <PageLayout title="PWOC | PEC winter of code">
+      <div>Sponsers</div>
+    </PageLayout>
   )
 }
 

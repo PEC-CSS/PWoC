@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import React, { useState } from 'react';
+import PageLayout from '../components/layout/PageLayout';
 import { Search } from '../components/projects/Search';
 import { SearchResults } from '../components/projects/SearchResults';
 import projects from '../data/projects.json';
@@ -32,14 +33,16 @@ const Projects: NextPage = () => {
 	};
 
 	return (
-		<div>
-			<Search
-				onSearch={onSearch}
-				searchTerm={searchTerm}
-				setSearchTerm={setSearchTerm}
-			/>
-			<SearchResults projects={projectSearchResults} />
-		</div>
+		<PageLayout title="PWOC | PEC winter of code">
+			<div>
+				<Search
+					onSearch={onSearch}
+					searchTerm={searchTerm}
+					setSearchTerm={setSearchTerm}
+				/>
+				<SearchResults projects={projectSearchResults} />
+			</div>
+		</PageLayout>
 	);
 };
 

@@ -1,8 +1,11 @@
 import React from 'react'
+import PageLayout from '../components/layout/PageLayout'
 
 function Faq() {
   return (
-    <div>Faq</div>
+    <PageLayout title="PWOC | PEC winter of code">
+      <div>Faq</div>
+    </PageLayout>
   )
 }
 

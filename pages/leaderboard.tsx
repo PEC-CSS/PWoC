@@ -1,45 +1,46 @@
-import {NextPage} from "next";
-import {Octokit} from "@octokit/rest";
-import {contributors, repositories} from "../public/data";
-import {useEffect, useState} from "react";
-import {Item, PullRequest} from "../public/types";
-import {LeaderboardTable} from "../components/leaderboard/LeaderboardTable";
+import { NextPage } from "next";
+import { Octokit } from "@octokit/rest";
+import { contributors, repositories } from "../public/data";
+import { useEffect, useState } from "react";
+import { Item, PullRequest } from "../public/types";
+import { LeaderboardTable } from "../components/leaderboard/LeaderboardTable";
 import Head from "next/head";
 import Lottie from "react-lottie-player";
 import snowman from '../public/assets/animations/snowman.json'
-import {TopThree} from "../components/leaderboard/TopThree";
+import { TopThree } from "../components/leaderboard/TopThree";
+import PageLayout from "../components/layout/PageLayout";
 
-const Leaderboard: NextPage = ()=> {
+const Leaderboard: NextPage = () => {
 
     const [leaderboard, setLeaderboard] = useState<Item[]>([])
 
-    const getPullRequests = async ()=> {
-        let octokit = new Octokit({ auth: process.env.ACCESS_TOKEN})
-        let repoRequests = repositories.map((repo: string)=> {
+    const getPullRequests = async () => {
+        let octokit = new Octokit({ auth: process.env.ACCESS_TOKEN })
+        let repoRequests = repositories.map((repo: string) => {
             let query = `type:pr+repo:${repo}`
-            contributors.forEach((user)=> {
+            contributors.forEach((user) => {
                 query += `+author:${user.username}`
             })
             return octokit.rest.search.issuesAndPullRequests({
                 q: query,
                 per_page: 100
-            }).then(res=> res.data.items)
+            }).then(res => res.data.items)
         })
         let repoResponses = await Promise.all(repoRequests) as PullRequest[][]
-        let pullRequestMap = new Map<string,PullRequest[]>()
-        let nameMap = new Map<string,string>()
-        contributors.forEach((user)=> {
+        let pullRequestMap = new Map<string, PullRequest[]>()
+        let nameMap = new Map<string, string>()
+        contributors.forEach((user) => {
             pullRequestMap.set(user.username, [])
-            nameMap.set(user.username,user.name)
+            nameMap.set(user.username, user.name)
         })
-        repoResponses.forEach((pullRequests: PullRequest[])=> {
-            pullRequests.forEach((pullRequest: PullRequest)=> {
+        repoResponses.forEach((pullRequests: PullRequest[]) => {
+            pullRequests.forEach((pullRequest: PullRequest) => {
                 pullRequestMap.get(pullRequest.user.login)?.push(pullRequest)
             })
         })
         let leaderboard: Item[] = []
-        pullRequestMap.forEach((pullRequests: PullRequest[], username: string)=> {
-            if(pullRequests.length === 0)
+        pullRequestMap.forEach((pullRequests: PullRequest[], username: string) => {
+            if (pullRequests.length === 0)
                 return
             leaderboard.push({
                 user: {
@@ -52,43 +53,45 @@ const Leaderboard: NextPage = ()=> {
                 points: pullRequests.length
             })
         })
-        leaderboard.sort((item1: Item, item2: Item)=> {
+        leaderboard.sort((item1: Item, item2: Item) => {
             return item2.points - item1.points
         })
         console.log(leaderboard)
         return leaderboard
     }
-    useEffect(()=> {
+    useEffect(() => {
         getPullRequests()
-            .then(itemList=> setLeaderboard(itemList))
-            .catch(error=> console.error(error))
+            .then(itemList => setLeaderboard(itemList))
+            .catch(error => console.error(error))
     }, [])
     return (
-        <div className="flex items-center flex-col">
-            <Head>
-                <title>Leaderboard</title>
-                <meta name="description" content="Leaderboard for winter of code" />
-            </Head>
-            {
-                leaderboard.length > 0 ? (
-                    <>
-                        <TopThree topList={leaderboard.slice(0,3)} />
-                        <LeaderboardTable leaderboard={leaderboard} />
-                    </>
-                ) : (
-                    <div className="flex flex-col items-center">
-                        <Lottie
-                            play
-                            loop
-                            animationData={snowman}
-                            className="h-[300px] w-auto"
-                        />
-                        <div className="font-bold text-[30px] animate-pulse">Preparing the leaderboard...</div>
-                    </div>
-                )
-            }
 
-        </div>
+        <PageLayout title="PWOC | PEC winter of code">
+            <div className="flex items-center flex-col">
+                <Head>
+                    <title>Leaderboard</title>
+                    <meta name="description" content="Leaderboard for winter of code" />
+                </Head>
+                {
+                    leaderboard.length > 0 ? (
+                        <>
+                            <TopThree topList={leaderboard.slice(0, 3)} />
+                            <LeaderboardTable leaderboard={leaderboard} />
+                        </>
+                    ) : (
+                        <div className="flex flex-col items-center">
+                            <Lottie
+                                play
+                                loop
+                                animationData={snowman}
+                                className="h-[300px] w-auto"
+                            />
+                            <div className="font-bold text-[30px] animate-pulse">Preparing the leaderboard...</div>
+                        </div>
+                    )
+                }
+            </div>
+        </PageLayout>
     )
 }
 
