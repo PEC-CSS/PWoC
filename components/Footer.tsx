@@ -44,25 +44,25 @@ export const Footer = () => {
                 <Image src={logo} alt="pwoc logo" width={150} height={150} className="self-center hidden sm:block md:mb-[15px]" />
                 <div className="flex justify-center">
                     {/* Facebook, Github, Insta and Twitter */}
-                    <IconContext.Provider value={{ size: '30px', className: "mx-[6px] hover:text-[#fe009b] md:hover:translate-y-[-6px] ease-out duration-300" }}>
+                    <IconContext.Provider value={{ className: "text-[38px] md:text-[30px] mx-[8px] md:mx-[6px] hover:text-[#fe009b] md:hover:translate-y-[-6px] ease-out duration-300" }}>
                         <Link href="https://www.instagram.com/pecacm/" target="_blank">
                             <SiInstagram />
                         </Link>
                     </IconContext.Provider>
 
-                    <IconContext.Provider value={{ size: '30px', className: "hover:text-[#b9bbbd] mx-[6px] md:hover:translate-y-[-6px] ease-out duration-300" }}>
+                    <IconContext.Provider value={{ className: "text-[38px] md:text-[30px] hover:text-[#b9bbbd] mx-[8px] md:mx-[6px] md:hover:translate-y-[-6px] ease-out duration-300" }}>
                         <Link href="https://github.com/PEC-CSS" target="_blank">
                             <SiGithub />
                         </Link>
                     </IconContext.Provider>
 
-                    <IconContext.Provider value={{ size: '30px', className: "hover:text-[#1977f3] mx-[6px] md:hover:translate-y-[-6px] ease-out duration-300" }}>
+                    <IconContext.Provider value={{ className: "text-[38px] md:text-[30px] hover:text-[#1977f3] mx-[8px] md:mx-[6px] md:hover:translate-y-[-6px] ease-out duration-300" }}>
                         <Link href="https://www.facebook.com/pecacm/" target="_blank">
                             <SiFacebook />
                         </Link>
                     </IconContext.Provider>
 
-                    <IconContext.Provider value={{ size: '30px', className: "hover:text-[#1c9cf1] mx-[6px] md:hover:translate-y-[-6px] ease-out duration-300" }}>
+                    <IconContext.Provider value={{ className: "text-[38px] md:text-[30px] hover:text-[#1c9cf1] mx-[8px] md:mx-[6px] md:hover:translate-y-[-6px] ease-out duration-300" }}>
                         <Link href="https://www.twitter.com/pec_acm" target="_blank">
                             <SiTwitter />
                         </Link>

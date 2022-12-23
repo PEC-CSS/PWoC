@@ -75,7 +75,7 @@ export const Navbar = () => {
                     {/* Mobile Navbar */}
                     <div
                         id="navbar"
-                        className={`pt-0 absolute top-2 z-100 mx-auto ${
+                        className={`pt-0 fixed z-[100] top-2 mx-auto ${
                             isMobileNavOpen
                                 ? "translate-x-0"
                                 : "-translate-x-full"
@@ -97,7 +97,7 @@ export const Navbar = () => {
                                     <Link key={id} href={link}>
                                         <p
                                             //   id={id}
-                                            className={`p-2 flex items-center cursor-pointer hover:bg-gray-200 text-white hover:text-gray-700 text-sm rounded z-10 ${
+                                            className={`p-2 flex items-center cursor-pointer hover:bg-gray-200 text-white hover:text-gray-700 text-sm rounded z-100 ${
                                                 router.pathname == link
                                                     ? "text-gray-700 font-semibold"
                                                     : ""

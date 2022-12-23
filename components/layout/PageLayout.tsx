@@ -18,14 +18,15 @@ function PageLayout({ title = "PWOC | PEC winter of code", children, description
                 <meta name="description" content={description} />
                 <link rel="icon" href="/assets/logo/pwoc_logo.png"/>
             </Head>
-            <Navbar />
+            <div className="z-[100]">
+                <Navbar />            
+            </div>
             <Snowfall
                 snowflakeCount={150}
                 style={{
                     zIndex: -1,
                     position: "fixed",
-                }}/>
-
+                }} />
             {children}
             <Footer />
         </div>

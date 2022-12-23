@@ -3,8 +3,10 @@ import PageLayout from '../components/layout/PageLayout'
 
 function Sponsors() {
   return (
-    <PageLayout title="Sponsors">
-      <div>Sponsers</div>
+    <PageLayout title="PWOC | PEC winter of code">
+      <div className='relative z-[-1]'>
+        <div>Sponsors</div>
+      </div>
     </PageLayout>
   )
 }

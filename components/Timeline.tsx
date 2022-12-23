@@ -53,7 +53,7 @@ const events = [
 
 function Timeline() {
     return (
-        <div className="z-0 relative">
+        <div>
             <VerticalTimeline lineColor="#454545">
                 {
                     events.map((event, i)=> {
