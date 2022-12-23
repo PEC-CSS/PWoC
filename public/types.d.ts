@@ -36,11 +36,22 @@ export type Item = {
     points: number
 }
 
-export type ProjectResult = {
+type Project = {
     title: string,
     techStack: string[],
     description: string,
     githubLink: string,
     deploymentLink: string,
-    mentors:  string
+    mentor: string,
+    mentorGithubLink: string,
+    mentorLinkedinLink: string,
+    mentorEmail: string,
+    mentorMobileNumber: number,
+    mentorDiscordUsername: string
+}
+
+export type Faq = {
+    icon: string,
+    title: string,
+    description: string
 }

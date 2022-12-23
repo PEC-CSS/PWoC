@@ -2,10 +2,10 @@ import Image from 'next/image';
 import { useState } from 'react';
 import LaptopIcon from '@mui/icons-material/Laptop';
 import Tooltip from '@mui/material/Tooltip';
-import { ProjectResult } from '../../public/types';
 import {GitHub} from "@mui/icons-material";
+import {Project} from "../../public/types";
 
-export const SearchResultCard = ({ project }: { project: ProjectResult }) => {
+export const SearchResultCard = ({ project }: { project: Project }) => {
 	const [hover, setHover] = useState(false);
 
 	return (
