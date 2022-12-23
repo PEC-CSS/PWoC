@@ -12,10 +12,13 @@ export const Footer = () => {
     return (
         <div className="bg-[#140006] grid grid-cols-1 md:grid-cols-3 md:px-7 px-2 md:pt-5 sm:pt-2 pb-1 space-y-4 md:space-y-0">
             <div className="grid grid-cols-1">
-                <div className="flex justify-center md:justify-start space-x-2">
-                    <div className={`text-2xl md:text-[1.3rem] lg:text-2xl uppercase`}>Join us on discord</div>
-                    <IconContext.Provider value={{ className: "hover:text-[#6370f4] text-[30px]" }}>
-                        <Link href="https://discord.gg/YcrXVhaBCZ" target="_blank">
+                <div className="flex justify-center md:justify-start space-x-2 h-[60px]">
+
+                    <div className={`text-2xl md:text-[1.1rem] lg:text-2xl uppercase flex flex-col justify-center`}>
+                        Join us on discord
+                    </div>
+                    <IconContext.Provider value={{ className: "bg-[#2f3136] hover:bg-[#6370f4] text-[40px] p-2 rounded-full" }}>
+                        <Link href="https://discord.gg/YcrXVhaBCZ" target="_blank" className="flex flex-col justify-center">
                             <SiDiscord />
                         </Link>
                     </IconContext.Provider>
