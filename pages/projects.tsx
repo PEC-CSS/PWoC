@@ -49,7 +49,7 @@ const Projects: NextPage = () => {
 	};
 
 	return (
-		<PageLayout title="PWOC | PEC winter of code">
+		<PageLayout title="Projects">
 			<div>
 				<Search
 					onSearch={onSearch}

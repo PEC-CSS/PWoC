@@ -3,7 +3,7 @@ import PageLayout from '../components/layout/PageLayout'
 
 function Sponsors() {
   return (
-    <PageLayout title="PWOC | PEC winter of code">
+    <PageLayout title="Sponsors">
       <div>Sponsers</div>
     </PageLayout>
   )

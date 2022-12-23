@@ -16,6 +16,7 @@ function PageLayout({ title = "PWOC | PEC winter of code", children, description
             <Head>
                 <title>{title}</title>
                 <meta name="description" content={description} />
+                <link rel="icon" href="/assets/logo/pwoc_logo.png"/>
             </Head>
             <Navbar />
             <Snowfall
