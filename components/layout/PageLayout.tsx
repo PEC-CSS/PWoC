@@ -19,10 +19,10 @@ function PageLayout({ title = "PWOC | PEC winter of code", children, description
             </Head>
             <Navbar />
             <Snowfall
-                snowflakeCount={200}
+                snowflakeCount={150}
                 style={{
                     zIndex: -1,
-                    position: "fixed"
+                    position: "fixed",
                 }}/>
 
             {children}
