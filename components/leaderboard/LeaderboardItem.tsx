@@ -17,7 +17,7 @@ export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
                     sx={{
                         fontWeight: "bold",
                         fontSize: "25px",
-                        color: i == 0 ? "gold" : i == 1 ? "silver" : i == 2 ? "brown" : "black",
+                        color: i == 0 ? "gold" : i == 1 ? "silver" : i == 2 ? "brown" : "white",
                     }}
                 >
                     <div className="flex flex-row items-center justify-center">
@@ -37,7 +37,7 @@ export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
                             height="50"
                             width="50"
                             className="rounded-[50%]"/>
-                        <div className="flex mx-[10px] flex-col">
+                        <div className="flex mx-[10px] flex-col text-white">
                             <a
                                 href={item.user.html_url}
                                 target="_blank"
@@ -54,13 +54,13 @@ export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
                     align="center"
                 >
                     <div
-                        className={`before:rounded-[10px] before:shadow-md hover:cursor-pointer pr-button before:content-[attr(before)]`}
+                        className={`text-white before:rounded-[10px] before:shadow-md before:shadow-white hover:cursor-pointer pr-button before:content-[attr(before)]`}
                         onClick={()=> setOpen(true)}
                         // @ts-ignore
                         before={item.pullRequests.length}
                     />
                 </TableCell>
-                <TableCell align="center" sx={{fontSize: "20px"}}>{item.points}</TableCell>
+                <TableCell align="center" sx={{fontSize: "20px", color: "white"}}>{item.points}</TableCell>
             </TableRow>
             <PullRequestsDialog
                 pullRequests={item.pullRequests}

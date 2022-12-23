@@ -66,7 +66,7 @@ const Leaderboard: NextPage = () => {
     }, [])
     return (
 
-        <PageLayout title="PWOC | PEC winter of code">
+        <PageLayout title="Leaderboard">
             <div className="flex items-center flex-col">
                 <Head>
                     <title>Leaderboard</title>
