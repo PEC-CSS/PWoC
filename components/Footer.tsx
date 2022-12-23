@@ -57,13 +57,13 @@ export const Footer = () => {
                     </IconContext.Provider>
 
                     <IconContext.Provider value={{ size: '30px', className: "hover:text-[#1977f3] mx-[6px] md:hover:translate-y-[-6px] ease-out duration-300" }}>
-                        <Link href="https://discord.gg/YcrXVhaBCZ" target="_blank">
+                        <Link href="https://www.facebook.com/pecacm/" target="_blank">
                             <SiFacebook />
                         </Link>
                     </IconContext.Provider>
 
                     <IconContext.Provider value={{ size: '30px', className: "hover:text-[#1c9cf1] mx-[6px] md:hover:translate-y-[-6px] ease-out duration-300" }}>
-                        <Link href="https://discord.gg/YcrXVhaBCZ" target="_blank">
+                        <Link href="https://www.twitter.com/pec_acm" target="_blank">
                             <SiTwitter />
                         </Link>
                     </IconContext.Provider>
