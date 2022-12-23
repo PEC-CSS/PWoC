@@ -15,7 +15,7 @@ export const Footer = () => {
                 <div className="flex justify-center md:justify-start space-x-2">
                     <div className={`text-2xl md:text-[1.3rem] lg:text-2xl uppercase`}>Join us on discord</div>
                     <IconContext.Provider value={{ className: "hover:text-[#6370f4] text-[30px]" }}>
-                        <Link href="/faq">
+                        <Link href="https://discord.gg/YcrXVhaBCZ" target="_blank">
                             <SiDiscord />
                         </Link>
                     </IconContext.Provider>
@@ -41,26 +41,29 @@ export const Footer = () => {
             </div>
 
             <div className="flex flex-col justify-around">
-                <Image src={logo} alt="pwoc logo" width={150} height={150} className="self-center hidden sm:block" />
+                <Image src={logo} alt="pwoc logo" width={150} height={150} className="self-center hidden sm:block md:mb-[15px]" />
                 <div className="flex justify-center">
-
-                    <IconContext.Provider value={{ size: '30px', className: "hover:text-[#1977f3] mx-[6px]" }}>
-                        <Link href="/faq">
-                            <SiFacebook />
-                        </Link>
-                    </IconContext.Provider>
-                    <IconContext.Provider value={{ size: '30px', className: "hover:text-[#b9bbbd] mx-[6px]" }}>
-                        <Link href="/faq">
-                            <SiGithub />
-                        </Link>
-                    </IconContext.Provider>
-                    <IconContext.Provider value={{ size: '30px', className: "mx-[6px] hover:text-[#af3688]" }}>
-                        <Link href="/faq">
+                    {/* Facebook, Github, Insta and Twitter */}
+                    <IconContext.Provider value={{ size: '30px', className: "mx-[6px] hover:text-[#fe009b] md:hover:translate-y-[-8px] ease-out duration-300" }}>
+                        <Link href="https://www.instagram.com/pecacm/" target="_blank">
                             <SiInstagram />
                         </Link>
                     </IconContext.Provider>
-                    <IconContext.Provider value={{ size: '30px', className: "hover:text-[#1c9cf1] mx-[6px]" }}>
-                        <Link href="/faq">
+
+                    <IconContext.Provider value={{ size: '30px', className: "hover:text-[#b9bbbd] mx-[6px] md:hover:translate-y-[-8px] ease-out duration-300" }}>
+                        <Link href="https://github.com/PEC-CSS" target="_blank">
+                            <SiGithub />
+                        </Link>
+                    </IconContext.Provider>
+
+                    <IconContext.Provider value={{ size: '30px', className: "hover:text-[#1977f3] mx-[6px] md:hover:translate-y-[-8px] ease-out duration-300" }}>
+                        <Link href="https://discord.gg/YcrXVhaBCZ" target="_blank">
+                            <SiFacebook />
+                        </Link>
+                    </IconContext.Provider>
+
+                    <IconContext.Provider value={{ size: '30px', className: "hover:text-[#1c9cf1] mx-[6px] md:hover:translate-y-[-8px] ease-out duration-300" }}>
+                        <Link href="https://discord.gg/YcrXVhaBCZ" target="_blank">
                             <SiTwitter />
                         </Link>
                     </IconContext.Provider>
