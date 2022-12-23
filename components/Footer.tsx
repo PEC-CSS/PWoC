@@ -2,15 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "./../public/assets/logo/pwoc_logo.png";
 import pwoc_text_logo from "./../public/assets/logo/pwoc_text.png";
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { SiDiscord, SiFacebook, SiInstagram, SiGithub, SiTwitter } from 'react-icons/si';
 import { IconContext } from "react-icons/lib";
 
 export const Footer = () => {
     return (
-        <div className="bg-[#140006] grid grid-cols-1 md:grid-cols-3 md:px-7 px-2 md:pt-5 sm:pt-2 pb-1 space-y-4 md:space-y-0">
+        <div className="glassmorphism border-0 bg-[rgba(20,0,6,0.7)] mt-[10px] grid grid-cols-1 md:grid-cols-3 md:px-7 px-2 md:pt-5 sm:pt-2 pb-1 space-y-4 md:space-y-0">
             <div className="grid grid-cols-1">
                 <div className="flex justify-center md:justify-start space-x-2 h-[60px]">
 
@@ -38,7 +35,7 @@ export const Footer = () => {
                     <Link href="/" className="hover:text-sky-500 hover:underline hover:underline-offset-2 md:mb-2 transition text-md font-extralight hover:font-semibold">Home</Link>
                     <Link href="leaderboard" className="hover:text-sky-500 hover:underline hover:underline-offset-2 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">Leaderboard</Link>
                     <Link href="/projects" className="hover:text-sky-500 hover:underline hover:underline-offset-2 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">Projects</Link>
-                    <Link href="/sponsers" className="hover:text-sky-500 hover:underline hover:underline-offset-2 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">Sponsers</Link>
+                    <Link href="/sponsors" className="hover:text-sky-500 hover:underline hover:underline-offset-2 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">Sponsers</Link>
                     <Link href="/faq" className="hover:text-sky-500 hover:underline hover:underline-offset-2 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">FAQ</Link>
                 </div>
             </div>
@@ -74,7 +71,7 @@ export const Footer = () => {
             </div>
 
             <div className="text-center md:mt-[30px] sm:mt-[5px] md:col-span-3">
-                Copyright maybe
+                Copyright © 2022-2023 PEC ACM CSS. All Rights Reserved
             </div>
         </div>
     )

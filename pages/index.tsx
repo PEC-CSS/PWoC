@@ -6,7 +6,6 @@ import snowfall from '../public/assets/animations/snowfall.json'
 import Lottie from "react-lottie-player";
 import { useState } from "react";
 import Snowfall from "react-snowfall";
-import { Footer } from '../components/Footer';
 import PageLayout from '../components/layout/PageLayout';
 
 const Home: NextPage = () => {
@@ -20,7 +19,7 @@ const Home: NextPage = () => {
             </div>
             <div>-- some about us stuff --</div>
             <div>-- sponsors --</div>
-            <div>
+            <div className="relative z-[-1]">
                 <p>Timeline</p>
                 <Timeline />
             </div>

@@ -82,7 +82,7 @@ export const Navbar = () => {
                         } transition-all flex-wrap md:hidden`}
                     >
                         <div className="py-[.5px] w-64">
-                            <div className="w-full py-4 space-y-6 px-2 text-gray-900 glassmorphism rounded-lg min-h-screen  text-left capitalize font-medium shadow-lg">
+                            <div className="w-full py-4 space-y-6 px-2 text-gray-900 glassmorphism bg-[rgba(0,0,0,0.7)] rounded-lg min-h-screen text-left capitalize font-medium shadow-lg">
                                 {/* Logo */}
                                 <Image
                                     src="https://avatars.githubusercontent.com/u/54832562?s=200&v=4"
