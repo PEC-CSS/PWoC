@@ -19,7 +19,7 @@ const Home: NextPage = () => {
             </div>
             <div>-- some about us stuff --</div>
             <div>-- sponsors --</div>
-            <div className="relative z-[-1]">
+            <div>
                 <p>Timeline</p>
                 <Timeline />
             </div>

@@ -1,10 +1,10 @@
 import { NextPage } from 'next';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import PageLayout from '../components/layout/PageLayout';
 import { Search } from '../components/projects/Search';
 import { SearchResults } from '../components/projects/SearchResults';
-import {getProjects} from "../public/spreadsheet";
-import {Project} from "../public/types";
+import { getProjects } from "../public/spreadsheet";
+import { Project } from "../public/types";
 import Lottie from "react-lottie-player";
 import loading from '../public/assets/animations/loading.json';
 import notfound from '../public/assets/animations/notfound.json';
@@ -25,7 +25,7 @@ const Projects: NextPage = () => {
 
 	const onSearch = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if(!projects)
+		if (!projects)
 			return
 
 		if (!searchTerm.trim().length) {
@@ -51,33 +51,35 @@ const Projects: NextPage = () => {
 	return (
 		<PageLayout title="PWOC | PEC winter of code">
 			<div>
-				<Search
-					onSearch={onSearch}
-					searchTerm={searchTerm}
-					setSearchTerm={setSearchTerm}
-				/>
-				{
-					!projects ? (
-						<Lottie
-							play
-							loop
-							animationData={loading}
-							className="h-[200px] w-auto"
-						/>
-					) : projectSearchResults.length > 0 ? (
-						<SearchResults projects={projectSearchResults} />
-					) : (
-						<div className="flex flex-col items-center mb-[20px]">
+				<div className='relative z-[-1]'>
+					<Search
+						onSearch={onSearch}
+						searchTerm={searchTerm}
+						setSearchTerm={setSearchTerm}
+					/>
+					{
+						!projects ? (
 							<Lottie
 								play
 								loop
-								animationData={notfound}
-								className="h-[300px] w-auto md:h-[250px]"
+								animationData={loading}
+								className="h-[200px] w-auto"
 							/>
-							<div className="text-[30px] font-bold md:text-[20px]">No results found :(</div>
-						</div>
-					)
-				}
+						) : projectSearchResults.length > 0 ? (
+							<SearchResults projects={projectSearchResults} />
+						) : (
+							<div className="flex flex-col items-center mb-[20px]">
+								<Lottie
+									play
+									loop
+									animationData={notfound}
+									className="h-[300px] w-auto md:h-[250px]"
+								/>
+								<div className="text-[30px] font-bold md:text-[20px]">No results found :(</div>
+							</div>
+						)
+					}
+				</div>
 			</div>
 		</PageLayout>
 	);
