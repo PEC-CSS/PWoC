@@ -49,9 +49,9 @@ const Projects: NextPage = () => {
 	};
 
 	return (
-		<PageLayout title="Projects">
+		<PageLayout title="PWOC | Projects">
 			<div>
-				<div className='relative z-[-1]'>
+				<div className=''>
 					<Search
 						onSearch={onSearch}
 						searchTerm={searchTerm}

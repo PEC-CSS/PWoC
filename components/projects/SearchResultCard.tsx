@@ -15,16 +15,14 @@ export const SearchResultCard = ({ project }: { project: Project }) => {
 			onMouseLeave={() => setHover(false)}
 		>
 			<div
-				className={`relative shadow-[0_25px_20px_-21px_rgb(0,0,0,57%)] bg-[#000814] min-h-[250px] rounded-lg flex ${
+				className={`shadow-[0_25px_20px_-21px_rgb(0,0,0,57%)] bg-[#000814] min-h-[250px] rounded-lg flex ${
 					hover ? 'bg-[#000000bf]' : ''
 				}`}
 			>
 				<Image
 					src='https://winterofcode.com/static/media/woc.a24fa30d.png'
 					alt='Project Logo'
-					className={`m-auto rounded-lg ${
-						hover ? 'opacity-100' : ''
-					}`}
+					className={`m-auto rounded-lg hover:opacity-100`}
 					width={300}
 					height={200}
 				/>
@@ -32,9 +30,7 @@ export const SearchResultCard = ({ project }: { project: Project }) => {
 					href={project.githubLink}
 					target='_blank'
 					rel='noreferrer'
-					className={`absolute top-0 left-0 w-full h-full rounded-lg ${
-						hover ? 'bg-[#000000bf]' : ''
-					}`}
+					className={`absolute top-0 left-0 w-full h-full rounded-lg hover:bg-[#000000bf]`}
 				/>
 				<b
 					className={`actions absolute top-1/2 left-0 w-full h-0 text-center z-[3] transition-all ease-[cubic-bezier(0.17, 0.67, 0.83, 0.67)] duration-500 delay-[0ms] ${

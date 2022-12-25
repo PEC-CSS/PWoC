@@ -68,7 +68,7 @@ const Leaderboard: NextPage = () => {
 
     return (
 
-        <PageLayout title="Leaderboard">
+        <PageLayout title="PWOC | Leaderboard">
             <div className="flex items-center flex-col">
                 <Head>
                     <title>Leaderboard</title>
