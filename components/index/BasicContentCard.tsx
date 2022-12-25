@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from "next/image"
+
 type Props = {
     title: string;
     content: string;
