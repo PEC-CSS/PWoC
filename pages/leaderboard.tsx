@@ -75,7 +75,7 @@ const Leaderboard: NextPage = () => {
                     <meta name="description" content="Leaderboard for winter of code" />
                 </Head>
                 {
-                    leaderboard.length > 0 ? (
+                    leaderboard.length > 0 && process.env.NEXT_PUBLIC_DEV ? (
                         <>
                             <TopThree topList={leaderboard.slice(0, 3)} />
                             <LeaderboardTable leaderboard={leaderboard} />

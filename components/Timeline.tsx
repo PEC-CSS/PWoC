@@ -4,50 +4,54 @@ import {
     VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { AiFillApple } from "react-icons/ai";
+import {AiOutlineForm} from "react-icons/ai";
+import {Handshake, LaptopMac, Lock} from "@mui/icons-material";
+import {MdChecklist} from "react-icons/md";
+import {GiFinishLine} from "react-icons/gi";
+import {BiTrophy} from "react-icons/bi";
 
 const events = [
     {
         title: "Registrations Open",
-        subtitle: "for mentors and contributors",
         date: "25 December 2022",
-        description: "The time has come to register for pwoc, lfg bois"
+        description: "Registrations begin for mentors and mentees",
+        icon: <AiOutlineForm />
     },
     {
         title: "Registrations Close",
-        subtitle: "fill the form plaj",
         date: "14 January 2023",
-        description: "The time has come to register for pwoc, lfg bois"
+        description: "The registration period ends and final projects are displayed",
+        icon: <Lock />
     },
     {
         title: "Community Bonding",
-        subtitle: "fill the form plaj",
         date: "15 January 2023",
-        description: "The time has come to register for pwoc, lfg bois"
+        description: "Time to know each other before the coding begins :)",
+        icon: <Handshake />
     },
     {
         title: "Coding Period Begins",
-        subtitle: "fill the form plaj",
         date: "16 January 2023",
-        description: "The time has come to register for pwoc, lfg bois"
+        description: "The program is kicked off, mentees begin contributing to the listed projects",
+        icon: <LaptopMac />
     },
     {
         title: "Mid-Evaluation",
-        subtitle: "fill the form plaj",
         date: "7 February 2023",
-        description: "The time has come to register for pwoc, lfg bois"
+        description: "Half time's up! The performance of mentees is evaluated",
+        icon: <MdChecklist />
     },
     {
         title: "Coding Period ends",
-        subtitle: "fill the form plaj",
         date: "28 February 2023",
-        description: "The time has come to register for pwoc, lfg bois"
+        description: "The contributing period comes to an end, no more pull requests will be made after this",
+        icon: <GiFinishLine />
     },
     {
-        title: "Final Results announced",
-        subtitle: "fill the form plaj",
+        title: "Final Results Announced",
         date: "14 March 2023",
-        description: "The time has come to register for pwoc, lfg bois"
+        description: "The final leaderboard is released after all pending pull requests are merged. Time to congratulate the winners!",
+        icon: <BiTrophy />
     }
 ]
 
@@ -75,13 +79,17 @@ function Timeline() {
                                 }}
                                 date={event.date}
                                 dateClassName="text-white"
-                                iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff"}}
-                                icon={<AiFillApple />}
+                                iconStyle={{
+                                    background: "rgb(2,36,61,0.3)",
+                                    color: "#fff",
+                                    backdropFilter: "blur(8px)"
+                                }}
+                                icon={event.icon}
                             >
-                                <h3 className="vertical-timeline-element-title">
+                                <h3 className="vertical-timeline-element-title font-bold text-[20px] underline decoration-gray-400 decoration-4">
                                     {event.title}
                                 </h3>
-                                <p>
+                                <p className="font-extralight">
                                     {event.description}
                                 </p>
                             </VerticalTimelineElement>

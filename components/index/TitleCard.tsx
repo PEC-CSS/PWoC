@@ -13,7 +13,7 @@ export const TitleCard = ({title, subtitle, content} : Props) => {
                 <div className="text-2xl md:text-4xl">{subtitle}</div>
             </div>
             {/* Content */}
-            <div className='text-lg text-[#929ab3]'>
+            <div className='text-lg text-[#929ab3] italic'>
                 {content}
             </div>
         </div>
