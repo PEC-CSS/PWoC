@@ -8,7 +8,7 @@ export const RegistrationCard = () => {
       <div className="text-4xl md:text-6xl p-3 mb-4 text-[#ef8220] uppercase text-center bg-[#cc66a24d] glassmorphism">REGISTRATION</div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 place-items-center">
-        <div className="md:mr-8">
+        <div className="md:mx-8">
           <BasicContentCard
               title="Mentee"
               content={content.menteeRegisDesc}
@@ -35,7 +35,7 @@ export const RegistrationCard = () => {
 
         </div>
 
-        <div className="md:mr-8">
+        <div className="md:mx-8">
           <BasicContentCard
               title="Mentor"
               content={content.mentorRegisDesc}

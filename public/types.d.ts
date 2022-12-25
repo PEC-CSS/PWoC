@@ -55,3 +55,11 @@ export type Faq = {
     title: string,
     description: string
 }
+
+export type Contributor = {
+    name: string,
+    email: string,
+    githubLink: string,
+    mobileNumber: number,
+    college: string
+}
