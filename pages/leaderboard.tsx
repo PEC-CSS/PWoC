@@ -59,11 +59,13 @@ const Leaderboard: NextPage = () => {
         console.log(leaderboard)
         return leaderboard
     }
+
     useEffect(() => {
         getPullRequests()
             .then(itemList => setLeaderboard(itemList))
             .catch(error => console.error(error))
     }, [])
+
     return (
 
         <PageLayout title="Leaderboard">
@@ -84,7 +86,7 @@ const Leaderboard: NextPage = () => {
                                 play
                                 loop
                                 animationData={snowman}
-                                className="h-[300px] w-auto"
+                                className="h-[300px] w-auto my-[30px]"
                             />
                             <div className="font-bold text-[30px] animate-pulse">Preparing the leaderboard...</div>
                         </div>

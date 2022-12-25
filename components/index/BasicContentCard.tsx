@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from "next/image"
+import React from "react";
 
 type Props = {
     title: string;
@@ -6,9 +7,10 @@ type Props = {
     img?: StaticImageData;
     containerClass?: string;
     titleClass: string;
+    children?: JSX.Element
 }
 
-export const BasicContentCard = ({title, content, img, containerClass, titleClass} : Props) => {
+export const BasicContentCard = ({title, content, img, containerClass, titleClass, children} : Props) => {
   return (
     <div className={`${containerClass} glassmorphism bg-[#14000600]`}>
         <div className={`text-[#ef8220] uppercase ${titleClass} text-center bg-[#cc66a298] glassmorphism`}>{title}</div>
@@ -20,6 +22,7 @@ export const BasicContentCard = ({title, content, img, containerClass, titleClas
                 <Image src={img} alt="linux logo" className="w-[250px] h-[250px]" />
             </div>}
         </div>
+        {children}
     </div>
   )
 }
