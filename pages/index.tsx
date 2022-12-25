@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { NextPage } from "next";
 import Timeline from '../components/Timeline';
-import Lottie from "react-lottie-player";
 import { useState } from "react";
 import pwoc_logo_no_text from "../public/assets/logo/pwoc_logo_no_text.png";
 import linux_logo from "../public/assets/logo/linux_logo.png";

@@ -1,5 +1,3 @@
-import Image from "next/image"
-import pwoc_logo from "../../public/assets/logo/pwoc_logo.png"
 import { BasicContentCard } from "./BasicContentCard"
 
 export const RegistrationCard = () => {
