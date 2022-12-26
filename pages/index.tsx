@@ -44,7 +44,7 @@ const Home: NextPage = () => {
                 <RegistrationCard />
             </div>
             <div className="my-6">
-                <div className={`text-[#ef8220] mx-[40px] text-2xl sm:text-3xl md:text-6xl p-4 uppercase text-center bg-[#cc66a24c] glassmorphism`}>Timeline</div>
+                <div className={`text-[#ef8220] mx-[40px] text-2xl sm:text-3xl md:text-6xl p-4 uppercase text-center bg-[#cc66a24c] glassmorphism break-words`}>Timeline</div>
                 <Timeline />
             </div>
         </PageLayout>
