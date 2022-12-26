@@ -86,7 +86,7 @@ function Timeline() {
                                 }}
                                 icon={event.icon}
                             >
-                                <h3 className="vertical-timeline-element-title font-bold text-[20px] underline decoration-gray-400 decoration-4">
+                                <h3 className="vertical-timeline-element-title font-bold text-[20px] underline decoration-gray-400 decoration-4 break-words">
                                     {event.title}
                                 </h3>
                                 <p className="font-extralight">

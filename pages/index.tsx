@@ -37,14 +37,14 @@ const Home: NextPage = () => {
                     content={content.pwocAbout}
                     img={programmer}
                     containerClass="border-2 p-4 md:py-8 md:px-10"
-                    titleClass = 'text-4xl md:text-6xl p-4' />
+                    titleClass = 'text-2xl sm:text-3xl md:text-6xl p-4' />
             </div>
 
             <div className='md:mx-4 mx-[4px] my-7'>
                 <RegistrationCard />
             </div>
             <div className="my-6">
-                <div className={`text-[#ef8220] mx-[40px] text-4xl md:text-6xl p-4 uppercase text-center bg-[#cc66a24c] glassmorphism`}>Timeline</div>
+                <div className={`text-[#ef8220] mx-[40px] text-2xl sm:text-3xl md:text-6xl p-4 uppercase text-center bg-[#cc66a24c] glassmorphism break-words`}>Timeline</div>
                 <Timeline />
             </div>
         </PageLayout>
