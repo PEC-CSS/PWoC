@@ -1,32 +1,32 @@
 [
     {
         "icon": "FavoriteBorderIcon",
-        "title": "Is there a free trial available?",
-        "description": "Yes, you can try us for free for 30 days. Our friendly team will work with you to get you up and running as soon as possible."
+        "title": "I am just a beginner, can I participate?",
+        "description": "Yes, that's exactly the reason you should participate as the program will provide you the experience of open source contribution and assist you in improving your development skills."
     },
     {
         "icon": "SyncAltIcon",
-        "title": "Can I change my plan later?",
-        "description": "Of course. Our pricing scales with your company. Chat to our friendly team to find a solution that works for you."
+        "title": "What is the criteria for selection?",
+        "description": "There's no criteria for selection as we wish to provide everyone an opportunity to learn and grow through this program. You just need to fill the registration form."
     },
     {
         "icon": "BlockIcon",
-        "title": "What is your cancellation policy?",
-        "description": "We understand that things change. You can cancel your plan at any time and we’ll refund you the difference already paid."
+        "title": "How many projects can I contribute to?",
+        "description": "There's no restriction on the number of projects you can contribute to. You can contribute to any project at any time."
     },
     {
         "icon": "FeedIcon",
-        "title": "Can other info be added to an invoice?",
-        "description": "Yes, you can try us for free for 30 days. If you want, we’ll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible."
-    },
-    {
-        "icon": "CreditCardIcon",
-        "title": "How does billing work?",
-        "description": "Plans are per workspace, not per account. You can upgrade one workspace, and still have any number of free workspaces."
+        "title": "How can I contact a project's mentor?",
+        "description": "All communications will be carried out through our discord server. There will be channels created for each of the listed projects."
     },
     {
         "icon": "MailOutlineIcon",
-        "title": "How do I change my account email?",
-        "description": "You can change the email address associated with your account by going to untitled.com/account from a laptop or desktop."
+        "title": "How does this whole thing work?",
+        "description": "Mentors will be responsible for creating issues, which will then be assigned on FCFS basis. After a pull request is merged, points will be awarded based on the difficulty assigned by the mentor."
+    },
+    {
+        "icon": "CreditCardIcon",
+        "title": "Will there be any rewards?",
+        "description": "Participation certificates will be given to all contributors and the top contributors will be awarded with some special rewards :)"
     }
 ]

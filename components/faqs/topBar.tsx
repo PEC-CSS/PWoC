@@ -5,7 +5,7 @@ export const TopBar = () => {
 				Frequently asked questions
 			</span>
 			<p className='text-lg md:text-xl text-gray-200'>
-				Everything you need to know about the product and billing.
+				Everything you need to know about this program (ɔ◔‿◔)ɔ ♥
 			</p>
 		</div>
 	);
