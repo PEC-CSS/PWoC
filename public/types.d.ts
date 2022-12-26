@@ -51,7 +51,7 @@ type Project = {
 }
 
 export type Faq = {
-    icon: string,
+    icon: JSX.Element,
     title: string,
     description: string
 }

@@ -8,7 +8,7 @@ import { TitleCard } from '../components/index/TitleCard';
 import { BasicContentCard } from '../components/index/BasicContentCard';
 import { RegistrationCard } from '../components/index/RegistrationCard';
 import content from '../data/content.json'
-import tech from '../public/assets/animations/tech.json'
+import programmer from '../public/assets/animations/programmer.json'
 
 const Home: NextPage = () => {
 
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
                 <BasicContentCard
                     title="About us"
                     content={content.pwocAbout}
-                    img={tech}
+                    img={programmer}
                     containerClass="border-2 p-4 md:py-8 md:px-10"
                     titleClass = 'text-4xl md:text-6xl p-4' />
             </div>

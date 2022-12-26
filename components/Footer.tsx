@@ -8,7 +8,7 @@ import { IconContext } from "react-icons/lib";
 export const Footer = () => {
     return (
         <div className="glassmorphism border-0 bg-[rgba(20,0,6,0.7)] mt-[10px] grid grid-cols-1 md:grid-cols-3 md:px-7 px-2 md:pt-5 sm:pt-2 pb-1 space-y-4 md:space-y-0">
-            <div className="grid grid-cols-1">
+            <div className="flex flex-col">
                 <div className="flex justify-center md:justify-start space-x-2 h-[60px]">
 
                     <div className={`text-2xl md:text-[1.1rem] lg:text-2xl uppercase flex flex-col justify-center`}>
@@ -26,7 +26,7 @@ export const Footer = () => {
                     <div>
                         <Image src={pwoc_text_logo} alt="text logo" className="w-[150px] h-[46px] md:h-[62.6px] md:w-[200px] mx-auto md:mx-0" />
                     </div>
-                    <div className="text-center md:text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, accusamus.</div>
+                    <div className="text-center md:text-left">An initiative by PEC ACM CSS</div>
                 </div>
             </div>
 
@@ -35,7 +35,7 @@ export const Footer = () => {
                     <Link href="/" className="md:hover:text-sky-500 md:mb-2 transition text-md font-extralight hover:font-semibold">Home</Link>
                     <Link href="leaderboard" className="md:hover:text-sky-500 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">Leaderboard</Link>
                     <Link href="/projects" className="md:hover:text-sky-500 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">Projects</Link>
-                    <Link href="/sponsors" className="md:hover:text-sky-500 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">Sponsers</Link>
+                    <Link href="/events" className="md:hover:text-sky-500 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">Events</Link>
                     <Link href="/faq" className="md:hover:text-sky-500 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">FAQ</Link>
                 </div>
             </div>

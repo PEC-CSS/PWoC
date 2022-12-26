@@ -81,7 +81,7 @@ const Leaderboard: NextPage = () => {
                             <LeaderboardTable leaderboard={leaderboard} />
                         </>
                     ) : (
-                        <div className="flex flex-col items-center">
+                        <div className="flex flex-col items-center my-[30px]">
                             <Lottie
                                 play
                                 loop

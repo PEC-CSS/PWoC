@@ -4,10 +4,10 @@ import { AiOutlineMenuUnfold, AiOutlineMenuFold } from "react-icons/ai";
 import { TbHome2, TbLayoutDashboard } from "react-icons/tb";
 import { HiTemplate } from "react-icons/hi";
 import { GiSellCard } from "react-icons/gi";
-import { AiFillCrown } from "react-icons/ai";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import pwoc_text from "../public/assets/logo/pwoc_text.png"
+import {BiCalendarEvent} from "react-icons/bi";
 
 export const Navbar = () => {
     const [isMobileNavOpen, setisMobileNavOpen] = useState(false); // For toggling the mobile nav
@@ -140,9 +140,9 @@ const navLinks = [
         icon: <HiTemplate />,
     },
     {
-        title: "Sponsors",
-        link: "/sponsors",
-        icon: <AiFillCrown />,
+        title: "Events",
+        link: "/events",
+        icon: <BiCalendarEvent />,
     },
     {
         title: "FAQ's",
