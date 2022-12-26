@@ -17,7 +17,7 @@ const Home: NextPage = () => {
 
             <div className='flex bg-[#c9305498] glassmorphism py-4 md:py-8 my-7 md:mx-5'>
 
-                <div className='hidden md:flex justify-start h-[300px] w-[700px] my-auto overflow-hidden'>
+                <div className='hidden [@media(min-width:830px)]:flex justify-start h-[200px] w-[400px] my-auto overflow-hidden'>
                     <Image src={pwoc_logo_no_text} alt="" className='animate-[spin_8s_linear_infinite] object-contain brightness-150' />
                 </div>
                 {/* Big Card */}
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
                     <TitleCard title="PWOC" subtitle="PEC Winter of Code" content={content.pwocTitleQuote} />
                 </div>
 
-                <div className='hidden md:flex justify-end h-[300px] w-[700px] my-auto overflow-hidden'>
+                <div className='hidden [@media(min-width:830px)]:flex justify-end h-[200px] w-[400px] my-auto overflow-hidden'>
                     <Image src={pwoc_logo_no_text} alt="" className='animate-[spin_8s_linear_infinite] object-contain brightness-150' />
                 </div>
             </div>

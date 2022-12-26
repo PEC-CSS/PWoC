@@ -35,7 +35,7 @@ export const Navbar = () => {
                                     />
                                 </span>
                             </Link>
-                            <div className="px-2 md:flex gap-x-5 items-center flex-1 text-gray-900 font-medium capitalize hidden justify-end">
+                            <div className="px-2 md:flex gap-x-4 [@media(max-width:840px)]:gap-x-[1px] items-center flex-1 text-gray-900 font-medium capitalize hidden justify-end">
                                 {/* Links */}
                                 {navLinks?.map(({ title, link, icon }, id) => (
                                     <Link key={id} href={link}>
