@@ -11,7 +11,7 @@ function Events() {
                 play
                 loop
                 animationData={calendar}
-                className="h-[300px] w-auto my-[30px]"
+                className="h-[300px] w-auto my-[30px] z-10"
             />
             <div className="font-bold text-[30px] animate-pulse">Coming soon...</div>
         </div>

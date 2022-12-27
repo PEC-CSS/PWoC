@@ -4,13 +4,13 @@ interface searchProps {
 	onSearch: (e: React.FormEvent<HTMLFormElement>) => void,
 	searchTerm: string,
 	setSearchTerm: (searchTerm: string) => void,
-};
+}
 
 export const Search = ({onSearch, searchTerm, setSearchTerm} : searchProps) => {
 	return (
 		<div className='flex justify-center items-center'>
-			<div className='glassmorphism container m-auto my-4 sm:m-8 bg-[rgba(99,102,241,0.3)] rounded-lg p-14'>
-				<form onSubmit={onSearch}>
+			<div className='glassmorphism container m-auto mx-2 my-4 sm:m-8 bg-[rgba(99,102,241,0.3)] rounded-lg py-14 px-3 md:px-14'>
+				<form onSubmit={onSearch} >
 					<h1 className='text-center font-bold text-white text-4xl'>
 						Search a project name or tech stack
 						<p className='mx-auto font-normal text-sm my-6 max-w-lg'></p>

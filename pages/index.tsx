@@ -13,7 +13,7 @@ import programmer from '../public/assets/animations/programmer.json'
 const Home: NextPage = () => {
 
     return (
-        <PageLayout title="PWOC | PEC winter of code">
+        <PageLayout title="PWOC | PEC Winter of Code">
 
             <div className='flex bg-[#c9305498] glassmorphism py-4 md:py-8 my-7 md:mx-5'>
 
