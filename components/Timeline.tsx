@@ -13,43 +13,43 @@ import {BiTrophy} from "react-icons/bi";
 const events = [
     {
         title: "Registrations Open",
-        date: "25 December 2022",
+        date: "9 January 2023",
         description: "Registrations begin for mentors and mentees",
         icon: <AiOutlineForm />
     },
     {
         title: "Registrations Close",
-        date: "14 January 2023",
+        date: "24 January 2023",
         description: "The registration period ends and final projects are displayed",
         icon: <Lock />
     },
     {
         title: "Community Bonding",
-        date: "15 January 2023",
+        date: "25 January 2023",
         description: "Time to know each other before the coding begins :)",
         icon: <Handshake />
     },
     {
         title: "Coding Period Begins",
-        date: "16 January 2023",
+        date: "26 January 2023",
         description: "The program is kicked off, mentees begin contributing to the listed projects",
         icon: <LaptopMac />
     },
     {
         title: "Mid-Evaluation",
-        date: "7 February 2023",
+        date: "14 February 2023",
         description: "Half time's up! The performance of mentees is evaluated",
         icon: <MdChecklist />
     },
     {
         title: "Coding Period ends",
-        date: "28 February 2023",
+        date: "1 March 2023",
         description: "The contributing period comes to an end, no more pull requests will be made after this",
         icon: <GiFinishLine />
     },
     {
         title: "Final Results Announced",
-        date: "14 March 2023",
+        date: "10 March 2023",
         description: "The final leaderboard is released after all pending pull requests are merged. Time to congratulate the winners!",
         icon: <BiTrophy />
     }

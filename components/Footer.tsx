@@ -71,7 +71,7 @@ export const Footer = () => {
             </div>
 
             <div className="text-center md:mt-[30px] sm:mt-[5px] md:col-span-3">
-                Copyright © 2022-2023 PEC ACM CSS. All Rights Reserved
+                Copyright © 2023 PEC ACM CSS. All Rights Reserved
             </div>
         </div>
     )
