@@ -26,7 +26,7 @@ const ExpandMore = styled((props) => {
 }));
 
 export const PullRequestsDialogItem = ({ pr }: { pr: PullRequest }) => {
-    console.log(pr);
+
     const [expanded, setExpanded] = useState(false);
 
     const handleExpandClick = () => {
