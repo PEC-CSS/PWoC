@@ -27,7 +27,7 @@ const headers = async () => {
 
 const nextConfig = {
 	reactStrictMode: true,
-	swcMinify: true,
+	swcMinify: false,
 	env: {
 		ACCESS_TOKEN: process.env.ACCESS_TOKEN,
 		PRIVATE_KEY_ID: process.env.PRIVATE_KEY_ID,
