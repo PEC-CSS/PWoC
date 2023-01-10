@@ -3,30 +3,31 @@ import React, { useEffect, useState } from 'react';
 import PageLayout from '../components/layout/PageLayout';
 import { Search } from '../components/projects/Search';
 import { SearchResults } from '../components/projects/SearchResults';
-import { getProjects } from "../public/spreadsheet";
-import { Project } from "../public/types";
-import Lottie from "react-lottie-player";
+import { getProjects } from '../public/spreadsheet';
+import { Project } from '../public/types';
+import Lottie from 'react-lottie-player';
 import loading from '../public/assets/animations/loading.json';
 import notfound from '../public/assets/animations/notfound.json';
 
 const Projects: NextPage = () => {
 	const [searchTerm, setSearchTerm] = useState('');
-	const [projects, setProjects] = useState<Project[]>()
-	const [projectSearchResults, setProjectSearchResults] = useState<Project[]>([]);
+	const [projects, setProjects] = useState<Project[]>();
+	const [projectSearchResults, setProjectSearchResults] = useState<Project[]>(
+		[]
+	);
 
 	useEffect(() => {
 		getProjects()
-			.then(projs => {
-				setProjects(projs)
-				setProjectSearchResults(projs)
+			.then((projs) => {
+				setProjects(projs);
+				setProjectSearchResults(projs);
 			})
-			.catch(error => console.error(error))
-	}, [])
+			.catch((error) => console.error(error));
+	}, []);
 
 	const onSearch = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (!projects)
-			return
+		if (!projects) return;
 
 		if (!searchTerm.trim().length) {
 			setProjectSearchResults(projects);
@@ -49,7 +50,10 @@ const Projects: NextPage = () => {
 	};
 
 	return (
-		<PageLayout title="PWOC | Projects">
+		<PageLayout
+			title='PWOC | Projects'
+			description='List of the available projects in PWoC. Choose and contribute.'
+		>
 			<div>
 				<div className=''>
 					<Search
@@ -57,28 +61,28 @@ const Projects: NextPage = () => {
 						searchTerm={searchTerm}
 						setSearchTerm={setSearchTerm}
 					/>
-					{
-						!projects ? (
+					{!projects ? (
+						<Lottie
+							play
+							loop
+							animationData={loading}
+							className='h-[200px] w-auto'
+						/>
+					) : projectSearchResults.length > 0 ? (
+						<SearchResults projects={projectSearchResults} />
+					) : (
+						<div className='flex flex-col items-center mb-[20px]'>
 							<Lottie
 								play
 								loop
-								animationData={loading}
-								className="h-[200px] w-auto"
+								animationData={notfound}
+								className='h-[300px] w-auto md:h-[250px]'
 							/>
-						) : projectSearchResults.length > 0 ? (
-							<SearchResults projects={projectSearchResults} />
-						) : (
-							<div className="flex flex-col items-center mb-[20px]">
-								<Lottie
-									play
-									loop
-									animationData={notfound}
-									className="h-[300px] w-auto md:h-[250px]"
-								/>
-								<div className="text-[30px] font-bold md:text-[20px]">No results found :(</div>
+							<div className='text-[30px] font-bold md:text-[20px]'>
+								No results found :(
 							</div>
-						)
-					}
+						</div>
+					)}
 				</div>
 			</div>
 		</PageLayout>

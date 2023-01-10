@@ -1,0 +1,19 @@
+{
+    "name": "PWoC | PEC Winter of Code",
+    "short_name": "PWoC",
+    "icons": [
+        {
+            "src": "/assets/icons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/icons/android-chrome-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#49000f",
+    "background_color": "#49000f",
+    "display": "standalone"
+}

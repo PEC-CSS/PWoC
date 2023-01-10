@@ -24,6 +24,7 @@
     "eslint-config-next": "13.0.3",
     "google-spreadsheet": "^3.3.0",
     "next": "13.0.3",
+    "next-pwa": "^5.6.0",
     "octokit": "^2.0.10",
     "react": "18.2.0",
     "react-card-flip": "^1.2.0",
