@@ -56,6 +56,9 @@ function PageLayout({ title = "PWOC | PEC winter of code", children, description
                 <meta property="og:description" content={description} />
                 <meta property="og:image" content="https://res.cloudinary.com/rahulsharma/image/upload/v1673332670/pwoc_logo_bg_ih764w.png" />
                 <meta property='og:site_name' content='PWOC | PEC winter of code' />
+                
+                <meta name="keywords" content="pwoc, 2k23, pec, winter, developer, code, pec winter of code, pwoc 2023" />
+                <meta name="google-site-verification" content="9XwhLNrq9VaXZa_nwxxci0nhRlxx96-Ww0Nu_shbfhE" />
             </Head>
             <div className="z-[100]">
                 <Navbar />            
