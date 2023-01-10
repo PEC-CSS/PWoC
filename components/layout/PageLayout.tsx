@@ -38,7 +38,7 @@ function PageLayout({ title = "PWOC | PEC winter of code", children, description
 
                 <link rel='icon' type='image/png' sizes='32x32' href='/assets/icons/favicon-32x32.png' />
                 <link rel='icon' type='image/png' sizes='16x16' href='/assets/icons/favicon-16x16.png' />
-                <link rel='manifest' href='/assets/icons/site.webmanifest' />
+                <link rel='manifest' href='/manifest.json' />
                 <link rel='mask-icon' href='/assets/icons/safari-pinned-tab.svg' color='#49000f' />
                 <link rel='shortcut icon' href='/assets/icons/favicon.ico' />
                 <link rel='canonical' href='https://pwoc.vercel.app/' />
