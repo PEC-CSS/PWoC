@@ -14,7 +14,7 @@ export const SearchResultCard = ({ project }: { project: Project }) => {
 
 	return (
 		<ReactCardFlip
-			containerClassName="transition-all duration-100 ease-in-out h-[400px] [@media(min-width:992px)]:px-[5px] [@media(min-width:992px)]:w-[380px]"
+			containerClassName="transition-all duration-100 ease-in-out h-[430px] [@media(min-width:992px)]:px-[5px] [@media(min-width:992px)]:w-[380px]"
 			isFlipped={flip}
 		>
 			<div
@@ -25,7 +25,7 @@ export const SearchResultCard = ({ project }: { project: Project }) => {
 				</div>
 
 				<p
-					className={`text-white flex-auto text-base truncate overflow-visible whitespace-normal h-auto transition-all ease-[cubic-bezier(0.17, 0.67, 0.83, 0.67)] duration-500 delay-[0ms]`}
+					className={`text-white flex-auto text-base overflow-y-auto thin-scrollbar whitespace-normal h-[130px] transition-all ease-[cubic-bezier(0.17, 0.67, 0.83, 0.67)] duration-500 delay-[0ms] scroll-auto p-2`}
 				>
 					{project.description}
 				</p>
@@ -50,7 +50,7 @@ export const SearchResultCard = ({ project }: { project: Project }) => {
 							href={project.githubLink}
 							target='_blank'
 							rel='noreferrer'
-							className={`text-[24px] flex items-center justify-center inline-block w-[40px] h-[40px] bg-white opacity-100 border rounded-[50%] text-[#666] mx-1 hover:opacity-[.85]`}
+							className={`text-[24px] items-center justify-center flex w-[40px] h-[40px] bg-white opacity-100 border rounded-[50%] text-[#666] mx-1 hover:opacity-[.85]`}
 						>
 							<BsGithub />
 						</a>
@@ -62,7 +62,7 @@ export const SearchResultCard = ({ project }: { project: Project }) => {
 								href={project.deploymentLink}
 								target='_blank'
 								rel='noreferrer'
-								className={`text-[24px] flex items-center justify-center inline-block w-[40px] h-[40px] bg-white opacity-100 border rounded-[50%] text-[#666] mx-1 hover:opacity-[.85]`}
+								className={`text-[24px] flex items-center justify-center w-[40px] h-[40px] bg-white opacity-100 border rounded-[50%] text-[#666] mx-1 hover:opacity-[.85]`}
 							>
 								<LaptopIcon />
 							</a>
