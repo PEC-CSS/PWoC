@@ -36,7 +36,7 @@ export type Item = {
     points: number
 }
 
-type Project = {
+export type Project = {
     title: string,
     techStack: string[],
     description: string,

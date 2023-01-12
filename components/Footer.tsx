@@ -15,7 +15,7 @@ export const Footer = () => {
                         Join us on discord
                     </div>
                     <IconContext.Provider value={{ className: "bg-[#6370f4] md:bg-[#2f3136] hover:bg-[#6370f4] text-[40px] p-2 rounded-full" }}>
-                        <Link href="https://discord.gg/YcrXVhaBCZ" target="_blank" className="flex flex-col justify-center">
+                        <Link href="https://discord.gg/YcrXVhaBCZ" target="_blank" className="flex flex-col justify-center" aria-label="Join us on discord">
                             <SiDiscord />
                         </Link>
                     </IconContext.Provider>
@@ -31,12 +31,12 @@ export const Footer = () => {
             </div>
 
             <div className="flex justify-center align-middle">
-                <div className="flex flex-col margin-auto">
-                    <Link href="/" className="md:hover:text-sky-500 md:mb-2 transition text-md font-extralight hover:font-semibold">Home</Link>
-                    <Link href="leaderboard" className="md:hover:text-sky-500 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">Leaderboard</Link>
-                    <Link href="/projects" className="md:hover:text-sky-500 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">Projects</Link>
-                    <Link href="/events" className="md:hover:text-sky-500 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">Events</Link>
-                    <Link href="/faq" className="md:hover:text-sky-500 md:mb-2 sm:mb-0 transition text-md font-extralight hover:font-semibold">FAQ</Link>
+                <div className="flex flex-col justify-evenly items-center margin-auto">
+                    <Link href="/" className="md:hover:text-sky-500 tex md:mb-2 md:mt-0 mb-2 mt-1 transition text-md font-extralight hover:font-semibold">Home</Link>
+                    <Link href="leaderboard" className="md:hover:text-sky-500 tex md:mt-0 my-3 transition text-md font-extralight hover:font-semibold">Leaderboard</Link>
+                    <Link href="/projects" className="md:hover:text-sky-500 tex md:mt-0 my-3 transition text-md font-extralight hover:font-semibold">Projects</Link>
+                    <Link href="/events" className="md:hover:text-sky-500 tex md:mt-0 my-3 transition text-md font-extralight hover:font-semibold">Events</Link>
+                    <Link href="/faq" className="md:hover:text-sky-500 tex md:mt-0 my-3 transition text-md font-extralight hover:font-semibold">FAQ</Link>
                 </div>
             </div>
 
@@ -45,25 +45,25 @@ export const Footer = () => {
                 <div className="flex justify-center">
                     {/* Facebook, Github, Insta and Twitter */}
                     <IconContext.Provider value={{ className: "text-[38px] md:text-[30px] mx-[8px] md:mx-[6px] text-[#fe009b] md:text-white md:hover:text-[#fe009b] md:hover:translate-y-[-4px] ease-out duration-300" }}>
-                        <Link href="https://www.instagram.com/pecacm/" target="_blank">
+                        <Link href="https://www.instagram.com/pecacm/" target="_blank" aria-label="Instagram">
                             <SiInstagram />
                         </Link>
                     </IconContext.Provider>
 
                     <IconContext.Provider value={{ className: "text-[38px] md:text-[30px] md:text-white text-[#fe0b9bbbd09b] md:text-white md:hover:text-[#b9bbbd] mx-[8px] md:mx-[6px] md:hover:translate-y-[-4px] ease-out duration-300" }}>
-                        <Link href="https://github.com/PEC-CSS" target="_blank">
+                        <Link href="https://github.com/PEC-CSS" target="_blank" aria-label="Github">
                             <SiGithub />
                         </Link>
                     </IconContext.Provider>
 
                     <IconContext.Provider value={{ className: "text-[38px] md:text-[30px] text-[#1977f3] md:text-white md:hover:text-[#1977f3] md:text-white md:hover:text-[#1977f3] mx-[8px] md:mx-[6px] md:hover:translate-y-[-4px] ease-out duration-300" }}>
-                        <Link href="https://www.facebook.com/pecacm/" target="_blank">
+                        <Link href="https://www.facebook.com/pecacm/" target="_blank" aria-label="Facebook">
                             <SiFacebook />
                         </Link>
                     </IconContext.Provider>
 
                     <IconContext.Provider value={{ className: "text-[38px] md:text-[30px] text-[#1c9cf1] md:text-white md:hover:text-[#1c9cf1] mx-[8px] md:mx-[6px] md:hover:translate-y-[-4px] ease-out duration-300" }}>
-                        <Link href="https://www.twitter.com/pec_acm" target="_blank">
+                        <Link href="https://www.twitter.com/pec_acm" target="_blank" aria-label="Twitter">
                             <SiTwitter />
                         </Link>
                     </IconContext.Provider>
@@ -71,7 +71,7 @@ export const Footer = () => {
             </div>
 
             <div className="text-center md:mt-[30px] sm:mt-[5px] md:col-span-3">
-                Copyright © 2022-2023 PEC ACM CSS. All Rights Reserved
+                Copyright © 2023 PEC ACM CSS. All Rights Reserved
             </div>
         </div>
     )

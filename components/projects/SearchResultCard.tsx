@@ -1,78 +1,37 @@
-import Image from 'next/image';
 import { useState } from 'react';
 import LaptopIcon from '@mui/icons-material/Laptop';
 import Tooltip from '@mui/material/Tooltip';
-import {GitHub} from "@mui/icons-material";
 import {Project} from "../../public/types";
+import ReactCardFlip from "react-card-flip";
+import {BsGithub} from "react-icons/bs";
+import {TbArrowBigRight, TbArrowBigRightLine} from "react-icons/tb";
+import {IconContext} from "react-icons/lib";
+import Link from "next/link";
+import {SiGithub, SiGmail, SiLinkedin} from "react-icons/si";
 
 export const SearchResultCard = ({ project }: { project: Project }) => {
-	const [hover, setHover] = useState(false);
+	const [flip, setFlip] = useState(false);
 
 	return (
-		<div
-			className='glassmorphism bg-[rgba(0,0,0,0.3)] max-w-sm rounded overflow-hidden mx-auto pt-[10px] px-[15px] mb-[15px] transition-all duration-100 ease-in-out'
-			onMouseEnter={() => setHover(true)}
-			onMouseLeave={() => setHover(false)}
+		<ReactCardFlip
+			containerClassName="transition-all duration-100 ease-in-out h-[400px] [@media(min-width:992px)]:px-[5px] [@media(min-width:992px)]:w-[380px]"
+			isFlipped={flip}
 		>
 			<div
-				className={`shadow-[0_25px_20px_-21px_rgb(0,0,0,57%)] bg-[#000814] min-h-[250px] rounded-lg flex ${
-					hover ? 'bg-[#000000bf]' : ''
-				}`}
+				className='glassmorphism bg-[rgba(0,0,0,0.3)] max-w-lg rounded overflow-hidden mx-auto pt-[10px] px-[15px] mb-[15px] flex flex-col p-[15px] rounded-b-xl items-center h-full w-full'
 			>
-				<Image
-					src='https://winterofcode.com/static/media/woc.a24fa30d.png'
-					alt='Project Logo'
-					className={`m-auto rounded-lg hover:opacity-100`}
-					width={300}
-					height={200}
-				/>
-				<a
-					href={project.githubLink}
-					target='_blank'
-					rel='noreferrer'
-					className={`absolute top-0 left-0 w-full h-full rounded-lg hover:bg-[#000000bf]`}
-				/>
-				<b
-					className={`actions absolute top-1/2 left-0 w-full h-0 text-center z-[3] transition-all ease-[cubic-bezier(0.17, 0.67, 0.83, 0.67)] duration-500 delay-[0ms] ${
-						hover ? 'opacity-100' : 'opacity-0'
-					}`}
-				>
-					<Tooltip title='Github Repo' placement='top' arrow>
-						<a
-							href={project.githubLink}
-							target='_blank'
-							rel='noreferrer'
-							className={`text-[18px] p-[14px] leading-none inline-block w-[48px] h-[48px] top-1/2 relative bg-white opacity-100 border rounded-[30px] -translate-y-1/2 text-[#666] mx-1 hover:opacity-[.85]`}
-						>
-							<GitHub fontSize='small' />
-						</a>
-					</Tooltip>
-					{project.deploymentLink.length === 0 ? null : (
-						<Tooltip title='Live Preview' placement='top' arrow>
-							<a
-								href={project.deploymentLink}
-								target='_blank'
-								rel='noreferrer'
-								className={`text-[18px] p-[14px] leading-none inline-block w-[48px] h-[48px] top-1/2 relative bg-white opacity-100 border rounded-[30px] -translate-y-1/2 text-[#666] mx-1 hover:opacity-[.85]`}
-							>
-								<LaptopIcon fontSize='small' />
-							</a>
-						</Tooltip>
-					)}
-				</b>
-			</div>
-			<div className='flex flex-col p-[15px] rounded-b-xl justify-center items-center'>
-				<div>
-					<div className='font-bold text-xl mb-2 text-center mt-2.5'>
-						{project.title}
-					</div>
-					<p
-						className={`text-white text-base w-[300px] truncate overflow-visible whitespace-normal h-auto transition-all ease-[cubic-bezier(0.17, 0.67, 0.83, 0.67)] duration-500 delay-[0ms]`}
-					>
-						{project.description}
-					</p>
+				<div className='font-bold text-[35px] mb-2 text-center mt-2.5'>
+					{project.title}
 				</div>
-				<div className='pt-3 flex flex-wrap justify-center items-center'>
+
+				<p
+					className={`text-white flex-auto text-base truncate overflow-visible whitespace-normal h-auto transition-all ease-[cubic-bezier(0.17, 0.67, 0.83, 0.67)] duration-500 delay-[0ms]`}
+				>
+					{project.description}
+				</p>
+
+				<div className='pt-3 flex flex-wrap justify-center items-center flex-auto w-full'>
+
 					{project.techStack.map((techStack, idx) => (
 						<div
 							className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'
@@ -81,8 +40,69 @@ export const SearchResultCard = ({ project }: { project: Project }) => {
 							{techStack}
 						</div>
 					))}
+
 				</div>
+
+				<div className="flex flex-row items-center justify-evenly my-[10px] w-full">
+
+					<Tooltip title='Github Repo' placement='top' arrow>
+						<a
+							href={project.githubLink}
+							target='_blank'
+							rel='noreferrer'
+							className={`text-[24px] flex items-center justify-center inline-block w-[40px] h-[40px] bg-white opacity-100 border rounded-[50%] text-[#666] mx-1 hover:opacity-[.85]`}
+						>
+							<BsGithub />
+						</a>
+					</Tooltip>
+
+					{project.deploymentLink.length === 0 ? null : (
+						<Tooltip title='Live Preview' placement='top' arrow>
+							<a
+								href={project.deploymentLink}
+								target='_blank'
+								rel='noreferrer'
+								className={`text-[24px] flex items-center justify-center inline-block w-[40px] h-[40px] bg-white opacity-100 border rounded-[50%] text-[#666] mx-1 hover:opacity-[.85]`}
+							>
+								<LaptopIcon />
+							</a>
+						</Tooltip>
+					)}
+
+				</div>
+
+				<TbArrowBigRight className="cursor-pointer text-[25px]" onClick={() => setFlip(true)} />
+
 			</div>
-		</div>
+			<div
+				className="glassmorphism bg-[rgba(0,0,0,0.3)] max-w-sm rounded overflow-hidden mx-auto p-[15px] mb-[15px] w-full h-full flex flex-col items-center"
+			>
+				<div className="my-[10px]">Mentor</div>
+				<div className="font-bold text-2xl my-[10px]">{project.mentor}</div>
+				<div className="my-[10px]">{project.mentorDiscordUsername}</div>
+				<div className="flex flex-row w-full items-center justify-evenly flex-auto">
+
+					<IconContext.Provider value={{ className: "text-[38px] md:text-[30px] mx-[8px] md:mx-[6px] text-[#DB4437] md:text-white md:hover:text-[#DB4437] md:hover:translate-y-[-4px] ease-out duration-300" }}>
+						<Link href={`mailto:${project.mentorEmail}`} target="_blank">
+							<SiGmail />
+						</Link>
+					</IconContext.Provider>
+
+					<IconContext.Provider value={{ className: "text-[38px] md:text-[30px] md:text-white text-[#fe0b9bbbd09b] md:text-white md:hover:text-[#b9bbbd] mx-[8px] md:mx-[6px] md:hover:translate-y-[-4px] ease-out duration-300" }}>
+						<Link href={project.mentorGithubLink} target="_blank">
+							<SiGithub />
+						</Link>
+					</IconContext.Provider>
+
+					<IconContext.Provider value={{ className: "text-[38px] md:text-[30px] text-[#0072b1] md:text-white md:hover:text-[#0072b1] md:text-white md:hover:text-[#1977f3] mx-[8px] md:mx-[6px] md:hover:translate-y-[-4px] ease-out duration-300" }}>
+						<Link href={project.mentorLinkedinLink} target="_blank">
+							<SiLinkedin />
+						</Link>
+					</IconContext.Provider>
+
+				</div>
+				<TbArrowBigRightLine className="cursor-pointer text-[25px]" onClick={() => setFlip(false)} />
+			</div>
+		</ReactCardFlip>
 	);
 };

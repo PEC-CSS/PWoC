@@ -16,7 +16,7 @@ export const RegistrationCard = () => {
               containerClass="p-4 flex flex-col items-center my-3 md:my-1">
 
               <Button
-                  href="https://www.youtube.com"
+                  href="https://forms.gle/mTaGGudcMujgCkAg6"
                   target="_blank"
                   variant="contained"
                   style={{
@@ -43,7 +43,7 @@ export const RegistrationCard = () => {
               containerClass="p-4 flex flex-col items-center my-3 md:my-1">
 
               <Button
-                  href="https://www.youtube.com"
+                  href="https://forms.gle/Jp27Zr72dSubhf6y5"
                   target="_blank"
                   variant="contained"
                   style={{

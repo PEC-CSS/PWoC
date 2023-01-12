@@ -24,8 +24,10 @@
     "eslint-config-next": "13.0.3",
     "google-spreadsheet": "^3.3.0",
     "next": "13.0.3",
+    "next-pwa": "^5.6.0",
     "octokit": "^2.0.10",
     "react": "18.2.0",
+    "react-card-flip": "^1.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
     "react-lottie-player": "^1.5.0",
@@ -40,7 +42,7 @@
     "postcss": "^8.4.19",
     "tailwindcss": "^3.2.4"
   },
-  "browser":{
+  "browser": {
     "child_process": false,
     "fs": false,
     "net": false,
