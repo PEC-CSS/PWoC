@@ -4,7 +4,6 @@ import { contributors, repositories } from '../public/data';
 import { useEffect, useState } from 'react';
 import { Item, PullRequest } from '../public/types';
 import { LeaderboardTable } from '../components/leaderboard/LeaderboardTable';
-import Head from 'next/head';
 import Lottie from 'react-lottie-player';
 import snowman from '../public/assets/animations/snowman.json';
 import { TopThree } from '../components/leaderboard/TopThree';
@@ -60,7 +59,6 @@ const Leaderboard: NextPage = () => {
 		leaderboard.sort((item1: Item, item2: Item) => {
 			return item2.points - item1.points;
 		});
-		console.log(leaderboard);
 		return leaderboard;
 	};
 

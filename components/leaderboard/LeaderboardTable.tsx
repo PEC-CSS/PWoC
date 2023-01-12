@@ -43,7 +43,6 @@ export const LeaderboardTable = ({leaderboard}: {leaderboard: Item[]}) => {
             }}>
                 {
                     leaderboard.map((item: Item,i: number)=> {
-                        console.log(i)
                         return (
                             <LeaderboardItem item={item} i={i} key={i} />
                         )

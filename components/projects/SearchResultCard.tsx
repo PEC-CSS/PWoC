@@ -14,7 +14,7 @@ export const SearchResultCard = ({ project }: { project: Project }) => {
 
 	return (
 		<ReactCardFlip
-			containerClassName="transition-all duration-100 ease-in-out h-[430px] [@media(min-width:992px)]:px-[5px] [@media(min-width:992px)]:w-[380px]"
+			containerClassName="transition-all duration-100 ease-in-out h-[430px] [@media(min-width:992px)]:px-[5px] [@media(min-width:992px)]:w-[380px] my-2"
 			isFlipped={flip}
 		>
 			<div
