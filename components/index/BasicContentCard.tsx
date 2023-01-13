@@ -4,7 +4,7 @@ import Lottie from "react-lottie-player";
 type Props = {
     title: string;
     content: string;
-    img?: JSON;
+    img?: any; // TODO: Define explicit type for img. Type JSON is not working.
     containerClass?: string;
     titleClass?: string;
     children?: JSX.Element
