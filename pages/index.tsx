@@ -23,6 +23,8 @@ const Home: NextPage = () => {
 						src={pwoc_logo_no_text}
 						alt=''
 						className='animate-[spin_8s_linear_infinite] object-contain brightness-150'
+						width={509}
+						height={490}
 					/>
 				</div>
 				{/* Big Card */}
@@ -39,6 +41,8 @@ const Home: NextPage = () => {
 						src={pwoc_logo_no_text}
 						alt=''
 						className='animate-[spin_8s_linear_infinite] object-contain brightness-150'
+						width={509}
+						height={490}
 					/>
 				</div>
 			</div>
