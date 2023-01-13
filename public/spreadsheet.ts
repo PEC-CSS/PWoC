@@ -21,7 +21,6 @@ export const getProjects = async () => {
     const rows = await sheet.getRows()
     const projects: Project[] = rows.map((row: GoogleSpreadsheetRow) => {
         const rowData: string[] = row._rawData
-        console.log(rowData)
         return {
             mentorEmail: rowData[1],
             mentor: rowData[2],
