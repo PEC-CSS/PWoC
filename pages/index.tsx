@@ -7,6 +7,7 @@ import PageLayout from '../components/layout/PageLayout';
 import { TitleCard } from '../components/index/TitleCard';
 import { BasicContentCard } from '../components/index/BasicContentCard';
 import { RegistrationCard } from '../components/index/RegistrationCard';
+import { Sponsors } from '../components/index/Sponsors';
 import content from '../data/content.json';
 import programmer from '../public/assets/animations/programmer.json';
 
@@ -63,6 +64,9 @@ const Home: NextPage = () => {
 					Timeline
 				</div>
 				<Timeline />
+			</div>
+			<div className='md:mx-4 mx-[4px] my-7'>
+				<Sponsors />
 			</div>
 		</PageLayout>
 	);
