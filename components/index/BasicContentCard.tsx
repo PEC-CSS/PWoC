@@ -4,9 +4,9 @@ import Lottie from "react-lottie-player";
 type Props = {
     title: string;
     content: string;
-    img?: any;
+    img?: JSON;
     containerClass?: string;
-    titleClass: string;
+    titleClass?: string;
     children?: JSX.Element
 }
 
