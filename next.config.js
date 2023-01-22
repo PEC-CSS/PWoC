@@ -39,6 +39,7 @@ const nextConfig = {
 			'avatars.githubusercontent.com',
 			's3-us-west-2.amazonaws.com',
 			'winterofcode.com',
+			'res.cloudinary.com'
 		],
 	},
 	headers,
