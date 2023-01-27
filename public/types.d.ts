@@ -9,7 +9,7 @@ export type PullRequest = {
         avatar_url: string,
         html_url: string
     }
-    labels: any[],
+    labels: { name: string }[],
     state: string,
     locked: boolean,
     comments: number,
@@ -61,5 +61,6 @@ export type Contributor = {
     email: string,
     githubLink: string,
     mobileNumber: number,
-    college: string
+    college: string,
+    username: string
 }
