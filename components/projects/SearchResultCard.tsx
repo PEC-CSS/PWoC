@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import LaptopIcon from '@mui/icons-material/Laptop';
 import Tooltip from '@mui/material/Tooltip';
-import {Project} from "../../public/types";
 import ReactCardFlip from "react-card-flip";
 import {BsGithub} from "react-icons/bs";
 import {TbArrowBigRight, TbArrowBigRightLine} from "react-icons/tb";
 import {IconContext} from "react-icons/lib";
 import Link from "next/link";
 import {SiGithub, SiGmail, SiLinkedin} from "react-icons/si";
+import { Project } from '../../typings/types';
 
 export const SearchResultCard = ({ project }: { project: Project }) => {
 	const [flip, setFlip] = useState(false);

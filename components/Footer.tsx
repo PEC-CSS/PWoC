@@ -52,7 +52,7 @@ export const Footer = () => {
 					<div className='text-center md:text-left'>
 						An initiative by PEC ACM CSS & GDSC PEC
 					</div>
-					<div className='flex space-x-4'>
+					<div className='flex space-x-4 justify-center w-full md:justify-start'>
 						<Image src={"https://avatars.githubusercontent.com/u/54832562?s=200&v=4"} height={50} width={50} alt={'PECACM'} className='rounded-full' />
 						<Image src={"https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_3,f_auto,g_center,h_175,q_auto:good,w_175/v1/gcs/platform-data-dsc/events/GDSC%20Punjab%20Engineering%20College%2C%20Chandigarh%20vertical%20color%20%281%29.png"} height={50} width={50} alt={'PECACM'} className='rounded-full'/>
 					</div>

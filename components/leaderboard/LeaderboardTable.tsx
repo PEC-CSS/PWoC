@@ -1,4 +1,4 @@
-import {Item} from "../../public/types";
+import {Item} from "../../typings/types";
 import {SxProps, Table, TableBody, TableCell, TableHead, TableRow, Theme} from "@mui/material";
 import {LeaderboardItem} from "./LeaderboardItem";
 

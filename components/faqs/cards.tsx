@@ -1,4 +1,4 @@
-import { Faq } from '../../public/types';
+import { Faq } from '../../typings/types';
 
 export const Card = ({ faq }: { faq: Faq }) => {
 

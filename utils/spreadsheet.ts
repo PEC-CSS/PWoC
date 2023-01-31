@@ -1,5 +1,5 @@
 import {GoogleSpreadsheetRow} from "google-spreadsheet";
-import {Contributor, Project} from "./types";
+import {Contributor, Project} from "../typings/types";
 
 const {GoogleSpreadsheet} = require('google-spreadsheet')
 const spreadsheet = new GoogleSpreadsheet('1G1U_6yox3wBS8ivzDHlz4V6A0WxrBltk5vmhNSJA2mo')
