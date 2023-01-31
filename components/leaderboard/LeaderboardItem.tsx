@@ -1,6 +1,6 @@
 import {TableCell, TableRow} from "@mui/material";
 import Image from "next/image";
-import {Item} from "../../public/types";
+import {Item} from "../../typings/types";
 import {PullRequestsDialog} from "./PullRequestsDialog";
 import {useState} from "react";
 import {AiFillTrophy} from "react-icons/ai";

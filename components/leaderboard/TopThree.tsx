@@ -1,4 +1,4 @@
-import {Item} from "../../public/types";
+import {Item} from "../../typings/types";
 import {TopCard} from "./TopCard";
 
 export const TopThree = ({topList}: {topList: Item[]}) => {

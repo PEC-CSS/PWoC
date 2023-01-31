@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {Item} from "../../public/types";
+import {Item} from "../../typings/types";
 
 
 export const TopCard = ({item, color}: {item: Item, color: string}) => {

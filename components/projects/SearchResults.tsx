@@ -1,4 +1,4 @@
-import { Project } from '../../public/types';
+import { Project } from '../../typings/types';
 import { SearchResultCard } from './SearchResultCard';
 
 export const SearchResults = ({ projects }: { projects: Project[] }) => {

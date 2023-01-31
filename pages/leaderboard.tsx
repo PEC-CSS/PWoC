@@ -1,13 +1,13 @@
 import { NextPage } from 'next';
 import { Octokit } from '@octokit/rest';
 import { useEffect, useState } from 'react';
-import {Contributor, Item, Project, PullRequest} from '../public/types';
+import {Contributor, Item, Project, PullRequest} from '../typings/types';
 import { LeaderboardTable } from '../components/leaderboard/LeaderboardTable';
 import Lottie from 'react-lottie-player';
 import snowman from '../public/assets/animations/snowman.json';
 import { TopThree } from '../components/leaderboard/TopThree';
 import PageLayout from '../components/layout/PageLayout';
-import {getContributors, getProjects} from "../public/spreadsheet";
+import {getContributors, getProjects} from "../utils/spreadsheet";
 
 const Leaderboard: NextPage = () => {
 	const [leaderboard, setLeaderboard] = useState<Item[]>([]);
