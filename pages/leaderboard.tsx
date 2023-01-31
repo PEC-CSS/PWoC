@@ -20,7 +20,7 @@ const Leaderboard: NextPage = () => {
 		})
 		let contributors = await getContributors()
 		let repoRequests = repositories.map((repo: string) => {
-			let query = `type:pr+repo:${repo}+label:pwoc+created:2023-01-26..2023-03-01`;
+			let query = `type:pr+repo:${repo}+label:pwoc+created:2023-01-26..2023-03-01+is:merged`;
 			contributors.forEach((user: Contributor) => {
 				if(user.username.length === 0) return;
 				query += `+author:${user.username}`;
