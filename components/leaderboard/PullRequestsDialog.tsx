@@ -21,9 +21,21 @@ export const PullRequestsDialog = ({
     onClose,
 }: PrDialogItem) => {
     return (
-        <Dialog open={open} onClose={onClose} className="glassmorphism">
+        <Dialog
+            open={open}
+            onClose={onClose}
+            PaperProps={{
+                style: {
+                    backdropFilter: "blur(8px)",
+                    boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.18)",
+                    borderRadius: "10px",
+                    border: "1px solid rgba(255, 255, 255, 0.18)",
+                    background: "rgba(0, 0, 0, 0.3)"
+                }
+            }}
+        >
             <DialogTitle>
-                <Typography sx={{fontFamily: 'hammersmith', fontSize: 24}}>Pull Requests </Typography>
+                <div className="text-2xl text-white font-hammersmith">Pull Requests</div>
                 <IconButton
                     aria-label="close"
                     onClick={onClose}
@@ -31,7 +43,7 @@ export const PullRequestsDialog = ({
                         position: "absolute",
                         right: 8,
                         top: 8,
-                        color: "#000000",
+                        color: "#FFFFFF"
                     }}
                 >
                     <CloseIcon />
@@ -39,7 +51,6 @@ export const PullRequestsDialog = ({
             </DialogTitle>
             <DialogContent>
                 {pullRequests.map((pr: PullRequest, i: number) => {
-                    // return <div key={i}>{pr.title}</div>;
                     return <PullRequestsDialogItem pr={pr} key={i} />;
                 })}
             </DialogContent>

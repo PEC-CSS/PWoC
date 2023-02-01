@@ -18,6 +18,7 @@ export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
                         fontWeight: "bold",
                         fontSize: "25px",
                         color: i == 0 ? "gold" : i == 1 ? "silver" : i == 2 ? "brown" : "white",
+                        fontFamily: "Hammersmith, sans-serif"
                     }}
                 >
                     <div className="flex flex-row items-center justify-center">
@@ -29,7 +30,7 @@ export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
                         <span>{i + 1}</span>
                     </div>
                 </TableCell>
-                <TableCell>
+                <TableCell sx={{fontFamily: "Hammersmith, sans-serif"}}>
                     <div className="flex flex-row items-center">
                         <Image
                             src={item.user.avatar_url}
@@ -52,6 +53,7 @@ export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
                 </TableCell>
                 <TableCell
                     align="center"
+                    sx={{fontFamily: "Hammersmith, sans-serif"}}
                 >
                     <div
                         className={`text-white before:rounded-[10px] before:shadow-md before:shadow-white hover:cursor-pointer pr-button before:content-[attr(before)]`}
@@ -60,7 +62,7 @@ export const LeaderboardItem = ({item, i}: {item: Item, i: number}) => {
                         before={item.pullRequests.length}
                     />
                 </TableCell>
-                <TableCell align="center" sx={{fontSize: "20px", color: "white"}}>{item.points}</TableCell>
+                <TableCell align="center" sx={{fontSize: "20px", color: "white", fontFamily: "Hammersmith, sans-serif"}}>{item.points}</TableCell>
             </TableRow>
             <PullRequestsDialog
                 pullRequests={item.pullRequests}

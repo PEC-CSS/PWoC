@@ -45,12 +45,17 @@ export const PullRequestsDialogItem = ({ pr }: { pr: PullRequest }) => {
         setRepoName(arr[arr.length - 1].toUpperCase());
     };
 
+    let labels = pr.labels.map((label) => label.name)
+    let background = labels.includes("easy") ? "rgba(52,255,0,0.3)" : labels.includes("medium") ? "rgba(255,128,0,0.3)" : "rgba(255,0,0,0.3)"
+
     return (
         <Card
             sx={{
-                boxShadow:
-                    "0 2px 4px -2px rgba(0,0,0,0.24), 0 4px 24px -2px rgba(0, 0, 0, 0.2)",
+                boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.18)",
                 margin: "10px 0",
+                backgroundColor: background,
+                backdropFilter: "blur( 8px )",
+                color: "white"
             }}
         >
             <CardHeader
@@ -71,15 +76,15 @@ export const PullRequestsDialogItem = ({ pr }: { pr: PullRequest }) => {
                     </ExpandMore>
                 }
             >
-                <Typography
-                    sx={{
-                        color: "black",
-                        fontFamily: "monospace",
-                        fontSize: 16,
-                    }}
-                >
-                    {repoName}
-                </Typography>
+                {/*<Typography*/}
+                {/*    sx={{*/}
+                {/*        color: "black",*/}
+                {/*        fontFamily: "monospace",*/}
+                {/*        fontSize: 16,*/}
+                {/*    }}*/}
+                {/*>*/}
+                {/*    {repoName}*/}
+                {/*</Typography>*/}
             </CardHeader>
             <CardContent sx={{ m: 0, display: 'flex' }} className="space-x-4">
                 <Typography

@@ -10,6 +10,7 @@ export const LeaderboardTable = ({leaderboard}: {leaderboard: Item[]}) => {
         color: "white",
         backgroundColor: "rgba(0,0,0,0.5)",
         backdropFilter: "blur( 8px )",
+        fontFamily: "Hammersmith, sans-serif"
     }
 
     return (
