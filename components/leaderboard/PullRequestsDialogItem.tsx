@@ -72,21 +72,10 @@ export const PullRequestsDialogItem = ({ pr }: { pr: PullRequest }) => {
                         aria-expanded={expanded}
                         aria-label="show more"
                     >
-                        <ExpandMoreIcon />
+                        <ExpandMoreIcon className="text-white" />
                     </ExpandMore>
                 }
             >
-                {/*<Typography*/}
-                {/*    sx={{*/}
-                {/*        color: "black",*/}
-                {/*        fontFamily: "monospace",*/}
-                {/*        fontSize: 16,*/}
-                {/*    }}*/}
-                {/*>*/}
-                {/*    {repoName}*/}
-                {/*</Typography>*/}
-            </CardHeader>
-            <CardContent sx={{ m: 0, display: 'flex' }} className="space-x-4">
                 <Typography
                     sx={{
                         color: "black",
@@ -96,6 +85,17 @@ export const PullRequestsDialogItem = ({ pr }: { pr: PullRequest }) => {
                 >
                     {repoName}
                 </Typography>
+            </CardHeader>
+            <CardContent sx={{ m: 0, display: 'flex' }} className="space-x-4">
+                {/*<Typography*/}
+                {/*    sx={{*/}
+                {/*        color: "black",*/}
+                {/*        fontFamily: "monospace",*/}
+                {/*        fontSize: 16,*/}
+                {/*    }}*/}
+                {/*>*/}
+                {/*    {repoName}*/}
+                {/*</Typography>*/}
             </CardContent>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
