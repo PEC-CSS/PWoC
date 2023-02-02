@@ -17,12 +17,12 @@ const events = [
         description: "Registrations begin for mentors and mentees",
         icon: <AiOutlineForm />
     },
-    {
-        title: "Registrations Close",
-        date: "24 January 2023",
-        description: "The registration period ends and final projects are displayed",
-        icon: <Lock />
-    },
+    // {
+    //     title: "Registrations Close",
+    //     date: "24 January 2023",
+    //     description: "The registration period ends and final projects are displayed",
+    //     icon: <Lock />
+    // }, -> they never close hehe
     {
         title: "Community Bonding",
         date: "25 January 2023",
@@ -37,19 +37,19 @@ const events = [
     },
     {
         title: "Mid-Evaluation",
-        date: "14 February 2023",
+        date: "20 February 2023",
         description: "Half time's up! The performance of mentees is evaluated",
         icon: <MdChecklist />
     },
     {
         title: "Coding Period ends",
-        date: "1 March 2023",
+        date: "15 March 2023",
         description: "The contributing period comes to an end, no more pull requests will be made after this",
         icon: <GiFinishLine />
     },
     {
         title: "Final Results Announced",
-        date: "10 March 2023",
+        date: "20 March 2023",
         description: "The final leaderboard is released after all pending pull requests are merged. Time to congratulate the winners!",
         icon: <BiTrophy />
     }
