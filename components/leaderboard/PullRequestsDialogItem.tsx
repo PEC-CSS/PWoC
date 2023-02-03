@@ -11,6 +11,8 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useEffect, useState } from "react";
 import { PullRequest } from "../../typings/types";
+import {GitHub} from "@mui/icons-material";
+import {FiGitPullRequest} from "react-icons/fi";
 
 const ExpandMore = styled((props) => {
     // @ts-ignore
@@ -42,7 +44,7 @@ export const PullRequestsDialogItem = ({ pr }: { pr: PullRequest }) => {
         console.log(url);
         const arr = url.split("/");
         console.log(arr);
-        setRepoName(arr[arr.length - 1].toUpperCase());
+        setRepoName(arr[arr.length - 1]);
     };
 
     let labels = pr.labels.map((label) => label.name)
@@ -86,28 +88,28 @@ export const PullRequestsDialogItem = ({ pr }: { pr: PullRequest }) => {
                     {repoName}
                 </Typography>
             </CardHeader>
-            <CardContent sx={{ m: 0, display: 'flex' }} className="space-x-4">
-                {/*<Typography*/}
-                {/*    sx={{*/}
-                {/*        color: "black",*/}
-                {/*        fontFamily: "monospace",*/}
-                {/*        fontSize: 16,*/}
-                {/*    }}*/}
-                {/*>*/}
-                {/*    {repoName}*/}
-                {/*</Typography>*/}
-            </CardContent>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <CardContent>
-                    <Button variant="outlined">
+                <CardContent className="flex flex-row items-center justify-between flex-wrap">
+                    <div>
+                        Project: <b>{repoName}</b>
                         <a
-                            href={pr.html_url}
+                            href={pr.repository_url.replace("api.github.com/repos", "github.com")}
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="noreferrer"
+                            className="ml-1"
                         >
-                            PR URL
+                            <GitHub />
                         </a>
-                    </Button>
+                    </div>
+
+                    <a
+                        href={pr.html_url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex glassmorphism p-2 duration-500 hover:bg-black"
+                        >
+                            Go to PR <FiGitPullRequest className="ml-1" />
+                    </a>
                 </CardContent>
             </Collapse>
         </Card>

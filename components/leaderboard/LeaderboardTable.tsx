@@ -16,7 +16,7 @@ export const LeaderboardTable = ({leaderboard}: {leaderboard: Item[]}) => {
     return (
         <Table
             sx={{
-                padding: "10px 50px",
+                width: "95%",
                 borderCollapse: "separate"
             }}
         >

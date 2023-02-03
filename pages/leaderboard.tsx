@@ -87,7 +87,6 @@ const Leaderboard: NextPage = () => {
 			}
 			return item2.points - item1.points;
 		});
-		console.log(leaderboard);
 		return leaderboard;
 	};
 
@@ -103,7 +102,7 @@ const Leaderboard: NextPage = () => {
 			description='Leaderboard of PWoC, based on PR count in the given period of the event. Only participants with merged PRs appear here.'
 		>
 			<div className='flex items-center flex-col'>
-				{leaderboard.length > 0 && process.env.NEXT_PUBLIC_DEV ? (
+				{leaderboard.length > 0 ? (
 					<>
 						<TopThree topList={leaderboard.slice(0, 3)} />
 						<LeaderboardTable leaderboard={leaderboard} />
@@ -117,7 +116,7 @@ const Leaderboard: NextPage = () => {
 							className='h-[300px] w-auto my-[30px]'
 						/>
 						<div className='font-bold text-[30px] animate-pulse'>
-							Preparing the leaderboard...
+							Loading, please wait...
 						</div>
 					</div>
 				)}

@@ -7,7 +7,7 @@ export const TopCard = ({item, color}: {item: Item, color: string}) => {
     return (
         <>
         <a href={item.user.html_url} target="_blank" rel="noreferrer">
-            <Image className="h-[200px] w-[200px] object-cover rounded-full" loading="lazy" src={item.user.avatar_url} alt="avatar" width={200} height={200} />
+            <Image className="h-[150px] w-[150px] sm:h-[200px] sm:w-[200px] object-cover rounded-full" loading="lazy" src={item.user.avatar_url} alt="avatar" width={200} height={200} />
             <div className={`absolute left-1/2 -translate-x-2/4 w-[50px] -top-[30px]`} style={{fill: color}}>
                 <svg viewBox="0 0 100 50">
                     <polygon
