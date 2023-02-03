@@ -81,9 +81,13 @@ const Leaderboard: NextPage = () => {
 			}
 		);
 		leaderboard.sort((item1: Item, item2: Item) => {
+			if(item2.points == item1.points) {
+				// if item1 smol => item1 first => negative return
+				return (item1.pullRequests[0].closed_at.localeCompare(item2.pullRequests[0].closed_at))
+			}
 			return item2.points - item1.points;
 		});
-		console.log(leaderboard)
+		console.log(leaderboard);
 		return leaderboard;
 	};
 
