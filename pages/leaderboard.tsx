@@ -72,7 +72,7 @@ const Leaderboard: NextPage = () => {
 							avatar_url: pullRequests[0].user.avatar_url,
 							html_url: pullRequests[0].user.html_url,
 						},
-						pullRequests: pullRequests,
+						pullRequests: pullRequests.sort((p1, p2) => p2.closed_at.localeCompare(p1.closed_at)),
 						points: points
 					});
 				} catch (e) {

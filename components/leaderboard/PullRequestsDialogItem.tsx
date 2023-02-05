@@ -41,9 +41,7 @@ export const PullRequestsDialogItem = ({ pr }: { pr: PullRequest }) => {
     });
 
     const getRepoName = (url: String) => {
-        console.log(url);
         const arr = url.split("/");
-        console.log(arr);
         setRepoName(arr[arr.length - 1]);
     };
 
