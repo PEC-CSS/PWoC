@@ -59,7 +59,7 @@ const Leaderboard: NextPage = () => {
 				if (pullRequests.length === 0) return;
 				let points = 0
 				pullRequests.forEach((pullRequest) => {
-					let labels = pullRequest.labels.map((label) => { return label.name })
+					let labels = pullRequest.labels.map((label) => { return label.name.trim().toLowerCase() })
 					if(labels.includes("hard")) points += 6
 					else if(labels.includes("medium")) points += 4
 					else points += 2
