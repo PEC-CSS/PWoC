@@ -61,7 +61,7 @@ const Leaderboard: NextPage = () => {
 			nameMap.set(user.username, user.name);
 		});
 		repoResponses.forEach((pullRequests: PullRequest[]) => {
-			console.log(pullRequests)
+			// console.log(pullRequests)
 			pullRequests.forEach((pullRequest: PullRequest) => {
 				let labels = pullRequest.labels.map((label) => label.name.trim().toLowerCase())
 				pullRequest.repository_url = pullRequest.html_url.split('/').slice(0, 5).join('/')
@@ -109,7 +109,7 @@ const Leaderboard: NextPage = () => {
 			}
 			return item2.points - item1.points;
 		});
-		console.log(leaderboard)
+		// console.log(leaderboard)
 		return leaderboard;
 	};
 
