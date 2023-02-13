@@ -33,11 +33,11 @@ export const PullRequestsDialogItem = ({ pr }: { pr: PullRequest }) => {
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
-        if (expanded) getRepoName(pr.repository_url);
+        if (expanded) getRepoName(pr.repository_url || "");
     };
 
     useEffect(() => {
-        getRepoName(pr.repository_url);
+        getRepoName(pr.repository_url || "");
     });
 
     const getRepoName = (url: String) => {
@@ -91,7 +91,7 @@ export const PullRequestsDialogItem = ({ pr }: { pr: PullRequest }) => {
                     <div>
                         Project: <b>{repoName}</b>
                         <a
-                            href={pr.repository_url.replace("api.github.com/repos", "github.com")}
+                            href={pr.repository_url?.replace("api.github.com/repos", "github.com")}
                             target="_blank"
                             rel="noreferrer"
                             className="ml-1"

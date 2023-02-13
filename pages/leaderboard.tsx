@@ -19,18 +19,36 @@ const Leaderboard: NextPage = () => {
 			return project.githubLink.trim().replace("https://github.com/", "")
 		})
 		let contributors = await getContributors()
+		// let usernames = contributors.filter((user) => user.username.length > 0).map((user) => user.username)
 		let repoRequests = repositories.map((repo: string) => {
-			let query = `type:pr+repo:${repo}+label:pwoc+created:2023-01-26..2023-03-01+is:merged`;
-			contributors.forEach((user: Contributor) => {
-				if(user.username.length === 0) return;
-				query += `+author:${user.username}`;
-			});
-			return octokit.rest.search
-				.issuesAndPullRequests({
-					q: query,
-					per_page: 100,
-				})
-				.then((res) => res.data.items);
+			// let query = `type:pr+repo:${repo}+label:pwoc+created:2023-01-26..2023-03-15+is:merged`;
+			// contributors.forEach((user: Contributor) => {
+			// 	if(user.username.length === 0) return;
+			// 	query += `+author:${user.username}`;
+			// });
+			// return octokit.rest.search
+			// 	.issuesAndPullRequests({
+			// 		q: query,
+			// 		per_page: 100,
+			// 	})
+			// 	.then((res) => res.data.items);
+			let owner = repo.split("/")[0]
+			let repoName = repo.split("/")[1]
+			return octokit.rest.pulls.list({
+				owner: owner,
+				base: undefined,
+				baseUrl: undefined,
+				direction: undefined,
+				head: undefined,
+				headers: undefined,
+				mediaType: {},
+				page: 1,
+				per_page: 60,
+				repo: repoName,
+				request: undefined,
+				sort: undefined,
+				state: "closed"
+			}).then((res) => res.data)
 		});
 		let repoResponses = (await Promise.all(
 			repoRequests
@@ -43,14 +61,18 @@ const Leaderboard: NextPage = () => {
 			nameMap.set(user.username, user.name);
 		});
 		repoResponses.forEach((pullRequests: PullRequest[]) => {
+			console.log(pullRequests)
 			pullRequests.forEach((pullRequest: PullRequest) => {
-				if(pullRequest.labels.filter((label) => {
-					let name = label.name.trim().toLowerCase()
-					return name === "easy" || name === "medium" || name === "hard"
-				}).length === 0) {
-					return
+				let labels = pullRequest.labels.map((label) => label.name.trim().toLowerCase())
+				pullRequest.repository_url = pullRequest.html_url.split('/').slice(0, 5).join('/')
+				if(
+					labels.includes("pwoc") &&
+					(labels.includes("hard") || labels.includes("medium") || labels.includes("easy")) &&
+					pullRequest.merged_at != null
+				) {
+					pullRequestMap.get(pullRequest.user.login)?.push(pullRequest);
 				}
-				pullRequestMap.get(pullRequest.user.login)?.push(pullRequest);
+
 			});
 		});
 		let leaderboard: Item[] = [];
@@ -87,6 +109,7 @@ const Leaderboard: NextPage = () => {
 			}
 			return item2.points - item1.points;
 		});
+		console.log(leaderboard)
 		return leaderboard;
 	};
 
@@ -102,7 +125,7 @@ const Leaderboard: NextPage = () => {
 			description='Leaderboard of PWoC, based on PR count in the given period of the event. Only participants with merged PRs appear here.'
 		>
 			<div className='flex items-center flex-col'>
-				{leaderboard.length > 0 && process.env.NEXT_PUBLIC_DEV ? (
+				{leaderboard.length > 0 ? (
 					<>
 						<TopThree topList={leaderboard.slice(0, 3)} />
 						<LeaderboardTable leaderboard={leaderboard} />
