@@ -139,7 +139,7 @@ const Leaderboard: NextPage = () => {
 							className='h-[300px] w-auto my-[30px]'
 						/>
 						<div className='font-bold text-[30px] animate-pulse'>
-							Working on fixes, please come back later
+							Loading, please wait..
 						</div>
 					</div>
 				)}
