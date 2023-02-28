@@ -13,7 +13,7 @@ export const TopThree = ({topList}: {topList: Item[]}) => {
                 <TopCard item={first} color='#ffd700'/>
             </div>
             <div className="relative -left-[25px] sm:-left-[35px] top-[50px] scale-[0.6] sm:scale-[0.7] z-0" >
-                <TopCard item={third} color='#bb8f4c'/>
+                {third && <TopCard item={third} color='#bb8f4c'/>}
             </div>
         </div>
        </>

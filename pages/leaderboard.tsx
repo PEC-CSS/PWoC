@@ -18,6 +18,7 @@ const Leaderboard: NextPage = () => {
 		let repositories = projects.map((project: Project) => {
 			return project.githubLink.trim().replace("https://github.com/", "")
 		})
+        repositories.push("PEC-CSS/graveyard")
 		let contributors = await getContributors()
 		// let usernames = contributors.filter((user) => user.username.length > 0).map((user) => user.username)
 		let repoRequests = repositories.map((repo: string) => {
@@ -67,7 +68,7 @@ const Leaderboard: NextPage = () => {
 				pullRequest.repository_url = pullRequest.html_url.split('/').slice(0, 5).join('/')
 				if(
 					labels.includes("pwoc") &&
-					(labels.includes("hard") || labels.includes("medium") || labels.includes("easy")) &&
+					(labels.includes("hard") || labels.includes("medium") || labels.includes("easy") || labels.includes("graveyard")) &&
 					pullRequest.merged_at != null
 				) {
 					pullRequestMap.get(pullRequest.user.login)?.push(pullRequest);
@@ -82,9 +83,10 @@ const Leaderboard: NextPage = () => {
 				let points = 0
 				pullRequests.forEach((pullRequest) => {
 					let labels = pullRequest.labels.map((label) => { return label.name.trim().toLowerCase() })
-					if(labels.includes("hard")) points += 6
-					else if(labels.includes("medium")) points += 4
-					else points += 2
+                    if(labels.includes("hard")) points += 6
+                    else if(labels.includes("medium")) points += 4
+                    else if(labels.includes("easy")) points += 2
+                    else points += 1
 				})
 				try {
 					leaderboard.push({

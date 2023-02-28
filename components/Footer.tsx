@@ -80,10 +80,10 @@ export const Footer = () => {
 						Projects
 					</Link>
 					<Link
-						href='/events'
+						href='/graveyard'
 						className='md:hover:text-sky-500 tex md:mt-0 my-3 transition text-md font-extralight hover:font-semibold'
 					>
-						Events
+						Graveyard
 					</Link>
 					<Link
 						href='/faq'

@@ -46,7 +46,9 @@ export const PullRequestsDialogItem = ({ pr }: { pr: PullRequest }) => {
     };
 
     let labels = pr.labels.map((label) => label.name)
-    let background = labels.includes("easy") ? "rgba(52,255,0,0.3)" : labels.includes("medium") ? "rgba(255,128,0,0.3)" : "rgba(255,0,0,0.3)"
+    let background = labels.includes("easy") ? "rgba(52,255,0,0.3)" :
+        labels.includes("medium") ? "rgba(255,128,0,0.3)" :
+            labels.includes("hard") ? "rgba(255,0,0,0.3)" : "rgba(94,91,91,0.3)"
 
     return (
         <Card
