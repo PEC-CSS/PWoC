@@ -44,7 +44,7 @@ const Leaderboard: NextPage = () => {
 				headers: undefined,
 				mediaType: {},
 				page: 1,
-				per_page: 60,
+				per_page: repoName === "graveyard" ? 100 : 60,
 				repo: repoName,
 				request: undefined,
 				sort: undefined,
