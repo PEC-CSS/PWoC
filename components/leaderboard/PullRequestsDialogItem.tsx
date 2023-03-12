@@ -45,7 +45,7 @@ export const PullRequestsDialogItem = ({ pr }: { pr: PullRequest }) => {
         setRepoName(arr[arr.length - 1]);
     };
 
-    let labels = pr.labels.map((label) => label.name)
+    let labels = pr.labels.map((label) => label.name.trim().toLowerCase())
     let background = labels.includes("easy") ? "rgba(52,255,0,0.3)" :
         labels.includes("medium") ? "rgba(255,128,0,0.3)" :
             labels.includes("hard") ? "rgba(255,0,0,0.3)" : "rgba(94,91,91,0.3)"

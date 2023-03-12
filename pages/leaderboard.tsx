@@ -44,13 +44,31 @@ const Leaderboard: NextPage = () => {
 				headers: undefined,
 				mediaType: {},
 				page: 1,
-				per_page: repoName === "graveyard" ? 100 : 60,
+				per_page: repoName === "graveyard" ? 100 : 70,
 				repo: repoName,
 				request: undefined,
 				sort: undefined,
 				state: "closed"
 			}).then((res) => res.data)
 		});
+
+		repoRequests.push(
+			octokit.rest.pulls.list({
+				owner: "PEC-CSS",
+				base: undefined,
+				baseUrl: undefined,
+				direction: undefined,
+				head: undefined,
+				headers: undefined,
+				mediaType: {},
+				page: 2,
+				per_page: 100,
+				repo: "graveyard",
+				request: undefined,
+				sort: undefined,
+				state: "closed"
+			}).then((res) => res.data)
+		)
 		let repoResponses = (await Promise.all(
 			repoRequests
 		)) as PullRequest[][];

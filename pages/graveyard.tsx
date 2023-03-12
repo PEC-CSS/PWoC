@@ -31,6 +31,25 @@ function Graveyard() {
 		})
 		const pullRequests = pullRequestResponse.data as PullRequest[];
 
+		const pullRequestResponse2 = await octokit.rest.pulls.list({
+			owner: "PEC-CSS",
+			base: undefined,
+			baseUrl: undefined,
+			direction: undefined,
+			head: undefined,
+			headers: undefined,
+			mediaType: {},
+			page: 2,
+			per_page: 100,
+			repo: "graveyard",
+			request: undefined,
+			sort: undefined,
+			state: "closed"
+		})
+		const pullRequests2 = pullRequestResponse2.data as PullRequest[];
+
+		pullRequests.push(...pullRequests2)
+
 		let pullRequestMap = new Map<string, PullRequest[]>();
 		let nameMap = new Map<string, string>();
 		contributors.forEach((user: Contributor) => {
