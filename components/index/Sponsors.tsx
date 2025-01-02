@@ -1,24 +1,7 @@
 import Image from 'next/image';
 import { SlBookOpen } from 'react-icons/sl';
 
-const sponsors = [
-	{
-		logo: '/assets/sponsors/xyz-logo-white.svg',
-		name: '.xyz',
-		url: 'https://gen.xyz',
-		width: 298,
-		height: 174,
-		customClass: 'w-[150px]',
-	},
-	{
-		logo: '/assets/sponsors/newton-school-logo.png',
-		name: 'Newton School',
-		url: 'https://www.newtonschool.co',
-		width: 256,
-		height: 256,
-		customClass: 'w-[150px]',
-	},
-];
+const sponsors: any[] = [];
 
 export const Sponsors = () => {
 	return (

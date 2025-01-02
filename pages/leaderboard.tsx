@@ -18,10 +18,10 @@ const Leaderboard: NextPage = () => {
 		let repositories = projects.map((project: Project) => {
 			return project.githubLink.trim().replace("https://github.com/", "")
 		})
-        repositories.push("PEC-CSS/graveyard")
+        // repositories.push("PEC-CSS/graveyard")
 		let contributors = await getContributors()
 		// let usernames = contributors.filter((user) => user.username.length > 0).map((user) => user.username)
-		let repoRequests = repositories.map((repo: string) => {
+		let repoRequests = repositories.map(async (repo: string) => {
 			// let query = `type:pr+repo:${repo}+label:pwoc+created:2023-01-26..2023-03-15+is:merged`;
 			// contributors.forEach((user: Contributor) => {
 			// 	if(user.username.length === 0) return;
@@ -35,7 +35,7 @@ const Leaderboard: NextPage = () => {
 			// 	.then((res) => res.data.items);
 			let owner = repo.split("/")[0]
 			let repoName = repo.split("/")[1]
-			return octokit.rest.pulls.list({
+			const res = await octokit.rest.pulls.list({
 				owner: owner,
 				base: undefined,
 				baseUrl: undefined,
@@ -49,29 +49,31 @@ const Leaderboard: NextPage = () => {
 				request: undefined,
 				sort: undefined,
 				state: "closed"
-			}).then((res) => res.data)
+			});
+			return res.data;
 		});
 
-		repoRequests.push(
-			octokit.rest.pulls.list({
-				owner: "PEC-CSS",
-				base: undefined,
-				baseUrl: undefined,
-				direction: undefined,
-				head: undefined,
-				headers: undefined,
-				mediaType: {},
-				page: 2,
-				per_page: 100,
-				repo: "graveyard",
-				request: undefined,
-				sort: undefined,
-				state: "closed"
-			}).then((res) => res.data)
-		)
+		// repoRequests.push(
+		// 	octokit.rest.pulls.list({
+		// 		owner: "PEC-CSS",
+		// 		base: undefined,
+		// 		baseUrl: undefined,
+		// 		direction: undefined,
+		// 		head: undefined,
+		// 		headers: undefined,
+		// 		mediaType: {},
+		// 		page: 2,
+		// 		per_page: 100,
+		// 		repo: "graveyard",
+		// 		request: undefined,
+		// 		sort: undefined,
+		// 		state: "closed"
+		// 	}).then((res) => res.data)
+		// )
 		let repoResponses = (await Promise.all(
 			repoRequests
 		)) as PullRequest[][];
+		
 		let pullRequestMap = new Map<string, PullRequest[]>();
 		let nameMap = new Map<string, string>();
 		contributors.forEach((user: Contributor) => {
@@ -79,8 +81,9 @@ const Leaderboard: NextPage = () => {
 			pullRequestMap.set(user.username, []);
 			nameMap.set(user.username, user.name);
 		});
+
 		repoResponses.forEach((pullRequests: PullRequest[]) => {
-			// console.log(pullRequests)
+			console.log(pullRequests)
 			pullRequests.forEach((pullRequest: PullRequest) => {
 				let labels = pullRequest.labels.map((label) => label.name.trim().toLowerCase())
 				pullRequest.repository_url = pullRequest.html_url.split('/').slice(0, 5).join('/')
@@ -89,11 +92,20 @@ const Leaderboard: NextPage = () => {
 					(labels.includes("hard") || labels.includes("medium") || labels.includes("easy") || labels.includes("graveyard")) &&
 					pullRequest.merged_at != null
 				) {
-					pullRequestMap.get(pullRequest.user.login)?.push(pullRequest);
-				}
 
+				const userLogin = pullRequest.user.login;
+  
+				if (!pullRequestMap.has(userLogin)) {
+					pullRequestMap.set(userLogin, []);
+				}
+				
+				pullRequestMap.get(userLogin)?.push(pullRequest);
+			}
 			});
 		});
+
+		console.log(pullRequestMap.size)
+
 		let leaderboard: Item[] = [];
 		pullRequestMap.forEach(
 			(pullRequests: PullRequest[], username: string) => {
@@ -145,12 +157,16 @@ const Leaderboard: NextPage = () => {
 			description='Leaderboard of PWoC, based on PR count in the given period of the event. Only participants with merged PRs appear here.'
 		>
 			<div className='flex items-center flex-col'>
-				{leaderboard.length > 0 ? (
+				{leaderboard.length > 2 ? (
 					<>
 						<TopThree topList={leaderboard.slice(0, 3)} />
 						<LeaderboardTable leaderboard={leaderboard} />
 					</>
-				) : (
+				) : leaderboard.length > 0?(
+					<>
+						<LeaderboardTable leaderboard={leaderboard} />
+					</>
+				):(
 					<div className='flex flex-col items-center my-[30px]'>
 						<Lottie
 							play

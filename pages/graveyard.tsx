@@ -61,13 +61,19 @@ function Graveyard() {
 		pullRequests.forEach((pullRequest: PullRequest) => {
 			let labels = pullRequest.labels.map((label) => label.name.trim().toLowerCase())
 			pullRequest.repository_url = pullRequest.html_url.split('/').slice(0, 5).join('/')
-			if(
-				labels.includes("pwoc") &&
-				(labels.includes("hard") || labels.includes("medium") || labels.includes("easy") || labels.includes("graveyard")) &&
-				pullRequest.merged_at != null
-			) {
-				pullRequestMap.get(pullRequest.user.login)?.push(pullRequest);
-			}
+			// if(
+					// labels.includes("pwoc") &&
+					// (labels.includes("hard") || labels.includes("medium") || labels.includes("easy") || labels.includes("graveyard")) &&
+					// pullRequest.merged_at != null
+				// ) {
+					const userLogin = pullRequest.user.login;
+  
+					if (!pullRequestMap.has(userLogin)) {
+						pullRequestMap.set(userLogin, []);
+					}
+					
+					pullRequestMap.get(userLogin)?.push(pullRequest);
+				// }
 		});
 
 		let leaderboard: Item[] = [];
