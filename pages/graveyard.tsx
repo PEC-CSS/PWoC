@@ -4,121 +4,32 @@ import Lottie from 'react-lottie-player';
 import {TopThree} from "../components/leaderboard/TopThree";
 import {LeaderboardTable} from "../components/leaderboard/LeaderboardTable";
 import tombstone from "../public/assets/animations/tombstone.json";
-import {Contributor, Item, PullRequest} from "../typings/types";
-import {Octokit} from "@octokit/rest";
-import {getContributors} from "../utils/spreadsheet";
+import {Item} from "../typings/types";
 
 function Graveyard() {
-	const [leaderboard, setLeaderboard] = useState<Item[]>([])
-
-	const getPullRequests = async ()=> {
-		const octokit = new Octokit({auth : process.env.ACCESS_TOKEN})
-		const contributors = await getContributors()
-		const pullRequestResponse = await octokit.rest.pulls.list({
-			owner: "PEC-CSS",
-			base: undefined,
-			baseUrl: undefined,
-			direction: undefined,
-			head: undefined,
-			headers: undefined,
-			mediaType: {},
-			page: 1,
-			per_page: 100,
-			repo: "graveyard",
-			request: undefined,
-			sort: undefined,
-			state: "closed"
-		})
-		const pullRequests = pullRequestResponse.data as PullRequest[];
-
-		const pullRequestResponse2 = await octokit.rest.pulls.list({
-			owner: "PEC-CSS",
-			base: undefined,
-			baseUrl: undefined,
-			direction: undefined,
-			head: undefined,
-			headers: undefined,
-			mediaType: {},
-			page: 2,
-			per_page: 100,
-			repo: "graveyard",
-			request: undefined,
-			sort: undefined,
-			state: "closed"
-		})
-		const pullRequests2 = pullRequestResponse2.data as PullRequest[];
-
-		pullRequests.push(...pullRequests2)
-
-		let pullRequestMap = new Map<string, PullRequest[]>();
-		let nameMap = new Map<string, string>();
-		contributors.forEach((user: Contributor) => {
-			if(user.username.length === 0) return
-			pullRequestMap.set(user.username, []);
-			nameMap.set(user.username, user.name);
-		});
-
-		pullRequests.forEach((pullRequest: PullRequest) => {
-			let labels = pullRequest.labels.map((label) => label.name.trim().toLowerCase())
-			pullRequest.repository_url = pullRequest.html_url.split('/').slice(0, 5).join('/')
-			// if(
-					// labels.includes("pwoc") &&
-					// (labels.includes("hard") || labels.includes("medium") || labels.includes("easy") || labels.includes("graveyard")) &&
-					// pullRequest.merged_at != null
-				// ) {
-					const userLogin = pullRequest.user.login;
+	const [leaderboard, setLeaderboard] = useState<Item[]>([]);
+	const [loading, setLoading] = useState<boolean>(true);
   
-					if (!pullRequestMap.has(userLogin)) {
-						pullRequestMap.set(userLogin, []);
-					}
-					
-					pullRequestMap.get(userLogin)?.push(pullRequest);
-				// }
-		});
-
-		let leaderboard: Item[] = [];
-		pullRequestMap.forEach(
-			(pullRequests: PullRequest[], username: string) => {
-				if (pullRequests.length === 0) return;
-				let points = 0
-				pullRequests.forEach((pullRequest) => {
-					let labels = pullRequest.labels.map((label) => { return label.name.trim().toLowerCase() })
-					if(labels.includes("hard")) points += 6
-					else if(labels.includes("medium")) points += 4
-					else if(labels.includes("easy")) points += 2
-					else points += 1
-				})
-				try {
-					leaderboard.push({
-						user: {
-							username: username,
-							name: nameMap.get(username) || username,
-							avatar_url: pullRequests[0].user.avatar_url,
-							html_url: pullRequests[0].user.html_url,
-						},
-						pullRequests: pullRequests.sort((p1, p2) => p2.closed_at.localeCompare(p1.closed_at)),
-						points: points
-					});
-				} catch (e) {
-					console.log(e)
-				}
-			}
-		);
-		leaderboard.sort((item1: Item, item2: Item) => {
-			if(item2.points == item1.points) {
-				return (item1.pullRequests[0].closed_at.localeCompare(item2.pullRequests[0].closed_at))
-			}
-			return item2.points - item1.points;
-		});
-		// console.log(leaderboard)
-		return leaderboard;
-	}
-
+	const fetchGraveyardData = async () => {
+	  try {
+		const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+		const graveyardURL = `${baseURL}/graveyard`;
+		const response = await fetch(graveyardURL);
+		if (!response.ok) {
+		  throw new Error(`Error: ${response.statusText}`);
+		}
+		const data = await response.json();
+		setLeaderboard(data);
+	  } catch (error) {
+		console.error('Failed to fetch graveyard data:', error);
+	  } finally {
+		setLoading(false);
+	  }
+	};
+  
 	useEffect(() => {
-		getPullRequests()
-			.then(res => setLeaderboard(res))
-			.catch(error=> console.error(error))
-	},[])
+	  fetchGraveyardData();
+	}, []);
 
 	return (
 		<PageLayout

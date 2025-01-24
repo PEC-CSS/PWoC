@@ -7,7 +7,7 @@ export const Sponsors = () => {
 	return (
 		<div className='glassmorphism bg-[#14000600] border-2 p-4 md:py-8 md:px-10'>
 			<div
-				className={`text-[#ef8220] uppercase text-2xl sm:text-3xl md:text-6xl p-4 text-center bg-[#cc66a24c] glassmorphism`}
+				className={`text-[#ef8220] uppercase text-2xl sm:text-3xl md:text-6xl p-4 text-center bg-[#1795f098] glassmorphism`}
 			>
 				Sponsors
 			</div>

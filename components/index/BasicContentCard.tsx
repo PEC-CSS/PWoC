@@ -13,7 +13,7 @@ type Props = {
 export const BasicContentCard = ({title, content, img, containerClass, titleClass, children} : Props) => {
   return (
     <div className={`${containerClass} glassmorphism bg-[#14000600]`}>
-        <div className={`text-[#ef8220] uppercase ${titleClass} text-center bg-[#cc66a24c] glassmorphism`}>{title}</div>
+        <div className={`text-[#ef8220] uppercase ${titleClass} text-center bg-[#1795f098] glassmorphism`}>{title}</div>
         <div className={`grid ${img ? 'md:grid-cols-2' : 'md:grid-cols-1'}`}>
             <div className="text-lg mt-3 md:my-auto md:text-xl">
                {content}
