@@ -17,7 +17,7 @@ const Home: NextPage = () => {
 			title='PWOC | PEC Winter of Code'
 			description='All about PWoC and timeline.'
 		>
-			<div className='flex bg-[#c9305498] glassmorphism py-4 md:py-8 my-7 md:mx-5'>
+			<div className='flex bg-[#63ace098] glassmorphism py-4 md:py-8 my-7 md:mx-5'>
 				<div className='hidden [@media(min-width:830px)]:flex justify-start h-[200px] w-[400px] my-auto overflow-hidden'>
 					<Image
 						src={pwoc_logo_no_text}
@@ -63,7 +63,7 @@ const Home: NextPage = () => {
 			</div>
 			<div className='my-6'>
 				<div
-					className={`text-[#ef8220] mx-[40px] text-2xl sm:text-3xl md:text-6xl p-4 uppercase text-center bg-[#cc66a24c] glassmorphism break-words`}
+					className={`text-[#ef8220] mx-[40px] text-2xl sm:text-3xl md:text-6xl p-4 uppercase text-center bg-[#1795f098] glassmorphism break-words`}
 				>
 					Timeline
 				</div>

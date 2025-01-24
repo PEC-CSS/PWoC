@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import PageLayout from '../components/layout/PageLayout';
 import { Search } from '../components/projects/Search';
 import { SearchResults } from '../components/projects/SearchResults';
-import { getProjects } from '../utils/spreadsheet';
 import { Project } from '../typings/types';
 import Lottie from 'react-lottie-player';
 import loading from '../public/assets/animations/loading.json';
@@ -16,13 +15,25 @@ const Projects: NextPage = () => {
 		[]
 	);
 
+	// Fetch projects data from the server
+	const getProjects = async () => {
+		try {
+			const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+			const projectsURL = `${baseURL}/projects`;
+			const response = await fetch(projectsURL);
+			if (!response.ok) {
+				throw new Error(`Error: ${response.statusText}`);
+			}
+			const data = await response.json();
+			setProjects(data);
+			setProjectSearchResults(data)
+		} catch (error) {
+			console.error('Failed to fetch leaderboard:', error);
+		}
+	};
+
 	useEffect(() => {
-		getProjects()
-			.then((projs) => {
-				setProjects(projs);
-				setProjectSearchResults(projs);
-			})
-			.catch((error) => console.error(error));
+		getProjects();
 	}, []);
 
 	const onSearch = (e: React.FormEvent<HTMLFormElement>) => {

@@ -1,155 +1,40 @@
 import { NextPage } from 'next';
-import { Octokit } from '@octokit/rest';
 import { useEffect, useState } from 'react';
-import {Contributor, Item, Project, PullRequest} from '../typings/types';
+import { Item } from '../typings/types';
 import { LeaderboardTable } from '../components/leaderboard/LeaderboardTable';
 import Lottie from 'react-lottie-player';
 import snowman from '../public/assets/animations/snowman.json';
 import { TopThree } from '../components/leaderboard/TopThree';
 import PageLayout from '../components/layout/PageLayout';
-import {getContributors, getProjects} from "../utils/spreadsheet";
+
 
 const Leaderboard: NextPage = () => {
 	const [leaderboard, setLeaderboard] = useState<Item[]>([]);
+	const [loading, setLoading] = useState<boolean>(true);
 
-	const getPullRequests = async () => {
-		let octokit = new Octokit({ auth: process.env.ACCESS_TOKEN });
-		let projects = await getProjects()
-		let repositories = projects.map((project: Project) => {
-			return project.githubLink.trim().replace("https://github.com/", "")
-		})
-        // repositories.push("PEC-CSS/graveyard")
-		let contributors = await getContributors()
-		// let usernames = contributors.filter((user) => user.username.length > 0).map((user) => user.username)
-		let repoRequests = repositories.map(async (repo: string) => {
-			// let query = `type:pr+repo:${repo}+label:pwoc+created:2023-01-26..2023-03-15+is:merged`;
-			// contributors.forEach((user: Contributor) => {
-			// 	if(user.username.length === 0) return;
-			// 	query += `+author:${user.username}`;
-			// });
-			// return octokit.rest.search
-			// 	.issuesAndPullRequests({
-			// 		q: query,
-			// 		per_page: 100,
-			// 	})
-			// 	.then((res) => res.data.items);
-			let owner = repo.split("/")[0]
-			let repoName = repo.split("/")[1]
-			const res = await octokit.rest.pulls.list({
-				owner: owner,
-				base: undefined,
-				baseUrl: undefined,
-				direction: undefined,
-				head: undefined,
-				headers: undefined,
-				mediaType: {},
-				page: 1,
-				per_page: repoName === "graveyard" ? 100 : 70,
-				repo: repoName,
-				request: undefined,
-				sort: undefined,
-				state: "closed"
-			});
-			return res.data;
-		});
-
-		// repoRequests.push(
-		// 	octokit.rest.pulls.list({
-		// 		owner: "PEC-CSS",
-		// 		base: undefined,
-		// 		baseUrl: undefined,
-		// 		direction: undefined,
-		// 		head: undefined,
-		// 		headers: undefined,
-		// 		mediaType: {},
-		// 		page: 2,
-		// 		per_page: 100,
-		// 		repo: "graveyard",
-		// 		request: undefined,
-		// 		sort: undefined,
-		// 		state: "closed"
-		// 	}).then((res) => res.data)
-		// )
-		let repoResponses = (await Promise.all(
-			repoRequests
-		)) as PullRequest[][];
-		
-		let pullRequestMap = new Map<string, PullRequest[]>();
-		let nameMap = new Map<string, string>();
-		contributors.forEach((user: Contributor) => {
-			if(user.username.length === 0) return
-			pullRequestMap.set(user.username, []);
-			nameMap.set(user.username, user.name);
-		});
-
-		repoResponses.forEach((pullRequests: PullRequest[]) => {
-			console.log(pullRequests)
-			pullRequests.forEach((pullRequest: PullRequest) => {
-				let labels = pullRequest.labels.map((label) => label.name.trim().toLowerCase())
-				pullRequest.repository_url = pullRequest.html_url.split('/').slice(0, 5).join('/')
-				if(
-					labels.includes("pwoc") &&
-					(labels.includes("hard") || labels.includes("medium") || labels.includes("easy") || labels.includes("graveyard")) &&
-					pullRequest.merged_at != null
-				) {
-
-				const userLogin = pullRequest.user.login;
-  
-				if (!pullRequestMap.has(userLogin)) {
-					pullRequestMap.set(userLogin, []);
-				}
-				
-				pullRequestMap.get(userLogin)?.push(pullRequest);
+	// Fetch leaderboard data from the server
+	const fetchLeaderboard = async () => {
+		try {
+			const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+			console.log(baseURL)
+			const leaderboardURL = `${baseURL}/leaderboard`;
+			const response = await fetch(leaderboardURL);
+			if (!response.ok) {
+				throw new Error(`Error: ${response.statusText}`);
 			}
-			});
-		});
-
-		console.log(pullRequestMap.size)
-
-		let leaderboard: Item[] = [];
-		pullRequestMap.forEach(
-			(pullRequests: PullRequest[], username: string) => {
-				if (pullRequests.length === 0) return;
-				let points = 0
-				pullRequests.forEach((pullRequest) => {
-					let labels = pullRequest.labels.map((label) => { return label.name.trim().toLowerCase() })
-                    if(labels.includes("hard")) points += 6
-                    else if(labels.includes("medium")) points += 4
-                    else if(labels.includes("easy")) points += 2
-                    else points += 1
-				})
-				try {
-					leaderboard.push({
-						user: {
-							username: username,
-							name: nameMap.get(username) || username,
-							avatar_url: pullRequests[0].user.avatar_url,
-							html_url: pullRequests[0].user.html_url,
-						},
-						pullRequests: pullRequests.sort((p1, p2) => p2.closed_at.localeCompare(p1.closed_at)),
-						points: points
-					});
-				} catch (e) {
-					console.log(e)
-				}
-			}
-		);
-		leaderboard.sort((item1: Item, item2: Item) => {
-			if(item2.points == item1.points) {
-				// if item1 smol => item1 first => negative return
-				return (item1.pullRequests[0].closed_at.localeCompare(item2.pullRequests[0].closed_at))
-			}
-			return item2.points - item1.points;
-		});
-		// console.log(leaderboard)
-		return leaderboard;
+			const data = await response.json();
+			setLeaderboard(data);
+		} catch (error) {
+			console.error('Failed to fetch leaderboard:', error);
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	useEffect(() => {
-		getPullRequests()
-			.then((itemList) => setLeaderboard(itemList))
-			.catch((error) => console.error(error));
+		fetchLeaderboard();
 	}, []);
+
 
 	return (
 		<PageLayout
