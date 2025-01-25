@@ -67,12 +67,12 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-e43f5367'], (function (workbox) { 'use strict';
+define(['./F:/PWoC/node_modules/workbox-routing/registerRoute.mjs', './F:/PWoC/node_modules/workbox-strategies/NetworkFirst.mjs', './F:/PWoC/node_modules/workbox-strategies/NetworkOnly.mjs', './F:/PWoC/node_modules/workbox-core/clientsClaim.mjs'], (function (registerRoute_mjs, NetworkFirst_mjs, NetworkOnly_mjs, clientsClaim_mjs) { 'use strict';
 
   importScripts("fallback-development.js");
   self.skipWaiting();
-  workbox.clientsClaim();
-  workbox.registerRoute("/", new workbox.NetworkFirst({
+  clientsClaim_mjs.clientsClaim();
+  registerRoute_mjs.registerRoute("/", new NetworkFirst_mjs.NetworkFirst({
     "cacheName": "start-url",
     plugins: [{
       cacheWillUpdate: async ({
@@ -96,7 +96,7 @@ define(['./workbox-e43f5367'], (function (workbox) { 'use strict';
       }) => self.fallback(request)
     }]
   }), 'GET');
-  workbox.registerRoute(/.*/i, new workbox.NetworkOnly({
+  registerRoute_mjs.registerRoute(/.*/i, new NetworkOnly_mjs.NetworkOnly({
     "cacheName": "dev",
     plugins: [{
       handlerDidError: async ({

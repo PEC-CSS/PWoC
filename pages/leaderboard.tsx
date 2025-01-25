@@ -1,12 +1,14 @@
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { Item } from '../typings/types';
 import { LeaderboardTable } from '../components/leaderboard/LeaderboardTable';
-import Lottie from 'react-lottie-player';
-import snowman from '../public/assets/animations/snowman.json';
 import { TopThree } from '../components/leaderboard/TopThree';
 import PageLayout from '../components/layout/PageLayout';
 
+// Dynamically import Lottie to avoid SSR issues
+const Lottie = dynamic(() => import('react-lottie-player'), { ssr: false });
+import snowman from '../public/assets/animations/snowman.json';
 
 const Leaderboard: NextPage = () => {
 	const [leaderboard, setLeaderboard] = useState<Item[]>([]);
@@ -16,7 +18,7 @@ const Leaderboard: NextPage = () => {
 	const fetchLeaderboard = async () => {
 		try {
 			const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-			console.log(baseURL)
+			console.log(baseURL);
 			const leaderboardURL = `${baseURL}/leaderboard`;
 			const response = await fetch(leaderboardURL);
 			if (!response.ok) {
@@ -35,31 +37,30 @@ const Leaderboard: NextPage = () => {
 		fetchLeaderboard();
 	}, []);
 
-
 	return (
 		<PageLayout
-			title='PWOC | Leaderboard'
-			description='Leaderboard of PWoC, based on PR count in the given period of the event. Only participants with merged PRs appear here.'
+			title="PWOC | Leaderboard"
+			description="Leaderboard of PWoC, based on PR count in the given period of the event. Only participants with merged PRs appear here."
 		>
-			<div className='flex items-center flex-col'>
+			<div className="flex items-center flex-col">
 				{leaderboard.length > 2 ? (
 					<>
 						<TopThree topList={leaderboard.slice(0, 3)} />
 						<LeaderboardTable leaderboard={leaderboard} />
 					</>
-				) : leaderboard.length > 0?(
+				) : leaderboard.length > 0 ? (
 					<>
 						<LeaderboardTable leaderboard={leaderboard} />
 					</>
-				):(
-					<div className='flex flex-col items-center my-[30px]'>
+				) : (
+					<div className="flex flex-col items-center my-[30px]">
 						<Lottie
 							play
 							loop
 							animationData={snowman}
-							className='h-[300px] w-auto my-[30px]'
+							className="h-[300px] w-auto my-[30px]"
 						/>
-						<div className='font-bold text-[30px] animate-pulse'>
+						<div className="font-bold text-[30px] animate-pulse">
 							Loading, please wait..
 						</div>
 					</div>
