@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Lottie from "lottie-react"; // Correct Lottie import from 'lottie-react'
 
 type Props = {
   title: string;
@@ -17,14 +18,6 @@ export const BasicContentCard = ({
   titleClass,
   children,
 }: Props) => {
-  const [Lottie, setLottie] = useState<any>(null);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      import("react-lottie-player").then((mod) => setLottie(() => mod.default));
-    }
-  }, []);
-
   return (
     <div className={`${containerClass} glassmorphism bg-[#14000600]`}>
       <div className={`text-[#ef8220] uppercase ${titleClass} text-center bg-[#1795f098] glassmorphism`}>
@@ -32,9 +25,9 @@ export const BasicContentCard = ({
       </div>
       <div className={`grid ${img ? "md:grid-cols-2" : "md:grid-cols-1"}`}>
         <div className="text-lg mt-3 md:my-auto md:text-xl">{content}</div>
-        {img && Lottie && (
+        {img && (
           <div className="flex justify-center mt-6 h-[400px]">
-            <Lottie play loop animationData={img} className="object-contain" />
+            <Lottie animationData={img} loop className="object-contain" />
           </div>
         )}
       </div>

@@ -2,14 +2,17 @@ import Image from 'next/image';
 import { NextPage } from 'next';
 import Timeline from '../components/Timeline';
 import React from 'react';
+import dynamic from 'next/dynamic';
 import pwoc_logo_no_text from '../public/assets/logo/pwoc_logo_no_text.png';
 import PageLayout from '../components/layout/PageLayout';
 import { TitleCard } from '../components/index/TitleCard';
-import { BasicContentCard } from '../components/index/BasicContentCard';
 import { RegistrationCard } from '../components/index/RegistrationCard';
 import { Sponsors } from '../components/index/Sponsors';
 import content from '../data/content.json';
-import programmer from '../public/assets/animations/programmer.json';
+import programmerAnimation from '../public/assets/animations/programmer.json';
+
+// Import Lottie dynamically to prevent SSR issues
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 const Home: NextPage = () => {
 	return (
@@ -35,7 +38,6 @@ const Home: NextPage = () => {
 						content={content.pwocTitleQuote}
 					/>
 				</div>
-
 				<div className='hidden [@media(min-width:830px)]:flex justify-end h-[200px] w-[400px] my-auto overflow-hidden'>
 					<Image
 						src={pwoc_logo_no_text}
@@ -47,15 +49,12 @@ const Home: NextPage = () => {
 				</div>
 			</div>
 
-			{/* TODO: Update logo */}
-			<div className='md:mx-4 mx-[4px] my-7'>
-				<BasicContentCard
-					title='About us'
-					content={content.pwocAbout}
-					img={programmer}
-					containerClass='border-2 p-4 md:py-8 md:px-10'
-					titleClass='text-2xl sm:text-3xl md:text-6xl p-4'
-				/>
+			<div className='md:mx-4 mx-[4px] my-7 border-2 p-4 md:py-8 md:px-10'>
+				<div className='text-2xl sm:text-3xl md:text-6xl p-4'>About Us</div>
+				<p>{content.pwocAbout}</p>
+				<div className='flex justify-center'>
+					<Lottie animationData={programmerAnimation} loop className='h-[300px] w-auto' />
+				</div>
 			</div>
 
 			<div className='md:mx-4 mx-[4px] my-7'>
