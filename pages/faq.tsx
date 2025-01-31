@@ -5,7 +5,7 @@ import { Card } from '../components/faqs/cards';
 import { TopBar } from '../components/faqs/topBar';
 import PageLayout from '../components/layout/PageLayout';
 import { CheckSharp, Person2 } from '@mui/icons-material';
-import { Faq } from '../typings/types';
+import type { Faq } from '../typings/types';
 import { BiLaptop, BiMedal } from 'react-icons/bi';
 import { GiTeacher } from 'react-icons/gi';
 import { FiGitPullRequest } from 'react-icons/fi';
