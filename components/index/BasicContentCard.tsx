@@ -1,5 +1,5 @@
 import React from "react";
-import Lottie from "react-lottie-player";
+//import Lottie from "react-lottie-player";
 
 type Props = {
     title: string;
@@ -12,19 +12,21 @@ type Props = {
 
 export const BasicContentCard = ({title, content, img, containerClass, titleClass, children} : Props) => {
   return (
-    <div className={`${containerClass} glassmorphism bg-[#14000600]`}>
-        <div className={`text-[#ef8220] uppercase ${titleClass} text-center bg-[#1795f098] glassmorphism`}>{title}</div>
-        <div className={`grid ${img ? 'md:grid-cols-2' : 'md:grid-cols-1'}`}>
-            <div className="text-lg mt-3 md:my-auto md:text-xl">
+    <div className={`${containerClass} glassmorphism bg-gradient-to-r from-blue-400 to-blue-600 p-6 rounded-lg shadow-lg `}>
+        <div className={`text-white uppercase ${titleClass} text-center bg-blue-500 bg-opacity-50 glassmorphism p-4 rounded-lg shadow-md font-bold text-2xl`}>
+            {title}
+        </div>
+        <div className={`grid ${img ? 'md:grid-cols-2' : 'md:grid-cols-1'} gap-4 mt-4`}>
+            <div className="text-lg mt-3 md:my-auto md:text-xl text-white font-medium">
                {content}
             </div>
             {img && <div className="flex justify-center mt-6 h-[400px]">
-                <Lottie
+                {/* <Lottie
                     play
                     loop
                     animationData={img}
                     className="object-contain"
-                />
+                /> */}
             </div>}
         </div>
         {children}

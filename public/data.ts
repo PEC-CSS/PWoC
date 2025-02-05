@@ -1,5 +1,13 @@
 export let contributors = [
     {
+        name: "Bhavik Vishal Sharma",
+        username: "itsbhavik1"
+    },
+    {
+        name: "Pranav Bhatia",
+        username: "pranavb1234"
+    },
+    {
         name: "Manjot Singh Oberoi",
         username: "ken1000minus7"
     },

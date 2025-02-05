@@ -1,104 +1,90 @@
-import React from "react";
-import {
-    VerticalTimeline,
-    VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
-import {AiOutlineForm} from "react-icons/ai";
-import {Handshake, LaptopMac, Lock} from "@mui/icons-material";
-import {MdChecklist} from "react-icons/md";
-import {GiFinishLine} from "react-icons/gi";
-import {BiTrophy} from "react-icons/bi";
+import { motion } from "framer-motion"
+import { Card, CardContent } from "../components/card"
 
-const events = [
+export default function Timeline() {
+  const timelineEvents = [
     {
-        title: "Registrations Open",
-        date: "9 January 2023",
-        description: "Registrations begin for mentors and mentees",
-        icon: <AiOutlineForm />
-    },
-    // {
-    //     title: "Registrations Close",
-    //     date: "24 January 2023",
-    //     description: "The registration period ends and final projects are displayed",
-    //     icon: <Lock />
-    // }, -> they never close hehe
-    {
-        title: "Community Bonding",
-        date: "25 January 2023",
-        description: "Time to know each other before the coding begins :)",
-        icon: <Handshake />
+      date: "December 1, 2023",
+      title: "Registration Opens",
+      description: "Start your journey by registering for Winter of Code",
     },
     {
-        title: "Coding Period Begins",
-        date: "26 January 2023",
-        description: "The program is kicked off, mentees begin contributing to the listed projects",
-        icon: <LaptopMac />
+      date: "December 15, 2023",
+      title: "Project Announcement",
+      description: "Browse and select from exciting project opportunities",
     },
     {
-        title: "Mid-Evaluation",
-        date: "20 February 2023",
-        description: "Half time's up! The performance of mentees is evaluated",
-        icon: <MdChecklist />
+      date: "January 1, 2024",
+      title: "Coding Period Begins",
+      description: "Start working on your projects with mentor guidance",
     },
     {
-        title: "Coding Period ends",
-        date: "15 March 2023",
-        description: "The contributing period comes to an end, no more pull requests will be made after this",
-        icon: <GiFinishLine />
+      date: "February 15, 2024",
+      title: "Mid-term Evaluations",
+      description: "Progress check and feedback from mentors",
     },
     {
-        title: "Final Results Announced",
-        date: "20 March 2023",
-        description: "The final leaderboard is released after all pending pull requests are merged. Time to congratulate the winners!",
-        icon: <BiTrophy />
-    }
-]
+      date: "March 1, 2024",
+      title: "Final Submissions",
+      description: "Submit your completed projects",
+    },
+    {
+      date: "March 15, 2024",
+      title: "Results & Awards",
+      description: "Celebration and recognition of achievements",
+    },
+  ]
 
-function Timeline() {
-    return (
-        <div>
-            <VerticalTimeline lineColor="#454545">
-                {
-                    events.map((event, i)=> {
-                        return (
-                            <VerticalTimelineElement
-                                key={i}
-                                className="vertical-timeline-element--work"
-                                contentStyle={{
-                                    background: "rgba(255, 255, 255, 0.3)",
-                                    backdropFilter: "blur( 8px )",
-                                    boxShadow: "0 8px 32px 0 rgba( 0, 0, 0, 0.18 );",
-                                    borderRadius: "10px",
-                                    border: "1px solid rgba( 255, 255, 255, 0.18 )",
-                                    position: "relative",
-                                    zIndex: "0"
-                                }}
-                                contentArrowStyle={{
-                                    borderRight: "7px solid  rgb(33, 150, 243)",
-                                }}
-                                date={event.date}
-                                dateClassName="text-white"
-                                iconStyle={{
-                                    background: "rgb(2,36,61,0.3)",
-                                    color: "#fff",
-                                    backdropFilter: "blur(8px)"
-                                }}
-                                icon={event.icon}
-                            >
-                                <h3 className="vertical-timeline-element-title font-bold text-[20px] underline decoration-gray-400 decoration-4 break-words">
-                                    {event.title}
-                                </h3>
-                                <p className="font-extralight">
-                                    {event.description}
-                                </p>
-                            </VerticalTimelineElement>
-                        )
-                    })
-                }
-            </VerticalTimeline>
-        </div>
-    );
+  return (
+    <section className="py-20 bg-red">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto"
+        >
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#274495] mb-4">Program Timeline</h2>
+            <p className="text-2xl text-[#274495]/80 max-w-3xl mx-auto font-semibold">Your journey through Winter of Code</p>
+          </div>
+
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-[#0B4F6C]/20 rounded-full" />
+
+            {/* Timeline events */}
+            <div className="space-y-12">
+              {timelineEvents.map((event, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className={`flex items-center ${index % 2 === 0 ? "flex-row-reverse" : ""}`}
+                >
+                  <div className="w-1/2" />
+                  <div className="w-10 h-10 text-[#274495] rounded-full border-4 border-white flex items-center justify-center relative z-10">
+                    <div className="w-3 h-3 bg-white rounded-full" />
+                  </div>
+                  <div className="w-1/2">
+                    <Card className={`bg-white/80 backdrop-blur-sm border-none ${index % 2 === 0 ? "mr-8" : "ml-8"}`}>
+                      <CardContent className="p-6">
+                        <div className="text-sm text-[#274495]/60 mb-1 font-semibold">{event.date}</div>
+                        <h3 className="text-2xl font-semibold text-[#0B4F6C] mb-2">{event.title}</h3>
+                        <p className="text-[#274495]/70 text-xl">{event.description}</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
 }
 
-export default Timeline;

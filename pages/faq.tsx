@@ -1,71 +1,88 @@
-import { NextPage } from 'next';
-import React from 'react';
-import { BottomBar } from '../components/faqs/bottomBar';
-import { Card } from '../components/faqs/cards';
-import { TopBar } from '../components/faqs/topBar';
-import PageLayout from '../components/layout/PageLayout';
-import { CheckSharp, Person2 } from '@mui/icons-material';
-import { Faq } from '../typings/types';
-import { BiLaptop, BiMedal } from 'react-icons/bi';
-import { GiTeacher } from 'react-icons/gi';
-import { FiGitPullRequest } from 'react-icons/fi';
+import type { NextPage } from "next"
+import { motion } from "framer-motion"
+import PageLayout from "../components/layout/PageLayout"
+import FAQCard from "../components/faqs/cards"
 
-export let faqs: Faq[] = [
-	{
-		icon: <Person2 />,
-		title: 'I am just a beginner, can I participate?',
-		description:
-			"Yes, that's exactly the reason you should participate as the program will provide you the experience of open source contribution and assist you in improving your development skills.",
-	},
-	{
-		icon: <CheckSharp />,
-		title: 'What is the criteria for selection?',
-		description:
-			"There's no criteria for selection as we wish to provide everyone an opportunity to learn and grow through this program. You just need to fill the registration form.",
-	},
-	{
-		icon: <BiLaptop />,
-		title: 'How many projects can I contribute to?',
-		description:
-			"There's no restriction on the number of projects you can contribute to. You can contribute to any project at any time.",
-	},
-	{
-		icon: <GiTeacher />,
-		title: "How can I contact a project's mentor?",
-		description:
-			'All communications will be carried out through our discord server. There will be channels created for each of the listed projects.',
-	},
-	{
-		icon: <FiGitPullRequest />,
-		title: 'How does this whole thing work?',
-		description:
-			'Mentors will be responsible for creating issues, which will then be assigned on FCFS basis. After a pull request is merged, points will be awarded based on the difficulty assigned by the mentor.',
-	},
-	{
-		icon: <BiMedal />,
-		title: 'Will there be any rewards?',
-		description:
-			'Participation certificates will be given to all contributors and the top contributors will be awarded with some special rewards :)',
-	},
-];
-
-const Faq: NextPage = () => {
-	return (
-		<PageLayout
-			title='PWOC | FAQ'
-			description='Rules and prizes plus some general queries.'
-		>
-			<div className='container mx-auto flex flex-col gap-[50px] sm:gap-[55px] md:gap-[60px] lg:gap-[70px] xl:gap-[75px] py-[30px] sm:py-[35px] md:py-[40px] lg:py-[45px] xl:py-[50px] px-[15px] sm:px-[30px] md:px-[45px] lg:px-[60px] xl:px-[75px]'>
-				<TopBar />
-				<div className='cards flex flex-col sm:flex-row flex-wrap justify-center gap-y-[35px] sm:gap-y-[40px] md:gap-y-[45px] lg:gap-y-[50px] gap-x-[35px]'>
-					{faqs.map((faq, i) => (
-						<Card faq={faq} key={`faq-${i}`} />
-					))}
-				</div>
-				<BottomBar />
-			</div>
-		</PageLayout>
-	);
+export type Faq = {
+    icon?: JSX.Element; // Make icon optional
+    title: string;
+    description: string;
 };
 
-export default Faq;
+const faqs: Faq[] = [ // Changed Faq to faqs (plural) and made it lowercase
+  {
+    title: "What is Winter of Code?",
+    description:
+      "Winter of Code is a coding event that brings together passionate developers to work on exciting projects during the winter season.",
+  },
+  {
+    title: "How can I participate?",
+    description:
+      "You can participate by registering on our website and choosing a project to contribute to. We welcome developers of all skill levels!",
+  },
+  {
+    title: "When does the event start?",
+    description:
+      "The event typically starts in early December and runs through February. Check our timeline for specific dates. just for testing",
+  },
+  {
+    title: "When does the event start?",
+    description:
+      "The event typically starts in early December and runs through February. Check our timeline for specific dates.",
+  },
+  {
+    title: "When does the event start?",
+    description:
+      "The event typically starts in early December and runs through February. Check our timeline for specific dates.",
+  },
+  {
+    title: "When does the event start?",
+    description:
+      "The event typically starts in early December and runs through February. Check our timeline for specific dates.",
+  },
+  {
+    title: "When does the event start?",
+    description:
+      "The event typically starts in early December and runs through February. Check our timeline for specific dates.",
+  },
+  // Add more FAQs as needed
+];
+
+const FAQs: NextPage = () => {
+  return (
+    <PageLayout title="Winter of Code | FAQs" description="Frequently Asked Questions about Winter of Code">
+      <div className="min-h-screen bg-gradient-to-b from-[#0B4F6C]/10 to-transparent py-20">
+        <div className="container mx-auto px-4">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-5xl font-bold text-center text-[rgba(32,38,87,0.89)] mb-12"
+          >
+            Frequently Asked Questions
+          </motion.h1>
+
+          <motion.div
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {faqs.map((faq, index) => ( // Use the lowercase faqs array
+              <motion.div
+                key={`faq-${index}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <FAQCard faq={faq} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </PageLayout>
+  )
+}
+
+export default FAQs;

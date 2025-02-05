@@ -1,3 +1,159 @@
+// import { ReactNode, useState } from "react"
+// import { motion } from "framer-motion"
+// import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../../components/card"
+// // import { Badge } from "@/components/ui/badge"
+// import { Button } from "../../components/button"
+// import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ToolTip"
+// import { Globe, ArrowRight, ArrowLeft, Mail } from "lucide-react"
+// import Link from "next/link"
+
+// export type Project = {
+//     title: string,
+//     techStack: string[],
+//     description: string | undefined,
+//     githubLink: string | undefined,
+//     deploymentLink: string | undefined,
+//     mentor: string,
+//     mentorGithubLink: string | undefined,
+//     mentorLinkedinLink: string | undefined,
+//     mentorEmail: string | undefined,
+//     mentorMobileNumber: number,
+//     mentorDiscordUsername: string | undefined
+// }
+
+// export const SearchResultCard = ({ project }: { project: Project }) => {
+//   const [isFlipped, setIsFlipped] = useState(false)
+
+//   return (
+//     // <motion.div
+//     //   className="h-[430px] w-full max-w-[380px] perspective"
+//     //   initial={{ opacity: 0, y: 20 }}
+//     //   animate={{ opacity: 1, y: 0 }}
+//     //   transition={{ duration: 0.5 }}
+//     // >
+//     //   <motion.div
+//     //     className="w-full h-full relative transition-all duration-500 preserve-3d"
+//     //     animate={{ rotateY: isFlipped ? 180 : 0 }}
+//     //   >
+       
+//         <div>
+//         <Card className="absolute w-full h-full backface-hidden bg-white/90 backdrop-blur-sm border-none shadow-lg">
+//           <CardHeader>
+//             <CardTitle className="text-2xl text-[#0B4F6C] text-center">{project.title}</CardTitle>
+//           </CardHeader>
+//           <CardContent className="flex flex-col h-[calc(100%-88px)]">
+//             <CardDescription className="text-[#0B4F6C]/70 mb-4 flex-grow overflow-y-auto">
+//               {project.description}
+//             </CardDescription>
+//             <div className="flex flex-wrap gap-2 mb-4">
+//               {/* {project.techStack.map((tech) => (
+//                 <Badge key={tech} variant="secondary" className="bg-[#0B4F6C]/10 text-[#0B4F6C]">
+//                   {tech}
+//                 </Badge>
+//               ))} */}
+//             </div>
+//             <div className="flex justify-center space-x-4 mb-4">
+//               <TooltipProvider>
+//                 <Tooltip>
+//                   <TooltipTrigger asChild>
+//                     <Button variant="outline" size="icon" asChild>
+//                       <Link href={'project.githubLink'} target="_blank" rel="noopener noreferrer">
+//                         {/* <Github className="h-4 w-4" /> */}
+//                       </Link>
+//                     </Button>
+//                   </TooltipTrigger>
+//                   <TooltipContent>
+//                     <p>GitHub Repository</p>
+//                   </TooltipContent>
+//                 </Tooltip>
+//               </TooltipProvider>
+//               {project.deploymentLink && (
+//                 <TooltipProvider>
+//                   <Tooltip>
+//                     <TooltipTrigger asChild>
+//                       <Button variant="outline" size="icon" asChild>
+//                         <Link href={project.deploymentLink} target="_blank" rel="noopener noreferrer">
+//                           <Globe className="h-4 w-4" />
+//                         </Link>
+//                       </Button>
+//                     </TooltipTrigger>
+//                     <TooltipContent>
+//                       <p>Live Preview</p>
+//                     </TooltipContent>
+//                   </Tooltip>
+//                 </TooltipProvider>
+//               )}
+//             </div>
+//             <Button variant="link" onClick={() => setIsFlipped(true)} className="text-[#0B4F6C]">
+//               View Mentor Info <ArrowRight className="ml-2 h-4 w-4" />
+//             </Button>
+//           </CardContent>
+//         </Card>
+
+        
+//         <Card className="absolute w-full h-full backface-hidden bg-white/90 backdrop-blur-sm border-none shadow-lg [transform:rotateY(180deg)]">
+//           <CardHeader>
+//             <CardTitle className="text-2xl text-[#0B4F6C] text-center">Mentor Information</CardTitle>
+//           </CardHeader>
+//           <CardContent className="flex flex-col items-center justify-center h-[calc(100%-88px)]">
+//             <h3 className="text-xl font-semibold text-[#0B4F6C] mb-2">{project.mentor}</h3>
+//             <p className="text-[#0B4F6C]/70 mb-6">{project.mentorDiscordUsername}</p>
+//             <div className="flex space-x-4 mb-8">
+//               <TooltipProvider>
+//                 <Tooltip>
+//                   <TooltipTrigger asChild>
+//                     <Button variant="outline" size="icon" asChild>
+//                       <Link href={`mailto:${project.mentorEmail}`}>
+//                         <Mail className="h-4 w-4" />
+//                       </Link>
+//                     </Button>
+//                   </TooltipTrigger>
+//                   <TooltipContent>
+//                     <p>Email Mentor</p>
+//                   </TooltipContent>
+//                 </Tooltip>
+//               </TooltipProvider>
+//               <TooltipProvider>
+//                 <Tooltip>
+//                   <TooltipTrigger asChild>
+//                     <Button variant="outline" size="icon" asChild>
+//                       <Link href={'project.mentorGithubLink'} target="_blank" rel="noopener noreferrer">
+//                         {/* <Github className="h-4 w-4" /> */}
+//                       </Link>
+//                     </Button>
+//                   </TooltipTrigger>
+//                   <TooltipContent>
+//                     <p>Mentor's GitHub</p>
+//                   </TooltipContent>
+//                 </Tooltip>
+//               </TooltipProvider>
+//               <TooltipProvider>
+//                 <Tooltip>
+//                   <TooltipTrigger asChild>
+//                     <Button variant="outline" size="icon" asChild>
+//                       <Link href={'project.mentorLinkedinLink'} target="_blank" rel="noopener noreferrer">
+//                         {/* <Linkedin className="h-4 w-4" /> */}
+//                       </Link>
+//                     </Button>
+//                   </TooltipTrigger>
+//                   <TooltipContent>
+//                     <p>Mentor's LinkedIn</p>
+//                   </TooltipContent>
+//                 </Tooltip>
+//               </TooltipProvider>
+//             </div>
+//             <Button variant="link" onClick={() => setIsFlipped(false)} className="text-[#0B4F6C]">
+//               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Project
+//             </Button>
+//           </CardContent>
+//         </Card>
+//         </div>
+//     //   </motion.div>
+//     // </motion.div>
+//   )
+// }
+
+
 import { useState } from 'react';
 import LaptopIcon from '@mui/icons-material/Laptop';
 import Tooltip from '@mui/material/Tooltip';
@@ -18,9 +174,9 @@ export const SearchResultCard = ({ project }: { project: Project }) => {
 			isFlipped={flip}
 		>
 			<div
-				className='glassmorphism bg-[rgba(0,0,0,0.3)] max-w-lg rounded overflow-hidden mx-auto pt-[10px] px-[15px] mb-[15px] flex flex-col p-[15px] rounded-b-xl items-center h-full w-full'
+				className='glassmorphism bg-[rgba(32,38,87,0.70)] max-w-lg rounded overflow-hidden mx-auto pt-[10px] px-[15px] mb-[15px] flex flex-col p-[15px] rounded-b-xl items-center h-full w-full'
 			>
-				<div className='font-bold text-[35px] mb-2 text-center mt-2.5'>
+				<div className='font-bold text-[35px] mb-2 text-center mt-2.5 text-white'>
 					{project.title}
 				</div>
 
@@ -71,15 +227,15 @@ export const SearchResultCard = ({ project }: { project: Project }) => {
 
 				</div>
 
-				<TbArrowBigRight className="cursor-pointer text-[25px]" onClick={() => setFlip(true)} />
+				<TbArrowBigRight className="cursor-pointer text-[25px] text-white" onClick={() => setFlip(true)} />
 
 			</div>
 			<div
-				className="glassmorphism bg-[rgba(0,0,0,0.3)] max-w-sm rounded overflow-hidden mx-auto p-[15px] mb-[15px] w-full h-full flex flex-col items-center"
+				className="glassmorphism bg-[rgba(32,38,87,0.61)] max-w-sm rounded overflow-hidden mx-auto p-[15px] mb-[15px] w-full h-full flex flex-col items-center"
 			>
-				<div className="my-[10px]">Mentor</div>
-				<div className="font-bold text-2xl my-[10px]">{project.mentor}</div>
-				<div className="my-[10px]">{project.mentorDiscordUsername}</div>
+				<div className="my-[10px] text-white">Mentor</div>
+				<div className="font-bold text-2xl my-[10px] text-white">{project.mentor}</div>
+				<div className="my-[10px] text-white">{project.mentorDiscordUsername}</div>
 				<div className="flex flex-row w-full items-center justify-evenly flex-auto">
 
 					<IconContext.Provider value={{ className: "text-[38px] md:text-[30px] mx-[8px] md:mx-[6px] text-[#DB4437] md:text-white md:hover:text-[#DB4437] md:hover:translate-y-[-4px] ease-out duration-300" }}>
@@ -101,7 +257,7 @@ export const SearchResultCard = ({ project }: { project: Project }) => {
 					</IconContext.Provider>
 
 				</div>
-				<TbArrowBigRightLine className="cursor-pointer text-[25px]" onClick={() => setFlip(false)} />
+				<TbArrowBigRightLine className="cursor-pointer text-[25px] text-white" onClick={() => setFlip(false)} />
 			</div>
 		</ReactCardFlip>
 	);

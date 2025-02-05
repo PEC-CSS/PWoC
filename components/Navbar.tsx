@@ -1,160 +1,94 @@
-import Link from 'next/link';
-import { useState } from 'react';
-import { AiOutlineMenuUnfold, AiOutlineMenuFold } from 'react-icons/ai';
-import { TbHome2, TbLayoutDashboard } from 'react-icons/tb';
-import { HiTemplate } from 'react-icons/hi';
-import {GiSellCard, GiTombstone} from 'react-icons/gi';
-import { useRouter } from 'next/router';
-import Image from 'next/image';
-import pwoc_text from '../public/assets/logo/pwoc_text.png';
+"use client"
 
-export const Navbar = () => {
-	const [isMobileNavOpen, setisMobileNavOpen] = useState(false); // For toggling the mobile nav
-	const router = useRouter();
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import { Snowflake, Code, BookOpen, Users, MessageCircle } from "lucide-react"
+import { motion } from "framer-motion"
 
-	const handleClick = () => {
-		setisMobileNavOpen(!isMobileNavOpen);
-	};
+const navItems = [
+  { name: "Code", icon: Code },
+  { name: "Docs", icon: BookOpen },
+  { name: "Community", icon: Users },
+  { name: "Chat", icon: MessageCircle },
+]
 
-	return (
-		<div>
-			<div className='flex flex-wrap '>
-				<div className='w-full '>
-					<div className='pb-0 py-2 px-2 mx-auto'>
-						<div className='glassmorphism bg-[#161a1dff] w-full flex justify-between items-center p-2 text-gray-900 rounded-lg shadow-lg font-medium capitalize'>
-							{/* Logo */}
-							<Link href='/'>
-								<span className='px-2 mr-2 md:border-r border-gray-800'>
-									<Image
-										src={pwoc_text}
-										alt='PWoC'
-										height={135}
-										width={435}
-										// height={100}
-										// width={400}
-										// className='w-[9rem] h-12 -mt-1 inline mx-auto'
-										className='w-[9rem] h-11 -mt-1 inline mx-auto'
-									/>
-								</span>
-							</Link>
-							<div className='px-2 md:flex gap-x-4 [@media(max-width:840px)]:gap-x-[1px] items-center flex-1 text-gray-900 font-medium capitalize hidden justify-end'>
-								{/* Links */}
-								{navLinks?.map(({ title, link, icon }, id) => (
-									<Link key={id} href={link}>
-										<p
-											//   id={id}
-											className={`px-2 py-1 flex items-center cursor-pointer text-white hover:bg-gray-100 hover:text-[#2d363c] text-sm rounded ${
-												router.pathname == link
-													? 'underline underline-offset-4 decoration-2 text-[#2d363c] bg-gray-100'
-													: ''
-											}`}
-										>
-											<span className='p-2 bg-black rounded-full text-white'>
-												{icon}
-											</span>
-											<span className='mx-1 text-semibold'>
-												{title}
-											</span>
-										</p>
-									</Link>
-								))}
-							</div>
-							{/* Hamburger Menu  */}
-							<div className='md:hidden transition-all mr-3 my-3 cursor-pointer text-white hover:text-gray-700'>
-								{isMobileNavOpen ? (
-									<AiOutlineMenuFold
-										onClick={() => handleClick()}
-										className='rounded text-2xl'
-									/>
-								) : (
-									<AiOutlineMenuUnfold
-										onClick={() => handleClick()}
-										className='rounded text-2xl'
-									/>
-								)}
-							</div>
-						</div>
-					</div>
-					{/* Mobile Navbar */}
-					<div
-						id='navbar'
-						className={`pt-0 fixed z-[100] top-2 mx-auto ${
-							isMobileNavOpen
-								? 'translate-x-0'
-								: '-translate-x-full'
-						} transition-all flex-wrap md:hidden`}
-					>
-						<div className='py-[.5px] w-64'>
-							<div className='w-full py-4 space-y-6 px-2 text-gray-900 glassmorphism bg-[rgba(0,0,0,0.7)] rounded-lg min-h-screen text-left capitalize font-medium shadow-lg'>
-								{/* Logo */}
-								<Link href='/'>
-									<div className='px-2 grid place-items-center md:border-r border-gray-800'>
-										<Image
-											src={pwoc_text}
-											alt='PWoC'
-											height={135}
-											width={435}
-											// height={100}
-											// width={300}
-											// className='w-[9rem] h-12 -mt-1 inline mx-auto'
-											className='w-[9rem] h-11 -mt-1 inline mx-auto'
-										/>
-									</div>
-								</Link>
+export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false)
 
-								{/* Links */}
-								{navLinks?.map(({ title, link, icon }, id) => (
-									<Link key={id} href={link}>
-										<p
-											//   id={id}
-											className={`p-2 my-2 flex items-center cursor-pointer text-white text-sm rounded z-100 ${
-												router.pathname == link
-													? 'underline underline-offset-4 decoration-2 text-[#2d363c] bg-gray-100'
-													: ''
-											}`}
-										>
-											<span className='p-2 bg-black text-white rounded-full'>
-												{icon}
-											</span>
-											<span className='mx-1 text-semibold'>
-												{title}
-											</span>
-										</p>
-									</Link>
-								))}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
-};
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
-const navLinks = [
-	{
-		title: 'Home',
-		link: '/',
-		icon: <TbHome2 />,
-	},
-	{
-		title: 'Leaderboard',
-		link: '/leaderboard',
-		icon: <TbLayoutDashboard />,
-	},
-	{
-		title: 'Projects',
-		link: '/projects',
-		icon: <HiTemplate />,
-	},
-	{
-		title: 'Graveyard',
-		link: '/graveyard',
-		icon: <GiTombstone />,
-	},
-	{
-		title: "FAQ's",
-		link: '/faq',
-		icon: <GiSellCard />,
-	},
-];
+  return (
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 100 }}
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-[#0B1120]/70 backdrop-blur-md shadow-lg" : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            <Link href="/" className="flex items-center group">
+              <motion.div whileHover={{ rotate: 180 }} transition={{ duration: 0.3 }}>
+                <Snowflake className="h-8 w-8 text-blue-400" />
+              </motion.div>
+              <span className="ml-2 text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                WinterCode
+              </span>
+            </Link>
+          </div>
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={`/${item.name.toLowerCase()}`}
+                  className="text-blue-100 hover:bg-blue-500/10 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 flex items-center"
+                >
+                  <item.icon className="h-4 w-4 mr-2" />
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <SnowAnimation />
+    </motion.nav>
+  )
+}
+
+function SnowAnimation() {
+  return (
+    <div className="snow-container absolute inset-0 pointer-events-none overflow-hidden">
+      {[...Array(50)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="snow"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: "100vh" }}
+          transition={{
+            duration: Math.random() * 3 + 2,
+            repeat: Number.POSITIVE_INFINITY,
+            delay: Math.random() * 2,
+            ease: "linear",
+          }}
+          style={{
+            width: `${Math.random() * 5 + 2}px`,
+            height: `${Math.random() * 5 + 2}px`,
+            left: `${Math.random() * 100}%`,
+            opacity: Math.random(),
+          }}
+        />
+      ))}
+    </div>
+  )
+}
+
