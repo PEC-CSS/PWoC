@@ -1,66 +1,43 @@
-import { BasicContentCard } from "./BasicContentCard"
-import {Button} from "@mui/material";
-import content from "../../data/content.json"
+'use client';
 
-export const RegistrationCard = () => {
+import { motion } from 'framer-motion';
+import { Button } from "../../components/button";
+import { Card, CardContent } from "../../components/card";
+
+export default function Registration() {
   return (
-    <div className="border-2 glassmorphism bg-[#14000600] p-5 md:py-8 md:px-10">
-      <div className="[@media(max-width:230px)]:text-lg text-2xl sm:text-4xl md:text-6xl p-3 mb-4 text-[#ef8220] uppercase text-center bg-[#1795f098] glassmorphism break-words">REGISTRATION</div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 place-items-center">
-        <div className="md:mx-8">
-          <BasicContentCard
-              title="Mentee"
-              content={content.menteeRegisDesc}
-              titleClass="text-xl sm:text-2xl md:text-4xl p-3 inline-block mb-4"
-              containerClass="p-4 flex flex-col items-center my-3 md:my-1">
-
-              <Button
-                  href="https://forms.gle/mTaGGudcMujgCkAg6"
-                  target="_blank"
-                  variant="contained"
-                  style={{
-                      background: "rgba(250,72,72,0.3)",
-                      backdropFilter: "blur(8px)",
-                      fontWeight: "bold",
-                      fontSize: "16px",
-                      margin: "20px 0",
-                      borderRadius: "10px"
-                  }}
+    <section className="relative py-20 ">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto"
+        >
+          <Card className="bg-white/40 backdrop-blur-md border-none shadow-xl overflow-hidden">
+            <CardContent className="p-8 md:p-12 text-center">
+              <h2 className="text-2xl md:text-6xl font-bold text-[#274495] mb-6">
+                Register as a Mentee
+              </h2>
+              <p className="text-[#274495]/80 text-lg md:text-2xl md:font-semibold mb-8">
+                Join Winter of Code as a mentee and embark on an exciting journey of learning and growth. 
+                Collaborate with experienced mentors, build amazing projects, and take your coding skills to the next level.
+              </p>
+              <Button 
+                size="lg"
+                className="bg-[#274495] hover:bg-[#0B4F6C]/90 text-white text-lg px-8 py-6"
+                onClick={() => {
+                  // Add your registration logic here
+                  console.log("Registration button clicked");
+                }}
               >
-                  Register as a mentee
+                Register Now
               </Button>
-
-          </BasicContentCard>
-
-        </div>
-
-        <div className="md:mx-8">
-          <BasicContentCard
-              title="Mentor"
-              content={content.mentorRegisDesc}
-              titleClass="text-xl sm:text-2xl md:text-4xl p-3 inline-block mb-4"
-              containerClass="p-4 flex flex-col items-center my-3 md:my-1">
-
-              <Button
-                  href="https://forms.gle/Jp27Zr72dSubhf6y5"
-                  target="_blank"
-                  variant="contained"
-                  style={{
-                      background: "rgba(250,72,72,0.3)",
-                      backdropFilter: "blur(8px)",
-                      fontWeight: "bold",
-                      fontSize: "16px",
-                      margin: "20px 0",
-                      borderRadius: "10px"
-                  }}
-              >
-                  Register as a mentor
-              </Button>
-
-          </BasicContentCard>
-        </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
-    </div>
-  )
+    </section>
+  );
 }

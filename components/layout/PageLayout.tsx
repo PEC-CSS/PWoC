@@ -1,76 +1,53 @@
-import Head from "next/head";
-import { ReactNode } from "react";
-import { Footer } from "../Footer";
+import Image from "next/image";
+import { Button } from "../../components/button";
 import Snowfall from "react-snowfall";
-import { Navbar } from "../Navbar";
+import Footer from "../Footer";
 
-type Props = {
-    title: string;
-    description?: string;
-    children?: ReactNode;
-};
-
-function PageLayout({ title = "PWOC | PEC winter of code", children, description }: Props) {
+function PageLayout({ title = "PWOC | PEC winter of code", children, description }: any) {
     return (
-        <div className="min-h-[100vh]">
-            <Head>
-                <title>{title}</title>
-                <meta name="description" content={description} />
-                <link rel="icon" href="/assets/logo/pwoc_logo.png"/>
-                <meta name="author" content="PEC ACM CSS" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                {/* PWA configuration */}
-                <meta name='application-name' content='PWOC | PEC Winter of Code' />
-                <meta name='apple-mobile-web-app-capable' content='yes' />
-                <meta name='apple-mobile-web-app-status-bar-style' content='default' />
-                <meta name='apple-mobile-web-app-title' content={title} />
-                <meta name='format-detection' content='telephone=no' />
-                <meta name='mobile-web-app-capable' content='yes' />
-                <meta name='msapplication-config' content='/assets/icons/browserconfig.xml' />
-                <meta name='msapplication-TileColor' content='#49000f' />
-                <meta name='msapplication-tap-highlight' content='no' />
-                <meta name='theme-color' content='#49000f' />
-
-                <link rel='apple-touch-icon' href='/assets/icons/apple-touch-icon.png' />
-                <link rel='apple-touch-icon' sizes='152x152' href='/assets/icons/apple-touch-icon.png' />
-                <link rel='apple-touch-icon' sizes='180x180' href='/assets/icons/apple-touch-icon.png' />
-                <link rel='apple-touch-icon' sizes='167x167' href='/assets/icons/apple-touch-icon.png' />
-
-                <link rel='icon' type='image/png' sizes='32x32' href='/assets/icons/favicon-32x32.png' />
-                <link rel='icon' type='image/png' sizes='16x16' href='/assets/icons/favicon-16x16.png' />
-                <link rel='manifest' href='/manifest.json' />
-                <link rel='mask-icon' href='/assets/icons/safari-pinned-tab.svg' color='#49000f' />
-                <link rel='shortcut icon' href='/assets/icons/favicon.ico' />
-                <link rel='canonical' href='https://pwoc.vercel.app/' />
-
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content="https://pwoc.vercel.app/" />
-                <meta property="twitter:title" content={title} />
-                <meta property="twitter:description" content={description} />
-                <meta property="twitter:image" content="https://res.cloudinary.com/rahulsharma/image/upload/v1673332670/pwoc_logo_bg_ih764w.png" />
-                <meta name='twitter:creator' content='@pec_acm' />
-
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://pwoc.vercel.app/" />
-                <meta property="og:title" content={title} />
-                <meta property="og:description" content={description} />
-                <meta property="og:image" content="https://res.cloudinary.com/rahulsharma/image/upload/v1673332670/pwoc_logo_bg_ih764w.png" />
-                <meta property='og:site_name' content='PWOC | PEC winter of code' />
-                
-                <meta name="keywords" content="pwoc, 2k23, pec, winter, developer, code, pec winter of code, pwoc 2023" />
-                <meta name="google-site-verification" content="9XwhLNrq9VaXZa_nwxxci0nhRlxx96-Ww0Nu_shbfhE" />
-            </Head>
-            <div className="z-[100]">
-                <Navbar />            
+        <div className="relative min-h-screen overflow-hidden">
+            {/* Background Image with Black Overlay */}
+            <div className="absolute inset-0 z-0">
+                <div className="fixed w-full h-full">
+                    <Image
+                        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kk-JZXd8o1yBq7C2qdNzLUsFUILC2ipsI.webp"
+                        alt="Winter landscape with lighthouse"
+                        layout="fill"
+                        objectFit="cover" // Ensures the image covers the entire screen
+                    />
+                    {/* Black overlay */}
+                    <div className="absolute inset-0 bg-black/15"></div>
+                </div>
             </div>
-            <Snowfall
-                snowflakeCount={150}
-                style={{
-                    zIndex: -1,
-                    position: "fixed",
-                }} />
-            {children}
-            <Footer />
+
+            {/* Snow Effect */}
+            <Snowfall />
+
+            {/* Navigation */}
+            <nav className="relative z-30 px-6 py-4 bg-black/5">
+                <div className="max-w-7xl mx-auto flex items-center justify-between">
+                    <a href="/" className="text-[#274495] text-2xl font-bold">
+                        Winter of Code
+                    </a>
+                    <div className="hidden md:flex items-center space-x-8">
+                        {["Home", "Leaderboard", "Projects", "Graveyard", "Faq"].map((item) => (
+                            <a
+                                key={item}
+                                href={`${item.toLowerCase()}`}
+                                className="text-[#274495] text-[1.1rem] font-semibold hover:text-white transition-colors"
+                            >
+                                {item}
+                            </a>
+                        ))}
+                        {/* <Button className="text-[#274495] bg-white">Get Started</Button> */}
+                    </div>
+                </div>
+            </nav>
+
+            {/* Main Content */}
+            <div className="relative z-20">{children}
+                <Footer />
+            </div>
         </div>
     );
 }

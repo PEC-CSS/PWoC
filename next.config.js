@@ -39,7 +39,8 @@ const nextConfig = {
 			'avatars.githubusercontent.com',
 			's3-us-west-2.amazonaws.com',
 			'winterofcode.com',
-			'res.cloudinary.com'
+			'res.cloudinary.com',
+			'hebbkx1anhila5yf.public.blob.vercel-storage.com'
 		],
 	},
 	headers,

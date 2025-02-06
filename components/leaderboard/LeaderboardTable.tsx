@@ -8,7 +8,7 @@ export const LeaderboardTable = ({leaderboard}: {leaderboard: Item[]}) => {
         fontWeight: "bold",
         fontSize: "25px",
         color: "white",
-        backgroundColor: "rgba(0,0,0,0.5)",
+        backgroundColor: "rgba(32,38,87,0.40)",
         backdropFilter: "blur( 8px )",
         fontFamily: "Hammersmith, sans-serif"
     }
@@ -21,7 +21,7 @@ export const LeaderboardTable = ({leaderboard}: {leaderboard: Item[]}) => {
             }}
         >
             <TableHead sx={{
-                boxShadow: "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+                boxShadow: "glassmorphism bg-[rgba(32,38,87,0.89)] 0px 3px 6px, glassmorphism bg-[rgba(32,38,87,0.89)] 0px 3px 6px",
                 borderTopLeftRadius: "20px",
                 borderTopRightRadius: "20px",
                 overflow: "hidden"
@@ -36,7 +36,7 @@ export const LeaderboardTable = ({leaderboard}: {leaderboard: Item[]}) => {
             <TableBody sx={{
                 borderBottomLeftRadius: "20px",
                 borderBottomRightRadius: "20px",
-                backgroundColor: "rgba(73,73,73,0.7)",
+                backgroundColor: "rgba(32,38,87,0.30)",
                 backdropFilter: "blur( 8px )",
                 boxShadow: "0 8px 32px 0 rgba( 0, 0, 0, 0.18 );",
                 borderRadius: "10px",

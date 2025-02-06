@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { Item } from "../typings/types";
 import { LeaderboardTable } from "../components/leaderboard/LeaderboardTable";
-import { TopThree } from "../components/leaderboard/TopThree";
+import {TopThree}  from "../components/leaderboard/TopThree";
 import PageLayout from "../components/layout/PageLayout";
 import snowman from "../public/assets/animations/snowman.json";
 

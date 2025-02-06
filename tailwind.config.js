@@ -1,5 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+	"compilerOptions": {
+		"paths": {
+		  "@/*": ["./src/*"],
+		}
+	  },
 	content: [
 		'./pages/**/*.{js,ts,jsx,tsx}',
 		'./components/**/*.{js,ts,jsx,tsx}',
@@ -20,7 +25,7 @@ module.exports = {
 			},
 			fontFamily: {
 				hammersmith: ["Hammersmith", "sans-serif"]
-			}
+			}	
 		},
 	},
 	plugins: [require('tailwind-scrollbar-hide')],

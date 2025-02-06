@@ -37,8 +37,10 @@ function Graveyard() {
     return (
         <PageLayout title="PWOC | Graveyard" description="A place to bury programming mistakes">
             <div className="flex flex-col items-center my-[30px] w-full">
-                <div className="font-bold text-[40px]">Graveyard</div>
-                <div>Because every programmer needs a place to bury their mistakes and learn from them</div>
+                <div className="font-bold text-[40px] text-[#274495]">Graveyard</div>
+                <div className="text-[#274495] font-semibold">
+                    Because every programmer needs a place to bury their mistakes and learn from them
+                </div>
                 <div className="flex items-center flex-col w-full my-[20px]">
                     {leaderboard.length > 0 ? (
                         <>
@@ -48,7 +50,7 @@ function Graveyard() {
                     ) : (
                         <div className="flex flex-col items-center my-[30px]">
                             {isClient && <Lottie animationData={tombstone} loop className="h-[300px] w-auto my-[30px]" />}
-                            <div className="font-bold text-[30px] animate-pulse">Loading, please wait..</div>
+                            <div className="font-bold text-[30px] animate-pulse text-[#274495]">Loading, please wait..</div>
                         </div>
                     )}
                 </div>
