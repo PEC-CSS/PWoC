@@ -48,7 +48,7 @@ export default function About() {
               className="text-xl text-[#274495] max-w-3xl font-semibold mx-auto"
             >
               PWOC - PEC Winter Of Code is an opportunity to enhance your coding skills, collaborate on impactful projects, 
-              and learn from industry experts. Whether you're a beginner or an experienced developer, this program offers a structured 
+              and learn from industry experts. Whether you &apos;re a beginner or an experienced developer, this program offers a structured 
               environment to innovate, build, and grow.
             </motion.p>
           </div>
