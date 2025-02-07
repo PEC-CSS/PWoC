@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "../../components/button";
 import Snowfall from "react-snowfall";
 import Footer from "../Footer";
@@ -26,20 +27,19 @@ function PageLayout({ title = "PWOC | PEC winter of code", children, description
             {/* Navigation */}
             <nav className="relative z-30 px-6 py-4 bg-black/5">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    <a href="/" className="text-[#274495] text-2xl font-bold">
-                        Winter of Code
-                    </a>
+                    <Link href="/">
+                        <span className="text-[#274495] text-2xl font-bold cursor-pointer">
+                            Winter of Code
+                        </span>
+                    </Link>
                     <div className="hidden md:flex items-center space-x-8">
                         {["Home", "Leaderboard", "Projects", "Graveyard", "Faq"].map((item) => (
-                            <a
-                                key={item}
-                                href={`${item.toLowerCase()}`}
-                                className="text-[#274495] text-[1.1rem] font-semibold hover:text-white transition-colors"
-                            >
-                                {item}
-                            </a>
+                            <Link key={item} href={`/${item.toLowerCase()}`}>
+                                <span className="text-[#274495] text-[1.1rem] font-semibold hover:text-white transition-colors cursor-pointer">
+                                    {item}
+                                </span>
+                            </Link>
                         ))}
-                        {/* <Button className="text-[#274495] bg-white">Get Started</Button> */}
                     </div>
                 </div>
             </nav>
