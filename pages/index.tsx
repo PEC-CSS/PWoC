@@ -38,7 +38,7 @@ const Home: NextPage = () => {
           </Link>
           <div className="hidden md:flex items-center space-x-8">
             {["Home", "Leaderboard", "Projects", "Graveyard", "Faq"].map((item) => (
-              <Link key={item} href={`/${item.toLowerCase()}`}>
+              <Link key={item} href={item.toLowerCase() === "home" ? "/" : `/${item.toLowerCase()}`}>
                 <span className="text-[#274495] text-[1.1rem] font-semibold hover:text-white transition-colors cursor-pointer">
                   {item}
                 </span>

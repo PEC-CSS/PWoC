@@ -46,16 +46,17 @@ export default function Navbar() {
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={`/${item.name.toLowerCase()}`}
-                  className="text-blue-100 hover:bg-blue-500/10 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 flex items-center"
-                >
-                  <item.icon className="h-4 w-4 mr-2" />
-                  {item.name}
-                </Link>
-              ))}
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.name.toLowerCase() === "home" ? "/" : `/${item.name.toLowerCase()}`}
+                className="text-blue-100 hover:bg-blue-500/10 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 flex items-center"
+              >
+                <item.icon className="h-4 w-4 mr-2" />
+                {item.name}
+              </Link>
+            ))}
+
             </div>
           </div>
         </div>
