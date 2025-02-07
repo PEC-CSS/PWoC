@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
             animate={{ rotate: 360 }}
             transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
           >
-            <Snowflake size={24} className="text-white/60" />
+            <Snowflake size={48} className="text-white/60" />
           </motion.div>
         </div>
       </div>

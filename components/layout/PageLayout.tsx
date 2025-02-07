@@ -28,10 +28,15 @@ function PageLayout({ title = "PWOC | PEC winter of code", children, description
             <nav className="relative z-30 px-6 py-4 bg-black/5">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     <Link href="/">
-                        <span className="text-[#274495] text-2xl font-bold cursor-pointer">
-                            Winter of Code
-                        </span>
+                    <Image 
+                        src="/assets/logo/pwoc_text.png" 
+                        alt="Winter of Code" 
+                        width={150} 
+                        height={40} 
+                        className="cursor-pointer"
+                    />
                     </Link>
+
                     <div className="hidden md:flex items-center space-x-8">
                         {["Home", "Leaderboard", "Projects", "Graveyard", "Faq"].map((item) => (
                             <Link key={item} href={item.toLowerCase() === "home" ? "/" : `/${item.toLowerCase()}`}>
