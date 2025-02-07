@@ -5,16 +5,16 @@ import { Card, CardContent } from "../components/card"
 export default function About() {
   const features = [
     {
-      title: "Learn from Experts",
-      description: "Get mentored by industry professionals and experienced developers",
+      title: "Learn from Mentors",
+      description: "Get mentored by developers with quality experience and knowledge.",
     },
     {
       title: "Build Projects",
-      description: "Work on real-world projects and build your portfolio",
+      description: "Contribute to real-world projects and enhance your portfolio.",
     },
     {
       title: "Win Prizes",
-      description: "Compete for exciting prizes and recognition in the developer community",
+      description: "Compete for exciting prizes and recognition in the developer community.",
     },
   ]
 
@@ -29,10 +29,9 @@ export default function About() {
           className="max-w-7xl mx-auto"
         >
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#274495] mb-4">About Winter of Code</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#274495] mb-4">About PWOC</h2>
             <p className="text-xl text-[#274495]/100 max-w-3xl font-semibold mx-auto">
-              Join us in this exciting journey of learning, coding, and building amazing projects during the winter
-              season.
+            PWOC - PEC Winter Of Code is an opportunity to enhance your coding skills, collaborate on impactful projects, and learn from industry experts. Whether you're a beginner or an experienced developer, this program offers a structured environment to innovate, build, and grow.
             </p>
           </div>
 

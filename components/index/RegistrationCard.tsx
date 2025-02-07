@@ -18,10 +18,10 @@ export default function Registration() {
           <Card className="bg-white/40 backdrop-blur-md border-none shadow-xl overflow-hidden">
             <CardContent className="p-8 md:p-12 text-center">
               <h2 className="text-2xl md:text-6xl font-bold text-[#274495] mb-6">
-                Register as a Mentee
+                Register as Contributor
               </h2>
               <p className="text-[#274495]/80 text-lg md:text-2xl md:font-semibold mb-8">
-                Join Winter of Code as a mentee and embark on an exciting journey of learning and growth. 
+                Join PWOC as a contributor and embark on an exciting journey of learning and growth. 
                 Collaborate with experienced mentors, build amazing projects, and take your coding skills to the next level.
               </p>
               <Button 

@@ -29,7 +29,7 @@ const Home: NextPage = () => {
       <Snowfall />
 
       {/* Navigation */}
-      <nav className="relative z-10 px-6 py-4">
+      <nav className="relative z-10 px-6 py-4 bg-black/5">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link href="/">
             <Image 
@@ -70,8 +70,7 @@ const Home: NextPage = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-[#274495] font-bold text-xl md:text-2xl max-w-3xl mx-auto mb-12"
           >
-            Join our winter coding challenge and build amazing projects while learning from the best mentors in the
-            industry.
+            Join us this winter for an exciting journey of coding, learning, and contributing to amazing projects.
           </motion.p>
 
           <motion.div
@@ -80,16 +79,14 @@ const Home: NextPage = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button size="lg" className="bg-white text-[#274495] hover:bg-white/90 hover:bg-[#0B4F6C] hover:text-white px-8">
-              Get Started
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-white text-[#274495] hover:bg-[#0B4F6C] hover:text-white px-8"
-            >
-              Learn More
-            </Button>
+            <Image 
+              src="/assets/logo/pwoc_logo_navy.png" 
+              alt="Winter of Code" 
+              width={250} 
+              height={80} 
+               className="cursor-pointer mix-blend-multiply"
+          />
+            
           </motion.div>
         </div>
 

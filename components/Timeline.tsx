@@ -4,32 +4,32 @@ import { Card, CardContent } from "../components/card"
 export default function Timeline() {
   const timelineEvents = [
     {
-      date: "December 1, 2023",
+      date: "February 10, 2025",
       title: "Registration Opens",
-      description: "Start your journey by registering for Winter of Code",
+      description: "Start your journey by registering for PWOC",
     },
     {
-      date: "December 15, 2023",
+      date: "February 12, 2025",
       title: "Project Announcement",
       description: "Browse and select from exciting project opportunities",
     },
     {
-      date: "January 1, 2024",
+      date: "February 13, 2025",
       title: "Coding Period Begins",
       description: "Start working on your projects with mentor guidance",
     },
     {
-      date: "February 15, 2024",
+      date: "March 3, 2025",
       title: "Mid-term Evaluations",
       description: "Progress check and feedback from mentors",
     },
     {
-      date: "March 1, 2024",
+      date: "March 31, 2025",
       title: "Final Submissions",
       description: "Submit your completed projects",
     },
     {
-      date: "March 15, 2024",
+      date: "April 5, 2025",
       title: "Results & Awards",
       description: "Celebration and recognition of achievements",
     },
@@ -47,7 +47,7 @@ export default function Timeline() {
         >
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#274495] mb-4">Program Timeline</h2>
-            <p className="text-2xl text-[#274495]/80 max-w-3xl mx-auto font-semibold">Your journey through Winter of Code</p>
+            <p className="text-2xl text-[#274495]/80 max-w-3xl mx-auto font-semibold">Your journey through PWOC</p>
           </div>
 
           <div className="relative">
