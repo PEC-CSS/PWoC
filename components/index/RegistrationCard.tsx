@@ -25,15 +25,15 @@ export default function Registration() {
                 Collaborate with experienced mentors, build amazing projects, and take your coding skills to the next level.
               </p>
               <Button 
-                size="lg"
-                className="bg-[#274495] hover:bg-[#0B4F6C]/90 text-white text-lg px-8 py-6"
-                onClick={() => {
-                  // Add your registration logic here
-                  console.log("Registration button clicked");
-                }}
-              >
-                Register Now
-              </Button>
+              size="lg"
+              className="bg-[#274495] hover:bg-[#0B4F6C]/90 text-white text-lg px-8 py-6"
+              onClick={() => {
+                window.location.href = "https://forms.gle/WLTQVLvkvB3GVV2Y8"; // Replace with actual URL
+              }}
+            >
+              Register Now
+            </Button>
+
             </CardContent>
           </Card>
         </motion.div>

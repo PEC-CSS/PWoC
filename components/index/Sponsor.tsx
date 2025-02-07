@@ -26,16 +26,20 @@ export default function Sponsor() {
               <p className="text-[#274495]/80 text-lg md:text-2xl md:font-semibold mb-8">
               Sponsor us and get featured in here with many more perks!
               </p>
-              <Button 
-                size="lg"
-                className="bg-[#274495] hover:bg-[#0B4F6C]/90 text-white text-lg px-8 py-6"
-                onClick={() => {
-                  // Add your registration logic here
-                  console.log("Registration button clicked");
-                }}
-              >
-                Get Brochure
-              </Button>
+             
+            <Button 
+              size="lg"
+              className="bg-[#274495] hover:bg-[#0B4F6C]/90 text-white text-lg px-8 py-6"
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "/assets/docs/PWOC_Sponser_Brochure.pdf";
+                link.download = "PWOC25_Brochure.pdf"; 
+                link.click();
+              }}
+            >
+              Get Brochure
+            </Button>
+
             </CardContent>
           </Card>
         </motion.div>
