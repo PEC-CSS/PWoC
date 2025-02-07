@@ -92,7 +92,7 @@ export default function About() {
               transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
             >
               <Image
-                src="/../public/assets/logo/pwoc_photo.png"
+                src="/assets/logo/pwoc_photo.png"
                 alt="Winter Coding"
                 className="object-cover w-full h-full rounded-2xl"
                 width={700}
