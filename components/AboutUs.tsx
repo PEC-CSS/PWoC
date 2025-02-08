@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Card, CardContent } from "../components/card";
 
 export default function About() {
@@ -35,7 +34,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-6xl font-bold text-[#214096] mb-4 bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent"
+              className="text-5xl md:text-6xl font-bold text-[#214096] mb-4"
             >
               About PWOC
             </motion.h2>
@@ -48,7 +47,7 @@ export default function About() {
               className="text-xl text-[#274495] max-w-3xl font-semibold mx-auto"
             >
               PWOC - PEC Winter Of Code is an opportunity to enhance your coding skills, collaborate on impactful projects, 
-              and learn from industry experts. Whether you &apos;re a beginner or an experienced developer, this program offers a structured 
+              and learn from industry experts. Whether you&apos;re a beginner or an experienced developer, this program offers a structured 
               environment to innovate, build, and grow.
             </motion.p>
           </div>
@@ -77,29 +76,20 @@ export default function About() {
             ))}
           </div>
 
-          {/* Animated Image with Zoom & Parallax */}
+          {/* Animated Image with Zoom & Parallax using background-image */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl"
-          >
-            <motion.div
-              className="absolute inset-0"
-              initial={{ scale: 1.1 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-            >
-              <Image
-                src="/assets/logo/pwoc_photo.png"
-                alt="Winter Coding"
-                className="object-cover w-full h-full rounded-2xl"
-                width={700}
-                height={200}
-              />
-            </motion.div>
-          </motion.div>
+            animate={{ opacity: 1, x: 0 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 1 }}
+            className="relative w-full h-[200px] sm:h-[200px] lg:h-[400px] rounded-2xl overflow-hidden shadow-xl"
+            style={{
+              backgroundImage: "url('/assets/logo/pwoc_photo.png')",
+              backgroundSize: "cover", // Ensure image is fully visible within the container
+              backgroundRepeat: "no-repeat", // Prevent image repetition
+              backgroundPosition: "center", // Center the image within the container
+            }}
+          />
         </div>
       </div>
     </section>

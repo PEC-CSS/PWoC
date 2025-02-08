@@ -75,7 +75,7 @@ const Home: NextPage = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden mt-4 bg-black/20 rounded-lg p-4 space-y-4">
+        <div className="md:hidden mt-4 bg-black/20 rounded-lg p-4 space-y-4 justify-center text-center">
           {["Home", "Leaderboard", "Projects", "Graveyard", "Faq"].map((item) => (
             <Link
               key={item}
