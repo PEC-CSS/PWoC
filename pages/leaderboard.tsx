@@ -63,7 +63,7 @@ const Leaderboard: NextPage = () => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 50 }}
                         transition={{ duration: 0.5 }}
-                        className="fixed top-6 right-6 bg-white/20 text-white py-3 px-5 rounded-lg shadow-lg backdrop-blur-md border border-gray-400 z-50"
+                        className="fixed top-6 right-6 bg-white/20 text-white py-3 px-5 rounded-lg shadow-lg backdrop-blur-md border border-gray-400 z-50 sm:top-4 sm:right-4 sm:px-3 sm:py-2"
                     >
                         <p className="text-sm font-medium">🔄 Leaderboard refreshes every 5 minutes.</p>
                     </motion.div>
@@ -71,7 +71,7 @@ const Leaderboard: NextPage = () => {
             </AnimatePresence>
 
             {/* Leaderboard Content */}
-            <div className="flex items-center flex-col">
+            <div className="flex items-center flex-col px-4 sm:px-2">
                 {leaderboard.length > 2 ? (
                     <>
                         <TopThree topList={leaderboard.slice(0, 3)} />
@@ -81,8 +81,8 @@ const Leaderboard: NextPage = () => {
                     <LeaderboardTable leaderboard={leaderboard} />
                 ) : (
                     <div className="flex flex-col items-center my-[30px]">
-                        {isClient && <Lottie animationData={snowman} loop className="h-[300px] w-auto my-[30px]" />}
-                        <div className="font-bold text-[30px] animate-pulse">Loading, please wait..</div>
+                        {isClient && <Lottie animationData={snowman} loop className="h-[300px] w-auto my-[30px] sm:h-[200px]" />}
+                        <div className="font-bold text-[30px] animate-pulse text-center sm:text-[20px]">Loading, please wait...</div>
                     </div>
                 )}
             </div>
