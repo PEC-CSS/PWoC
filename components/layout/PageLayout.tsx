@@ -4,12 +4,19 @@ import { Button } from "../../components/button";
 import Snowfall from "react-snowfall";
 import Footer from "../Footer";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, Trophy, FolderOpen, Skull, HelpCircle } from "lucide-react";
 
 function PageLayout({ title = "PWOC | PEC Winter of Code", children, description }: any) {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const navItems = [
+      { name: "Home", href: "/", icon: <Home size={20} /> },
+      { name: "Leaderboard", href: "/leaderboard", icon: <Trophy size={20} /> },
+      { name: "Projects", href: "/projects", icon: <FolderOpen size={20} /> },
+      { name: "Graveyard", href: "/graveyard", icon: <Skull size={20} /> },
+      { name: "FAQ", href: "/faq", icon: <HelpCircle size={20} /> },
+    ];
 
     return (
         <div className="relative flex flex-col min-h-screen">
@@ -29,58 +36,52 @@ function PageLayout({ title = "PWOC | PEC Winter of Code", children, description
 
             {/* Navigation */}
             <nav className="relative z-10 px-6 py-4 bg-black/10">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/">
-          <Image
-            src="/assets/logo/pwoc_text.png"
-            alt="Winter of Code"
-            width={150}
-            height={40}
-            className="cursor-pointer"
-          />
-        </Link>
-
-        {/* Hamburger Menu Button for Mobile */}
-        <button
-          className="block md:hidden text-white"
-          onClick={toggleMenu}
-          aria-label="Toggle Menu"
-        >
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          {["Home", "Leaderboard", "Projects", "Graveyard", "Faq"].map((item) => (
-            <Link
-              key={item}
-              href={item.toLowerCase() === "home" ? "/" : `/${item.toLowerCase()}`}
-            >
-              <span className="text-[#274495] text-[1.1rem] font-semibold hover:text-white transition-colors cursor-pointer">
-                {item}
-              </span>
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            {/* Logo */}
+            <Link href="/">
+              <Image
+                src="/assets/logo/pwoc_text.png"
+                alt="Winter of Code"
+                width={150}
+                height={40}
+                className="cursor-pointer"
+              />
             </Link>
-          ))}
-        </div>
-      </div>
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden mt-4 bg-black/20 rounded-lg p-4 space-y-4 justify-center text-center">
-          {["Home", "Leaderboard", "Projects", "Graveyard", "Faq"].map((item) => (
-            <Link
-              key={item}
-              href={item.toLowerCase() === "home" ? "/" : `/${item.toLowerCase()}`}
-              onClick={() => setIsMenuOpen(false)} // Close menu on link click
+            {/* Hamburger Menu Button for Mobile */}
+            <button
+              className="block md:hidden text-white"
+              onClick={toggleMenu}
+              aria-label="Toggle Menu"
             >
-              <span className="block text-[#fbfbfb] text-[1.1rem] font-semibold hover:text-white transition-colors cursor-pointer">
-                {item}
-              </span>
-            </Link>
-          ))}
-        </div>
-      )}
-    </nav>
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navItems.map(({ name, href, icon }) => (
+                <Link key={name} href={href} className="flex items-center space-x-2">
+                  <span className="text-[#274495] text-[1.1rem] font-semibold hover:text-white transition-colors cursor-pointer flex items-center">
+                    {icon} <span className="ml-2">{name}</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <div className="md:hidden mt-4 bg-black/20 rounded-lg p-4 space-y-4 ">
+              {navItems.map(({ name, href, icon }) => (
+                <Link key={name} href={href} onClick={() => setIsMenuOpen(false)}>
+                  <span className="flex items-center space-x-2 text-[#fbfbfb] text-[1.1rem] font-semibold hover:text-white transition-colors cursor-pointer justify-center text-center">
+                    {icon} <span className="ml-2">{name}</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          )}
+        </nav>
 
             {/* Main Content with Flex Grow */}
             <div className="flex-grow">{children}</div>

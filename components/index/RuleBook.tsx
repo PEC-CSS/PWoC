@@ -1,10 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Button } from "../../components/button";
-import { Card, CardContent } from "../../components/card";
+import { Button } from "../button";
+import { Card, CardContent } from "../card";
+import { useRouter } from 'next/router';
 
-export default function Sponsor() {
+export default function Rulebook() {
+  const router = useRouter();
   return (
     <section className="relative py-20 ">
       <div className="container mx-auto px-4">
@@ -18,26 +20,23 @@ export default function Sponsor() {
           <Card className="bg-white/40 backdrop-blur-md border-none shadow-xl overflow-hidden">
             <CardContent className="p-8 md:p-12 text-center">
               <h2 className="text-2xl md:text-6xl font-bold text-[#274495] mb-6">
-                Sponsors
+                Rule Book
               </h2>
               <p className="text-[#274495]/80 text-lg md:text-2xl md:font-semibold mb-8">
-                Thank You For Supporting Us!!
+                
               </p>
               <p className="text-[#274495]/80 text-lg md:text-2xl md:font-semibold mb-8">
-              Sponsor us and get featured in here with many more perks!
+              Rules are like code syntax—ignore them, and everything breaks! 😄
               </p>
              
             <Button 
               size="lg"
               className="bg-[#274495] hover:bg-[#0B4F6C]/90 text-white text-lg px-8 py-6"
               onClick={() => {
-                const link = document.createElement("a");
-                link.href = "/assets/docs/PWOC_Sponser_Brochure.pdf";
-                link.download = "PWOC25_Brochure.pdf"; 
-                link.click();
+                router.push('https://docs.google.com/document/d/1ve7NwdOCGYS_gz9YxMzns3wQA3TuSW8TDb4Z4F9KKRo/');
               }}
             >
-              Get Brochure
+              Link
             </Button>
 
             </CardContent>

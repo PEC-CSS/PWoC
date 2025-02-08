@@ -28,7 +28,7 @@ export default function Registration() {
               size="lg"
               className="bg-[#274495] hover:bg-[#0B4F6C]/90 text-white text-lg px-8 py-6"
               onClick={() => {
-                window.location.href = "https://forms.gle/WLTQVLvkvB3GVV2Y8"; // Replace with actual URL
+                window.location.href = "https://forms.gle/993inM5YmBs56UGs9"; // Replace with actual URL
               }}
             >
               Register Now
