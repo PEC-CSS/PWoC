@@ -20,7 +20,7 @@ export default function Timeline() {
     },
     {
       date: "March 3, 2025",
-      title: "Mid-term Evaluations",
+      title: "Mid-term Review",
       description: "Progress check and feedback from mentors",
     },
     {
