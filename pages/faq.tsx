@@ -11,11 +11,6 @@ export type Faq = {
 
 const faqs: Faq[] = [ // Changed Faq to faqs (plural) and made it lowercase
   {
-    title: "What is Winter of Code?",
-    description:
-      "Winter of Code is a coding event that brings together passionate developers to work on exciting projects during the winter season.",
-  },
-  {
     title: "How can I participate?",
     description:
       "You can participate by registering on our website and choosing a project to contribute to. We welcome developers of all skill levels!",
@@ -23,30 +18,50 @@ const faqs: Faq[] = [ // Changed Faq to faqs (plural) and made it lowercase
   {
     title: "When does the event start?",
     description:
-      "The event typically starts in early December and runs through February. Check our timeline for specific dates. just for testing",
+      "The event typically starts in early Februaru and runs through March. Check our timeline for specific dates.",
   },
   {
-    title: "When does the event start?",
+    title: "Can beginners register for PWOC?",
     description:
-      "The event typically starts in early December and runs through February. Check our timeline for specific dates.",
+      "Yes, beginners are encouraged to register for PWOC. There are projects suitable for all skill levels, and mentors are available to help you get started.",
   },
   {
-    title: "When does the event start?",
+    title: "What are the prerequisites for PWOC?",
     description:
-      "The event typically starts in early December and runs through February. Check our timeline for specific dates.",
+      "There are no strict prerequisites. Basic knowledge of programming is helpful, but projects are available for various skill levels.",
   },
   {
-    title: "When does the event start?",
+    title: "How to contribute to projects?",
     description:
-      "The event typically starts in early December and runs through February. Check our timeline for specific dates.",
+      "You can start contributing by selecting a project from the list, reading the documentation, and following the contribution guidelines provided by the project maintainers.",
   },
   {
-    title: "When does the event start?",
+    title: "What tech stacks will be used in PWOC?",
     description:
-      "The event typically starts in early December and runs through February. Check our timeline for specific dates.",
+      "PWOC features projects using various tech stacks, including JavaScript, Python, Java, C++, HTML/CSS, and more. You can choose projects based on your interests and skills.",
   },
-  // Add more FAQs as needed
+  {
+    title: "How to register for PWOC?",
+    description:
+      "Registration can be done through the official PWOC website. Fill out the registration form and select the projects you are interested in.",
+  },
+  {
+    title: "Is there any registration fee for PWOC?",
+    description:
+      "No, there is no registration fee for participating in PWOC. It is free and open to everyone.",
+  },
+  {
+    title: "How to communicate with project maintainers and other contributors?",
+    description:
+      "Communication is facilitated through Discord, GitHub discussions, and mailing lists. Joining the official PWOC Discord server is highly recommended.",
+  },
+  {
+    title: "What are the rules and regulations for PWOC?",
+    description:
+      "Participants are expected to follow the code of conduct, contribute respectfully, and adhere to the guidelines provided by project maintainers."
+  }
 ];
+
 
 const FAQs: NextPage = () => {
   return (
