@@ -36,10 +36,24 @@ const Projects: NextPage = () => {
         getProjects();
     }, []);
 
+
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        
+        if (!projects) return;
+    
+        const filteredProjects = projects.filter(project =>
+            project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            project.techStack.some(stack => stack.toLowerCase().includes(searchTerm.toLowerCase()))
+        );
+    
+        setProjectSearchResults(filteredProjects);
+    };
+
     return (
         <PageLayout title="PWOC | Projects" description="List of projects in PWoC">
             <div>
-                <Search onSearch={(e) => { e.preventDefault(); }} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                <Search onSearch={handleSearch} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
                 {!projects ? (
                     isClient && <Lottie animationData={loading} loop className="h-[200px] w-auto" />
                 ) : projectSearchResults.length > 0 ? (
