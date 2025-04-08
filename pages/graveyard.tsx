@@ -109,28 +109,9 @@ function Graveyard() {
                 <div className="text-[#274495] font-semibold text-center mb-6">
                     Because every programmer needs a place to bury their mistakes and learn from them
                 </div>
-
+                <div className="font-bold text-[32px] sm:text-[40px] text-[#274495] text-center mb-4">Hold Your Breath… The Results Are Almost In!</div>
                 {/* Main Content */}
-                <div className="flex items-center flex-col w-full my-[20px]">
-                    {leaderboard.length > 0 ? (
-                        <>
-                            {/* Top Three */}
-                            <TopThree topList={leaderboard.slice(0, 3)} />
-                            <LeaderboardTable leaderboard={leaderboard} />
-                        </>
-                    ) : (
-                        <div className="flex flex-col items-center my-[30px]">
-                            {/* Lottie Animation */}
-                            {isClient && (
-                                <Lottie animationData={tombstone} loop className="h-[250px] sm:h-[300px] w-auto my-[30px]" />
-                            )}
-                            {/* Loading Text */}
-                            <div className="font-bold text-[24px] sm:text-[30px] animate-pulse text-[#274495]">
-                                Loading, please wait..
-                            </div>
-                        </div>
-                    )}
-                </div>
+        
             </div>
         </PageLayout>
     );

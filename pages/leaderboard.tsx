@@ -71,8 +71,8 @@ const Leaderboard: NextPage = () => {
             </AnimatePresence>
 
             {/* Leaderboard Content */}
-            <div className="flex items-center flex-col px-4 sm:px-2">
-                {leaderboard.length > 2 ? (
+            <div className="font-bold text-[32px] sm:text-[40px] text-[#274495] text-center mb-4">
+                {/* {leaderboard.length > 2 ? (
                     <>
                         <TopThree topList={leaderboard.slice(0, 3)} />
                         <LeaderboardTable leaderboard={leaderboard} />
@@ -84,7 +84,8 @@ const Leaderboard: NextPage = () => {
                         {isClient && <Lottie animationData={snowman} loop className="h-[300px] w-auto my-[30px] sm:h-[200px]" />}
                         <div className="font-bold text-[30px] animate-pulse text-center sm:text-[20px]">Loading, please wait...</div>
                     </div>
-                )}
+                )} */}
+                Hold Your Breath… The Results Are Almost In!
             </div>
         </PageLayout>
     );
